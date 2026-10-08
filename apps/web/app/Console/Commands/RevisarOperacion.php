@@ -52,7 +52,10 @@ class RevisarOperacion extends Command
         }
 
         return [
-            'agente' => $responde(rtrim((string) config('services.agente.url'), '/').'/salud'),
+            // Por el relevo (ADR 0008), el agente vive en el equipo del instructor: que esté apagado es normal y no hay
+            // dirección a la que preguntar; la consola avisa en el acto si hace falta y no hay ninguno conectado
+            'agente' => config('services.agente.modo') === 'relevo'
+                || $responde(rtrim((string) config('services.agente.url'), '/').'/salud'),
             'piston' => $responde(rtrim((string) config('services.piston.url'), '/').'/runtimes'),
             'cola_mas_antigua_min' => $colas,
             'fallidos_ultima_hora' => DB::table('failed_jobs')->where('failed_at', '>=', now()->subHour())->count(),

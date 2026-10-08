@@ -7,6 +7,7 @@ import { registrarIpc } from './ipc'
 import { registrarIpcExportacion } from './exportacion'
 import { iniciarActualizaciones } from './actualizaciones'
 import { Almacen } from './diseno/almacen'
+import { datosLocales } from './config'
 import { registrarIpcDiseno } from './diseno/ipc'
 
 function crearVentana(): void {
@@ -66,7 +67,8 @@ app.whenReady().then(() => {
     responder(permiso === 'media' || permiso === 'display-capture')
   )
   // Un archivo SQLite por usuario de Windows, en %APPDATA%\clt4bp-consola
-  const almacen = new Almacen(join(app.getPath('userData'), 'clt4bp.db'))
+  // Una base local por plataforma: los cambios pendientes de un curso nunca suben a otra con el mismo id (ADR 0008)
+  const almacen = new Almacen(datosLocales('clt4bp.db'))
   registrarIpcDiseno(almacen)
   app.on('will-quit', () => almacen.cerrar())
   crearVentana()

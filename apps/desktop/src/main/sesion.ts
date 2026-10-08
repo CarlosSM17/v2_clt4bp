@@ -1,7 +1,7 @@
-import { app, safeStorage } from 'electron'
+import { safeStorage } from 'electron'
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
-import { join } from 'node:path'
 import type { Usuario } from '../shared/tipos'
+import { datosLocales } from './config'
 
 // El token vive solo en el proceso main, cifrado con la API del sistema operativo
 // (DPAPI en Windows). La interfaz nunca lo ve.
@@ -12,7 +12,8 @@ interface SesionGuardada {
   usuario: Usuario
 }
 
-const archivo = (): string => join(app.getPath('userData'), 'sesion.bin')
+// Una sesión por plataforma: el token de un servidor nunca viaja a otro (ADR 0008)
+const archivo = (): string => datosLocales('sesion.bin')
 let actual: SesionGuardada | null = null
 
 export function guardarSesion(sesion: SesionGuardada): void {

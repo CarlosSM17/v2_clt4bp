@@ -62,9 +62,13 @@ Piston necesita un contenedor privilegiado y Railway no los permite; este servic
    - `APP_KEY`: en tu equipo, `cd apps/web; php artisan key:generate --show`.
    - `AGENTE_TOKEN`: un secreto largo (`openssl rand -hex 32`). Es el mismo que llevará cada equipo con el agente.
    - `ADMIN_EMAIL` y `ADMIN_PASSWORD`: la cuenta de administración inicial.
-   - Correo (`MAIL_*`): el SMTP de la institución o de un proveedor transaccional. Sin correo no llegan las
-     verificaciones de cuenta ni las invitaciones. Algunos planes de Railway restringen el SMTP saliente: si los
-     correos no salen, revisa el plan o usa un proveedor que acepte otro puerto.
+   - Correo (`MAIL_*`): el SMTP de la institución, de un proveedor transaccional o de una cuenta de Gmail con
+     contraseña de aplicación (`smtp.gmail.com`, puerto 587). Sin correo no llegan las verificaciones de cuenta ni
+     las invitaciones. **Railway bloquea el SMTP saliente (puertos 25, 465 y 587) en los planes Free, Trial y Hobby**;
+     solo el plan Pro lo permite. Por eso la plantilla usa `MAIL_MAILER=failover` con `MAIL_TIMEOUT=5`: si el SMTP
+     está bloqueado, el correo queda en el registro del servicio a los 5 s (con sus enlaces) en lugar de fallar o de
+     tardar un minuto; al pasar a Pro empieza a salir sin cambiar nada. En Hobby, la alternativa es un proveedor con
+     API por HTTPS (Resend, Postmark, Mailgun), que requiere instalar su paquete de Laravel.
 5. *Networking → Generate Domain* (o tu dominio propio con su registro CNAME). Ese dominio es la dirección de la
    plataforma para estudiantes, consola y agentes.
 6. Deja **apagado** el modo que duerme servicios sin tráfico (*Serverless*): las colas y el programador deben seguir
@@ -163,4 +167,4 @@ Basta con el dominio: la consola agrega `/api/v1`.
 | El conector registra «no está en modo relevo» | Falta `AGENTE_MODO=relevo` en Railway | Agregarla |
 | El agente responde 503 «no responde en http://agente:8100» | El contenedor del agente no arrancó | `docker compose logs agente` |
 | Generación muy lenta | El modelo no cabe en la GPU | `ollama ps` debe decir 100 % GPU; usa `qwen3:4b` |
-| No llegan correos | SMTP mal configurado o bloqueado por el plan | Revisa `MAIL_*` y el registro de `web` |
+| No llegan correos y las acciones que envían correo tardan ~5 s | Railway bloquea el SMTP en Free, Trial y Hobby; el correo quedó en el registro de `web` | Plan Pro, o un proveedor con API por HTTPS |

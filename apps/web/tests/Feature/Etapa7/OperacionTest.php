@@ -39,4 +39,18 @@ class OperacionTest extends TestCase
 
         Notification::assertNothingSent();
     }
+
+    public function test_por_el_relevo_el_agente_apagado_no_es_una_alerta(): void
+    {
+        // Railway (ADR 0008): el agente está en el equipo del instructor y AGENTE_URL no apunta a nada
+        config(['services.agente.modo' => 'relevo', 'services.agente.url' => 'http://agente.test',
+            'services.piston.url' => 'http://piston.test/api/v2', 'clt4bp.alertas.correo' => 'ops@example.edu']);
+        Http::fake(['agente.test/*' => Http::response('caído', 503), 'piston.test/*' => Http::response([])]);
+        Notification::fake();
+
+        $this->artisan('operacion:revisar')->expectsOutputToContain('Todo en orden')->assertSuccessful();
+
+        Notification::assertNothingSent();
+        Http::assertNotSent(fn ($peticion) => str_contains($peticion->url(), 'agente.test'));
+    }
 }
