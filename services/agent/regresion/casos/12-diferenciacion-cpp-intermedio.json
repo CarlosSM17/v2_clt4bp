@@ -1,0 +1,16 @@
+{
+  "descripcion": "Diferenciación de las tareas existentes para un grupo intermedio, en un curso de C++.",
+  "solicitud": {
+    "plantilla": "diferenciacion",
+    "curso": {"titulo": "Programación en C++", "lenguaje": "cpp", "nivel_educativo": "universidad"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [
+      {"clave": "G2", "nombre": "Ruta B", "nivel": "intermedio",
+        "resumen": {"n": 22, "nivel_modal": "intermedio", "media": {"autoeficacia": 5.1, "ansiedad": 3.8, "metacognicion": 5.0},
+                    "proporcion": {"baja_autoeficacia": 0.18, "alta_ansiedad": 0.14, "baja_autorregulacion": 0.09}},
+        "efectos_sugeridos": ["variabilidad_contextual"]}
+    ],
+    "alcance": {"prefijo": "reg12"},
+    "indicaciones": ""
+  }
+}

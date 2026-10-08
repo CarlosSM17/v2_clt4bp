@@ -1,0 +1,349 @@
+{
+  "clave": "imms",
+  "version": "es-2026",
+  "nombre": "Encuesta de motivación con los materiales de instrucción (IMMS)",
+  "fuente": "Keller (2010). Anota aquí la adaptación al español que uses y sus condiciones de uso.",
+  "escala": {
+    "min": 1,
+    "max": 5,
+    "etiquetas": {
+      "1": "No es cierto",
+      "5": "Muy cierto"
+    }
+  },
+  "partes": [
+    {
+      "titulo": "Motivación con el material (1 de 2)",
+      "items": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6",
+        "i7",
+        "i8",
+        "i9",
+        "i10",
+        "i11",
+        "i12",
+        "i13",
+        "i14",
+        "i15",
+        "i16",
+        "i17",
+        "i18"
+      ]
+    },
+    {
+      "titulo": "Motivación con el material (2 de 2)",
+      "items": [
+        "i19",
+        "i20",
+        "i21",
+        "i22",
+        "i23",
+        "i24",
+        "i25",
+        "i26",
+        "i27",
+        "i28",
+        "i29",
+        "i30",
+        "i31",
+        "i32",
+        "i33",
+        "i34",
+        "i35",
+        "i36"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "i1",
+      "texto": "[Texto del ítem 1 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i2",
+      "texto": "[Texto del ítem 2 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i3",
+      "texto": "[Texto del ítem 3 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i4",
+      "texto": "[Texto del ítem 4 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i5",
+      "texto": "[Texto del ítem 5 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i6",
+      "texto": "[Texto del ítem 6 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i7",
+      "texto": "[Texto del ítem 7 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i8",
+      "texto": "[Texto del ítem 8 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i9",
+      "texto": "[Texto del ítem 9 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i10",
+      "texto": "[Texto del ítem 10 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i11",
+      "texto": "[Texto del ítem 11 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i12",
+      "texto": "[Texto del ítem 12 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i13",
+      "texto": "[Texto del ítem 13 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i14",
+      "texto": "[Texto del ítem 14 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i15",
+      "texto": "[Texto del ítem 15 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i16",
+      "texto": "[Texto del ítem 16 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i17",
+      "texto": "[Texto del ítem 17 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i18",
+      "texto": "[Texto del ítem 18 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i19",
+      "texto": "[Texto del ítem 19 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i20",
+      "texto": "[Texto del ítem 20 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i21",
+      "texto": "[Texto del ítem 21 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i22",
+      "texto": "[Texto del ítem 22 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i23",
+      "texto": "[Texto del ítem 23 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i24",
+      "texto": "[Texto del ítem 24 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i25",
+      "texto": "[Texto del ítem 25 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i26",
+      "texto": "[Texto del ítem 26 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i27",
+      "texto": "[Texto del ítem 27 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i28",
+      "texto": "[Texto del ítem 28 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i29",
+      "texto": "[Texto del ítem 29 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i30",
+      "texto": "[Texto del ítem 30 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i31",
+      "texto": "[Texto del ítem 31 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i32",
+      "texto": "[Texto del ítem 32 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i33",
+      "texto": "[Texto del ítem 33 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i34",
+      "texto": "[Texto del ítem 34 de la versión validada]",
+      "inverso": true
+    },
+    {
+      "id": "i35",
+      "texto": "[Texto del ítem 35 de la versión validada]",
+      "inverso": false
+    },
+    {
+      "id": "i36",
+      "texto": "[Texto del ítem 36 de la versión validada]",
+      "inverso": false
+    }
+  ],
+  "subescalas": [
+    {
+      "clave": "atencion",
+      "nombre": "Atención",
+      "items": [
+        "i2",
+        "i8",
+        "i11",
+        "i12",
+        "i15",
+        "i17",
+        "i20",
+        "i22",
+        "i24",
+        "i28",
+        "i29",
+        "i31"
+      ]
+    },
+    {
+      "clave": "relevancia",
+      "nombre": "Relevancia",
+      "items": [
+        "i6",
+        "i9",
+        "i10",
+        "i16",
+        "i18",
+        "i23",
+        "i26",
+        "i30",
+        "i33"
+      ]
+    },
+    {
+      "clave": "confianza",
+      "nombre": "Confianza",
+      "items": [
+        "i1",
+        "i3",
+        "i4",
+        "i7",
+        "i13",
+        "i19",
+        "i25",
+        "i34",
+        "i35"
+      ]
+    },
+    {
+      "clave": "satisfaccion",
+      "nombre": "Satisfacción",
+      "items": [
+        "i5",
+        "i14",
+        "i21",
+        "i27",
+        "i32",
+        "i36"
+      ]
+    },
+    {
+      "clave": "total",
+      "nombre": "Motivación total",
+      "items": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6",
+        "i7",
+        "i8",
+        "i9",
+        "i10",
+        "i11",
+        "i12",
+        "i13",
+        "i14",
+        "i15",
+        "i16",
+        "i17",
+        "i18",
+        "i19",
+        "i20",
+        "i21",
+        "i22",
+        "i23",
+        "i24",
+        "i25",
+        "i26",
+        "i27",
+        "i28",
+        "i29",
+        "i30",
+        "i31",
+        "i32",
+        "i33",
+        "i34",
+        "i35",
+        "i36"
+      ]
+    }
+  ],
+  "indices": {}
+}

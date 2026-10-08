@@ -1,0 +1,270 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg01-tc",
+        "titulo": "Ventas diarias en tienda escolar",
+        "descripcion_complejidad": "Clase de tareas para calcular estadísticas de ventas en tienda escolar",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Estudiar la solución completa de un problema, paso a paso, produce más aprendizaje en novatos que resolver problemas equivalentes: libera la memoria de trabajo de la búsqueda de una solución."
+            },
+            {
+              "id": "problema_completar",
+              "como": "Una solución parcial que el estudiante termina. Mantiene los beneficios del ejemplo resuelto y obliga a procesarlo con atención; es el puente hacia el problema convencional."
+            },
+            {
+              "id": "variabilidad",
+              "como": "Variar contextos, datos y estructura de las tareas de una clase ayuda a construir esquemas que se transfieren a problemas nuevos, siempre que la carga intrínseca lo permita."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 25,
+          "justificacion": "La clase se enfoca en estadísticas de ventas diarias en tienda escolar, variando contextos (productos, precios) y estructuras (cálculo de promedio, máximo, conteo) para que los estudiantes apliquen los conceptos de recorrido de listas en C. La variabilidad en datos y escenarios permite construir esquemas transferibles sin sobrecargar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t1",
+        "clase_uid": "reg01-tc",
+        "orden": 1,
+        "titulo": "Promedio de ventas por producto",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La tienda escolar necesita calcular el promedio de ventas por producto. El programa lee **n** y después **n** ventas (cada venta es un producto y su precio), y muestra el promedio con dos decimales. Estudia la solución y explica con tus palabras por qué el acumulador empieza en cero.",
+        "arcs": {
+          "atencion": "La tienda escolar necesita calcular el promedio de ventas por producto: contexto real y relevante para el negocio.",
+          "relevancia": "El promedio ayuda a identificar productos con ventas promedio, útil para decisiones de inventario.",
+          "confianza": "El programa lee **n** y **n** ventas, estructura sencilla que los estudiantes pueden entender sin sobrecarga.",
+          "satisfaccion": "Muestra el promedio con dos decimales, resultado claro y práctico para la tienda."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double total = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double precio;\n        scanf(\"%lf\", &precio);\n        total += precio;\n    }\n    printf(\"%.2f\\n\", total / n);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double total = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double precio;\n        scanf(\"%lf\", &precio);\n        total += precio;\n    }\n    printf(\"%.2f\\n\", total / n);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n10.5\n20.3",
+            "salida_esperada": "15.40",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n5.0\n15.0\n25.0",
+            "salida_esperada": "15.00",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n100.0",
+            "salida_esperada": "100.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Estudiar la solución completa de un problema, paso a paso, produce más aprendizaje en novatos que resolver problemas equivalentes: libera la memoria de trabajo de la búsqueda de una solución."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 10,
+          "justificacion": "Ejemplo resuelto para estudiantes con poco conocimiento previo, enfocado en el concepto de acumulador y lectura de datos. El código está comentado y el enunciado explica el porqué del acumulador en cero.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t2",
+        "clase_uid": "reg01-tc",
+        "orden": 2,
+        "titulo": "Producto con mayor venta",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El gerente quiere saber cuál producto tuvo la mayor venta (precio más alto). Completa los huecos para que el programa lea **n** ventas (cada venta es un producto y su precio) y muestre el precio más alto con un decimal.",
+        "arcs": {
+          "atencion": "El gerente busca el producto con mayor venta: contexto real y relevante para la gestión de inventario.",
+          "relevancia": "Identificar el producto con mayor venta ayuda a priorizar inventario y recursos.",
+          "confianza": "Estructura sencilla de recorrido de listas, con acumulador para comparar precios.",
+          "satisfaccion": "Muestra el precio más alto con un decimal, resultado claro y práctico para la tienda."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_precio = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double precio;\n        scanf(\"%lf\", &precio);\n        /* HUECO 1: Compara el precio actual con el máximo */\n        /* HUECO 2: Actualiza el máximo si es necesario */\n    }\n    printf(\"%.1f\\n\", max_precio);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_precio = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double precio;\n        scanf(\"%lf\", &precio);\n        if (precio > max_precio) {\n            max_precio = precio;\n        }\n    }\n    printf(\"%.1f\\n\", max_precio);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n10.5\n20.3",
+            "salida_esperada": "20.3",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n5.0\n15.0\n25.0",
+            "salida_esperada": "25.0",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n100.0",
+            "salida_esperada": "100.0",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "problema_completar",
+              "como": "Una solución parcial que el estudiante termina. Mantiene los beneficios del ejemplo resuelto y obliga a procesarlo con atención; es el puente hacia el problema convencional."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "Tarea por completar que requiere completar los huecos para calcular el máximo precio. Los estudiantes deben aplicar el concepto de comparación y actualización del acumulador, manteniendo la guía de la tarea anterior.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t3",
+        "clase_uid": "reg01-tc",
+        "orden": 3,
+        "titulo": "Ventas por categoría",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La dirección quiere saber cuántos productos de cada categoría (A, B, C) se vendieron. Escribe un programa que lea **n** ventas (cada venta es un producto y su categoría) y muestre cuántos productos de cada categoría se vendieron.",
+        "arcs": {
+          "atencion": "La dirección necesita categorizar ventas por tipo de producto: contexto real y relevante para la gestión de inventario.",
+          "relevancia": "Categorizar ventas ayuda a entender patrones de demanda y optimizar inventario.",
+          "confianza": "Estructura de recorrido de listas con condicionales para categorizar productos.",
+          "satisfaccion": "Muestra cuántos productos por categoría, resultado claro y práctico para la tienda."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    int categoria;\n    scanf(\"%d\", &n);\n    int cuentaA = 0, cuentaB = 0, cuentaC = 0;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &categoria);\n        /* HUECO 1: Incrementa el contador de la categoría */\n    }\n    printf(\"A: %d\\nB: %d\\nC: %d\\n\", cuentaA, cuentaB, cuentaC);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    int categoria;\n    scanf(\"%d\", &n);\n    int cuentaA = 0, cuentaB = 0, cuentaC = 0;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &categoria);\n        switch (categoria) {\n            case 1:\n                cuentaA++;\n                break;\n            case 2:\n                cuentaB++;\n                break;\n            case 3:\n                cuentaC++;\n                break;\n        }\n    }\n    printf(\"A: %d\\nB: %d\\nC: %d\\n\", cuentaA, cuentaB, cuentaC);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n1\n2\n3",
+            "salida_esperada": "A: 1\nB: 1\nC: 1",
+            "oculto": false
+          },
+          {
+            "entrada": "5\n1\n1\n2\n3\n3",
+            "salida_esperada": "A: 2\nB: 1\nC: 2",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n1",
+            "salida_esperada": "A: 1\nB: 0\nC: 0",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Variar contextos, datos y estructura de las tareas de una clase ayuda a construir esquemas que se transfieren a problemas nuevos, siempre que la carga intrínseca lo permita."
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 20,
+          "justificacion": "Tarea convencional que requiere aplicar estructuras de control y acumulación para categorizar ventas. Varía el contexto (categorías) y datos para que los estudiantes apliquen los conceptos de recorrido de listas en diferentes escenarios.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg01-tc-s1",
+        "clase_uid": "reg01-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Modelo mental para recorrido de listas",
+        "cuerpo_md": "Para calcular estadísticas en listas de ventas:\n1. Lee el número de ventas.\n2. Inicializa acumuladores para cada estadística.\n3. Recorre cada venta:\n   - Lee el dato relevante (precio o categoría).\n   - Actualiza el acumulador según la lógica del problema.\n4. Muestra el resultado final.\n\nEjemplo de flujo para promedio:\n- Acumula el precio de cada venta.\n- Divide por el número de ventas para obtener el promedio.",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Si el material tiene tantos elementos interactivos que no cabe en la memoria de trabajo, conviene presentar primero los elementos por separado y después integrados."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Modelo mental que desglosa los pasos para recorrido de listas, enfocado en la lógica de acumulación y comparación. Es adecuado para estudiantes con bajo conocimiento previo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p1",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "guia_preguntas",
+        "titulo": "Preguntas para resolver el hueco",
+        "cuerpo_md": "Preguntas para completar el código:\n1. ¿Cómo comparar el precio actual con el máximo?\n2. ¿Qué hacer si el precio actual es mayor que el máximo?\n3. ¿Cómo actualizar el acumulador del máximo?",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_explicacion",
+              "como": "Explicarse a uno mismo el porqué de cada paso de un ejemplo mejora la comprensión y la transferencia."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Ayuda procedimental que guía al estudiante a completar el código para encontrar el producto con mayor venta, enfocada en la lógica de comparación y actualización del acumulador.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "«Ventas por categoría»: se marcó como oculto el último caso de prueba (un problema sin apoyo necesita uno)."
+  ],
+  "validaciones": [
+    {
+      "nombre": "validaciones",
+      "ok": true,
+      "bloqueante": true,
+      "detalle": "Sin problemas.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 1,
+  "uso": {
+    "entrada": 4358,
+    "salida": 3719,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v4",
+  "duracion_ms": 72915
+}

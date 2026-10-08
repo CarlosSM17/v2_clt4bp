@@ -1,0 +1,43 @@
+{
+  "plantilla": "objetivos",
+  "elementos": [
+    {
+      "tipo": "objetivo",
+      "contenido": {
+        "uid": "reg07-ob1",
+        "codigo": "OB-2",
+        "orden": 2,
+        "descripcion": "Escribir programas en C++ que recorran listas de datos leídos de la entrada para calcular estadísticas básicas (promedio, máximo, contaje de aprobaron) usando funciones con paso de parámetros por valor y por referencia.",
+        "tipo": "habilidad",
+        "evaluacion": [
+          "comprension",
+          "practica"
+        ]
+      }
+    }
+  ],
+  "notas": {
+    "jerarquia": "Escribir programas en C++ que recorran listas de datos leídos de la entrada para calcular estadísticas básicas (promedio, máximo, contaje de aprobaron) usando funciones con paso de parámetros por valor y por referencia."
+  },
+  "advertencias": [],
+  "validaciones": [
+    {
+      "nombre": "validaciones",
+      "ok": true,
+      "bloqueante": true,
+      "detalle": "Sin problemas.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 1,
+  "uso": {
+    "entrada": 4125,
+    "salida": 199,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 4042
+}

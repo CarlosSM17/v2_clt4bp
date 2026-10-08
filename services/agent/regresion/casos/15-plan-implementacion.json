@@ -1,0 +1,14 @@
+{
+  "descripcion": "Plan de fechas por clase para dos grupos, dentro de un semestre.",
+  "solicitud": {
+    "plantilla": "plan_implementacion",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [
+      {"clave": "G1", "nombre": "Ruta A", "nivel": "basico", "resumen": {"n": 16}},
+      {"clave": "G3", "nombre": "Ruta C", "nivel": "avanzado", "resumen": {"n": 12}}
+    ],
+    "alcance": {"prefijo": "reg15", "inicio": "2027-01-10", "fin": "2027-05-30"},
+    "indicaciones": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "descripcion": "Clase de vectores en C++, curso sin grupos diferenciados.",
+  "solicitud": {
+    "plantilla": "clase_tareas",
+    "curso": {"titulo": "Programación en C++", "lenguaje": "cpp", "nivel_educativo": "universidad"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [],
+    "alcance": {"prefijo": "reg06", "objetivos": ["OB-1"], "orden": 2},
+    "indicaciones": "Contexto: registro de inventario de una tienda con std::vector."
+  }
+}

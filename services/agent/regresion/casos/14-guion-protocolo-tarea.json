@@ -1,0 +1,10 @@
+{
+  "descripcion": "Guion de protocolo verbal para la tarea convencional de la clase 1.",
+  "solicitud": {
+    "plantilla": "guion_protocolo",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "alcance": {"prefijo": "reg14", "tarea_uid": "tc1-t3"},
+    "indicaciones": ""
+  }
+}

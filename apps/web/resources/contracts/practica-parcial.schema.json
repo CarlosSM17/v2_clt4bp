@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/practica-parcial.schema.json",
+  "title": "PracticaParcial",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "habilidad", "lenguaje", "ejercicios", "diseno"],
+  "properties": {
+    "uid": { "type": "string" },
+    "habilidad": { "type": "string", "description": "Subhabilidad que se automatiza, p. ej. 'declarar y recorrer arreglos'." },
+    "lenguaje": { "$ref": "comunes.schema.json#/$defs/Lenguaje" },
+    "ejercicios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["enunciado_md", "solucion", "casos_prueba"],
+        "properties": {
+          "enunciado_md": { "type": "string" },
+          "solucion": { "type": "string" },
+          "casos_prueba": { "type": "array", "items": { "$ref": "comunes.schema.json#/$defs/CasoPrueba" } }
+        }
+      }
+    },
+    "diseno": { "$ref": "comunes.schema.json#/$defs/Diseno" }
+  }
+}

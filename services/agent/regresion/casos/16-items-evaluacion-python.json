@@ -1,0 +1,10 @@
+{
+  "descripcion": "Ítems de evaluación en formas paralelas A y B para un curso de Python.",
+  "solicitud": {
+    "plantilla": "items_evaluacion",
+    "curso": {"titulo": "Introducción a Python", "lenguaje": "python", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "alcance": {"prefijo": "reg16", "objetivos": ["OB-1"]},
+    "indicaciones": ""
+  }
+}

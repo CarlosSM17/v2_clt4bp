@@ -1,0 +1,2 @@
+caso,plantilla,modelo,prompt,intentos,bloqueantes,avisos,elementos,costo_usd,segundos,tokens_cache_lectura
+02-ayudas-tarea-por-completar,info_procedimental,ollama:qwen3:4b,sistema-v6,3,1,0,3,0.0,47.4,0

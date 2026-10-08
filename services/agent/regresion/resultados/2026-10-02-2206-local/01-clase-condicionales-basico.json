@@ -1,0 +1,437 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg01-tc",
+        "titulo": "Registrar ventas diarias",
+        "descripcion_complejidad": "Clase de tareas para registrar ventas diarias en C, con desvanecimiento de la guía y variabilidad",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Se usa para estudiantes con poco conocimiento previo: explicar por qué el acumulador empieza en cero"
+            },
+            {
+              "id": "problema_completar",
+              "como": "Se usa después de un ejemplo resuelto para mantener los beneficios del ejemplo y obligar a procesarlo con atención"
+            },
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplica dentro de cada clase: ejemplo resuelto → problema por completar → problema convencional"
+            },
+            {
+              "id": "variabilidad",
+              "como": "Se usa para tareas con escenarios y datos distintos en la misma clase"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 25,
+          "justificacion": "Los grupos tienen nivel básico y necesitan elementos aislados y autoexplicación para procesar la carga cognitiva. La clase de tareas tiene 3 tareas con desvanecimiento de la guía y variabilidad en los datos.",
+          "advertencias": [
+            "El sistema no puede generar un caso límite para n=0 en la tarea convencional porque no hay datos para leer en la entrada estándar"
+          ]
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t1",
+        "clase_uid": "reg01-tc",
+        "orden": 1,
+        "titulo": "Promedio de ventas diarias",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La tienda escolar necesita el promedio de ventas diarias. El programa lee **n** y después **n** ventas (cada venta es un número entiro), y muestra el promedio con dos decimales. Estudia la solución y explica con tus palabras por qué el acumulador empieza en cero.\n\n```mermaid\nflowchart TD\n  A[\"suma = 0, i = 0\"] --> B{\"¿i < n?\"}\n  B -- \"sí\" --> C[\"suma += ventas[i]; i++\"] --> B\n  B -- \"no\" --> D[\"imprimir promedio\"]\n```\n\n```traza\ntitulo: Promedio de ventas\nlenguaje: c\nentrada: 3 100 200 300\n---\n#include <stdio.h>\nint main(void) {\n    int n, ventas[100], suma = 0, i;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &ventas[i]);\n        suma += ventas[i];\n    }\n    printf(\"%.2f\\n\", (float)suma / n);\n    return 0;\n}\n---\n{\"l\":3,\"f\":\"main\",\"v\":[],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[]}]}\n{\"l\":4,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"ventas\",\"?\"],[\"suma\",\"0\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"?\"],[\"suma\",\"0\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"?\"],[\"suma\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 0 <repeats 31 times>...}\"],[\"suma\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 0 <repeats 31 times>...}\"],[\"suma\",\"100\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 0 <repeats 31 times>...}\"],[\"suma\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 0 <repeats 30 times>...}\"],[\"suma\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 0 <repeats 30 times>...}\"],[\"suma\",\"300\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 0 <repeats 30 times>...}\"],[\"suma\",\"300\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"suma\",\"300\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"suma\",\"600\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"600\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"suma\",\"600\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"600\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"suma\",\"600\"],[\"i\",\"3\"]],\"s\":\"200.00\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"600\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"suma\",\"600\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140730994740564,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140730994740160,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"suma\",\"d\":140730994740572,\"t\":\"valor\",\"x\":\"600\",\"tam\":4},{\"n\":\"i\",\"d\":140730994740568,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```",
+        "arcs": {
+          "atencion": "El contexto de una tienda escolar es relevante y específico para los estudiantes.",
+          "relevancia": "El cálculo del promedio de ventas es una tarea cotidiana para la tienda escolar.",
+          "confianza": "El programa es simple y no requiere conocimientos avanzados para entender.",
+          "satisfaccion": "El resultado es un número con dos decimales, que es fácil de interpretar."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n, ventas[100], suma = 0, i;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &ventas[i]);\n        suma += ventas[i];\n    }\n    printf(\"%.2f\\n\", (float)suma / n);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n, suma = 0, i;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        int x;\n        scanf(\"%d\", &x);\n        suma += x;\n    }\n    if (n == 0) {\n        printf(\"0.00\\n\");\n    } else {\n        printf(\"%.2f\\n\", (float)suma / n);\n    }\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n100\n200\n300",
+            "salida_esperada": "200.00",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n500",
+            "salida_esperada": "500.00",
+            "oculto": false
+          },
+          {
+            "entrada": "0",
+            "salida_esperada": "0.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Se usa para estudiantes con poco conocimiento previo: explicar por qué el acumulador empieza en cero"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 10,
+          "justificacion": "Los estudiantes con nivel básico necesitan un ejemplo resuelto para entender cómo inicializar el acumulador y evitar errores de división por cero.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t2",
+        "clase_uid": "reg01-tc",
+        "orden": 2,
+        "titulo": "Venta más alta del día",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El gerente quiere saber cuál fue la venta más alta del día. Completa los huecos para que el programa lea **n** ventas (cada venta es un número entero) y muestre la mayor con un decimal.\n\n```mermaid\nflowchart TD\n  A[\"max = ventas[0], i = 1\"] --> B{\"i < n?\"}\n  B -- \"sí\" --> C[\"si ventas[i] > max, max = ventas[i]\"] --> B\n  B -- \"no\" --> D[\"imprimir max\"]\n```\n\n```traza\ntitulo: Venta más alta\nlenguaje: c\nentrada: 3 100 200 300\n---\n#include <stdio.h>\nint main(void) {\n    int n, ventas[100], max, i;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &ventas[i]);\n    }\n    max = ventas[0];\n    for (i = 1; i < n; i++) {\n        if (ventas[i] > max) {\n            max = ventas[i];\n        }\n    }\n    printf(\"%.1f\\n\", (float)max);\n    return 0;\n}\n---\n{\"l\":4,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"ventas\",\"?\"],[\"max\",\"?\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"?\"],[\"max\",\"?\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"?\"],[\"max\",\"?\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 0 <repeats 31 times>...}\"],[\"max\",\"?\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 0 <repeats 31 times>...}\"],[\"max\",\"?\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 0 <repeats 30 times>...}\"],[\"max\",\"?\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 0 <repeats 30 times>...}\"],[\"max\",\"?\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"?\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"?\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"100\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"200\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"200\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"200\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"300\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":14,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":15,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"300.0\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 29 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736104347524,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140736104347120,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140736104347532,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140736104347528,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```",
+        "arcs": {
+          "atencion": "El contexto de una tienda escolar es relevante y específico para los estudiantes.",
+          "relevancia": "El cálculo de la venta más alta es una tarea cotidiana para el gerente.",
+          "confianza": "El programa es simple y no requiere conocimientos avanzados para entender.",
+          "satisfaccion": "El resultado es un número con un decimal, que es fácil de interpretar."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n, ventas[100], max, i;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &ventas[i]);\n    }\n    max = ventas[0];\n    for (i = 1; i < n; i++) {\n        if (ventas[i] > max) {\n            max = ventas[i];\n        }\n    }\n    printf(\"%.1f\\n\", (float)max);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n, max;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        int x;\n        scanf(\"%d\", &x);\n        if (i == 0) {\n            max = x;\n        } else {\n            if (x > max) {\n                max = x;\n            }\n        }\n    }\n    printf(\"%.1f\\n\", (float)max);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n100\n200\n300",
+            "salida_esperada": "300.0",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n500",
+            "salida_esperada": "500.0",
+            "oculto": false
+          },
+          {
+            "entrada": "0",
+            "salida_esperada": "0.0",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "problema_completar",
+              "como": "Se usa después de un ejemplo resuelto para mantener los beneficios del ejemplo y obligar a procesarlo con atención"
+            },
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplica dentro de cada clase: ejemplo resuelto → problema por completar → problema convencional"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "Los estudiantes con nivel básico necesitan un problema por completar para practicar la lógica de comparación y evitar errores en la inicialización del máximo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t3",
+        "clase_uid": "reg01-tc",
+        "orden": 3,
+        "titulo": "Ventas aprobadas",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La dirección necesita saber cuántas ventas superan el umbral de 1000. Escribe un programa que lea **n** ventas (cada venta es un número entero) y muestre cuántas son mayores que 1000.\n\n**Nota:** Si no hay ventas (n = 0), imprime 0.",
+        "arcs": {
+          "atencion": "El contexto de una tienda escolar es relevante y específico para los estudiantes.",
+          "relevancia": "El cálculo de ventas aprobadas es una tarea cotidiana para la dirección.",
+          "confianza": "El programa es simple y no requiere conocimientos avanzados para entender.",
+          "satisfaccion": "El resultado es un número entero, que es fácil de interpretar."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "",
+        "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n, contador = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        int x;\n        scanf(\"%d\", &x);\n        if (x > 1000) {\n            contador++;\n        }\n    }\n    printf(\"%d\\n\", contador);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n1000\n2000\n3000",
+            "salida_esperada": "2",
+            "oculto": false
+          },
+          {
+            "entrada": "0",
+            "salida_esperada": "0",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n1001\n1002",
+            "salida_esperada": "2",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplica dentro de cada clase: ejemplo resuelto → problema por completar → problema convencional"
+            },
+            {
+              "id": "variabilidad",
+              "como": "Se usa para tareas con escenarios y datos distintos en la misma clase"
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 20,
+          "justificacion": "Los estudiantes con nivel básico necesitan una tarea convencional para aplicar la lógica de comparación y contar, con variabilidad en los datos y casos límite.",
+          "advertencias": [
+            "El sistema no puede generar un caso límite para n=0 en la tarea convencional porque no hay datos para leer en la entrada estándar"
+          ]
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg01-tc-s1",
+        "clase_uid": "reg01-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Cómo encontrar la venta más alta",
+        "cuerpo_md": "## La idea clave\n\nPara encontrar la venta más alta, empezamos con la primera venta como la máxima y luego comparamos cada venta siguiente con la máxima actual. Si encontramos una venta mayor que la máxima, actualizamos la máxima.\n\n## Una analogía\n\nImagina que estás en una fila de personas y quieres encontrar quién tiene la mayor altura. Empiezas midiendo a la primera persona y luego comparas a cada persona siguiente con la más alta que has visto hasta ahora.\n\n## Cómo funciona\n\n```mermaid\nflowchart TD\n  A[\"max = ventas[0], i = 1\"] --> B{\"i < n?\"}\n  B -- \"sí\" --> C[\"si ventas[i] > max, max = ventas[i]\"] --> B\n  B -- \"no\" --> D[\"imprimir max\"]\n```\n\n## Ejemplo paso a paso\n\n```traza\ntitulo: Venta más alta\nlenguaje: c\nentrada: 3 100 200 300\n---\n#include <stdio.h>\nint main(void) {\n    int n, ventas[100], max, i;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &ventas[i]);\n    }\n    max = ventas[0];\n    for (i = 1; i < n; i++) {\n        if (ventas[i] > max) {\n            max = ventas[i];\n        }\n    }\n    printf(\"%.1f\\n\", (float)max);\n    return 0;\n}\n---\n{\"l\":4,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"ventas\",\"?\"],[\"max\",\"?\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"?\"],[\"max\",\"?\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"?\"],[\"max\",\"?\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 0 <repeats 39 times>...}\"],[\"max\",\"?\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 0 <repeats 39 times>...}\"],[\"max\",\"?\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 0 <repeats 38 times>...}\"],[\"max\",\"?\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 0 <repeats 38 times>...}\"],[\"max\",\"?\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"?\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"?\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"100\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"200\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"200\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"200\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"300\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":14,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":15,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"300.0\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"ventas\",\"{100, 200, 300, 0 <repeats 37 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140724069120052,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"ventas\",\"d\":140724069119648,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140724069120060,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140724069120056,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Estudiar la solución completa de un problema, paso a paso, produce más aprendizaje en novatos que resolver problemas equivalentes: libera la memoria de trabajo de la búsqueda de una solución."
+            },
+            {
+              "id": "auto_explicacion",
+              "como": "Explicarse a uno mismo el porqué de cada paso de un ejemplo mejora la comprensión y la transferencia."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 15,
+          "justificacion": "El grupo tiene baja autoeficacia y alta ansiedad, por lo que se requiere un modelo mental claro y un enfoque sistemático para reducir la carga cognitiva. El modelo mental ayuda a visualizar el proceso, y la explicación paso a paso facilita la autoexplicación.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p1",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "ficha_sintaxis",
+        "titulo": "Sintaxis para recorrer listas con ciclos",
+        "cuerpo_md": "La tarea necesita recorrer listas de datos usando ciclos `for` y comparaciones. Aquí las instrucciones clave:\n\n| Instrucción | Para qué sirve | Ejemplo |\n|-------------|----------------|---------|\n| `for (int i = 0; i < n; i++)` | Inicializa, condición y actualización del índice | `for (int i = 0; i < 3; i++)` |\n| `ventas[i]` | Acceder al elemento i-ésimo de la lista | `ventas[0]` |\n| `if (ventas[i] > max)` | Comparar y actualizar el máximo | `if (200 > 100)` |\n| `max = ventas[i]` | Actualizar el valor máximo | `max = 200` |",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar los elementos de sintaxis separadamente para estudiantes con baja autoeficacia y alta ansiedad"
+            },
+            {
+              "id": "auto_explicacion",
+              "como": "Ayuda para explicarse a sí mismo al resolver el problema"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que se aíslan los elementos sintácticos para reducir la carga cognitiva. La ficha de sintaxis ayuda a explicarse a sí mismo al resolver el problema.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p2",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "ejemplo_isomorfico",
+        "titulo": "Ejemplo isomórfico: Venta más alta en una lista de precios",
+        "cuerpo_md": "```traza\ntitulo: Venta más alta en precios\nlenguaje: c\nentrada: 4 100 200 300 400\n---\n #include <stdio.h>\n int main(void) {\n     int n, precios[100], max, i;\n     scanf(\"%d\", &n);\n     for (i = 0; i < n; i++) {\n         scanf(\"%d\", &precios[i]);\n     }\n     max = precios[0];\n     for (i = 1; i < n; i++) {\n         if (precios[i] > max) {\n             max = precios[i];\n         }\n     }\n     printf(\"%.1f\\n\", (float)max);\n     return 0;\n }\n---\n{\"l\":4,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"precios\",\"?\"],[\"max\",\"?\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"?\"],[\"max\",\"?\"],[\"i\",\"?\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"?\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"?\"],[\"max\",\"?\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 791621423, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"791621423\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 791621423, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"791621423\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 791621423, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 791621423, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"?\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"100\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"100\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"200\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"200\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"200\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"200\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"300\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"300\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"300\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"400\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"400\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":14,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"400\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"400\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":15,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"400\"],[\"i\",\"4\"]],\"s\":\"400.0\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"400\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[[\"n\",\"4\"],[\"precios\",\"{100, 200, 300, 400, 0 <repeats 40 times>...}\"],[\"max\",\"400\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140721030588388,\"t\":\"valor\",\"x\":\"4\",\"tam\":4},{\"n\":\"precios\",\"d\":140721030587984,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"100\",\"200\",\"300\",\"400\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"max\",\"d\":140721030588396,\"t\":\"valor\",\"x\":\"400\",\"tam\":4},{\"n\":\"i\",\"d\":140721030588392,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Mantener la estructura del problema pero cambiar el contexto (ventas vs. precios) para reforzar la transferencia"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El contexto cambia (ventas vs. precios) pero la estructura de recorrido y comparación es la misma, lo que ayuda a los estudiantes a transferir el conocimiento a nuevos escenarios.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p3",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "guia_preguntas",
+        "titulo": "Guía de preguntas para resolver",
+        "cuerpo_md": "¿Qué variable inicializamos para el máximo?\n¿Cómo actualizamos el máximo si encontramos una venta mayor?\n¿Qué condición usamos para recorrer las ventas?",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_explicacion",
+              "como": "Preguntas que ayudan a explicarse a sí mismo el proceso"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 2,
+          "justificacion": "Las preguntas son breves y directas para que el estudiante se guíe sin dar la solución, facilitando la autoexplicación.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t3-p1",
+        "tarea_uid": "reg01-tc-t3",
+        "tipo": "ficha_sintaxis",
+        "titulo": "Sintaxis para comparar ventas",
+        "cuerpo_md": "| Instrucción | Para qué sirve | Ejemplo |\n|-------------|----------------|---------|\n| `if (condición)` | Evaluar una condición y ejecutar código si es verdadera | `if (ventas[i] > 1000)` |\n| `printf(\"%d\\n\", variable)` | Imprimir un número entero | `printf(\"%d\\n\", contador)` |\n| `scanf(\"%d\", &variable)` | Leer un número entero desde la entrada estándar | `scanf(\"%d\", &ventas[i])` |",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar los elementos de sintaxis en aislamiento para reducir la carga cognitiva"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que es necesario aislamiento de elementos para evitar sobrecarga",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t3-p2",
+        "tarea_uid": "reg01-tc-t3",
+        "tipo": "ejemplo_isomorfico",
+        "titulo": "Ejemplo isomórfico: ventas en una fiesta",
+        "cuerpo_md": "```traza\ntitulo: Ventas en una fiesta\nlenguaje: c\nentrada: 5 500 1200 700 900 1500\n---\n#include <stdio.h>\nint main(void) {\n    int n, ventas[100], contador = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &ventas[i]);\n        if (ventas[i] > 1000) {\n            contador++;\n        }\n    }\n    printf(\"%d\\n\", contador);\n    return 0;\n}\n---\n{\"l\":3,\"f\":\"main\",\"v\":[],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[]}]}\n{\"l\":4,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"ventas\",\"?\"],[\"contador\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"?\"],[\"contador\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"?\"],[\"contador\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\",\"?\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 791621423, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"791621423\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 791621423, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"791621423\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 791621423, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"0\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"791621423\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"0\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"0\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 791621423, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"791621423\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 791621423, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"791621423\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"3\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"3\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 0 <repeats 40 times>...}\"],[\"contador\",\"1\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 1500, 0 <repeats 39 times>...}\"],[\"contador\",\"1\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"1500\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 1500, 0 <repeats 39 times>...}\"],[\"contador\",\"1\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"1500\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 1500, 0 <repeats 39 times>...}\"],[\"contador\",\"2\"],[\"i\",\"4\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"1500\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"2\",\"tam\":4},{\"n\":\"i\",\"d\":140725994946600,\"t\":\"valor\",\"x\":\"4\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 1500, 0 <repeats 39 times>...}\"],[\"contador\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"1500\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":12,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 1500, 0 <repeats 39 times>...}\"],[\"contador\",\"2\"]],\"s\":\"2\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"1500\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":13,\"f\":\"main\",\"v\":[[\"n\",\"5\"],[\"ventas\",\"{500, 1200, 700, 900, 1500, 0 <repeats 39 times>...}\"],[\"contador\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140725994946596,\"t\":\"valor\",\"x\":\"5\",\"tam\":4},{\"n\":\"ventas\",\"d\":140725994946192,\"t\":\"arreglo\",\"tam\":4,\"e\":[\"500\",\"1200\",\"700\",\"900\",\"1500\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]},{\"n\":\"contador\",\"d\":140725994946604,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":13,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Cambiar el contexto (ventas diarias vs. ventas en fiesta) para reforzar la transferencia"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El contexto de fiesta es diferente a las ventas diarias, pero mantiene la estructura lógica para aplicar la misma lógica",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t3-p3",
+        "tarea_uid": "reg01-tc-t3",
+        "tipo": "guia_preguntas",
+        "titulo": "Preguntas para resolver",
+        "cuerpo_md": "1. ¿Cómo leer las ventas en el programa?\n2. ¿Qué hace la instrucción `if (ventas[i] > 1000)`?\n3. ¿Por qué el contador empieza en cero?\n4. ¿Cómo evitar que el programa imprima un valor negativo si no hay ventas?",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_explicacion",
+              "como": "Generar preguntas que el estudiante pueda explicarse a sí mismo para reforzar la comprensión"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 2,
+          "justificacion": "Los estudiantes con baja autoeficacia necesitan preguntas específicas para guiar su razonamiento sin dar soluciones",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "El sistema no puede generar un caso límite para n=0 en la tarea convencional porque no hay datos para leer en la entrada estándar",
+    "«Ventas aprobadas»: se marcó como oculto el último caso de prueba (un problema sin apoyo necesita uno).",
+    "Quedaron 2 problemas sin resolver después de 3 intentos: revísalos antes de aceptar."
+  ],
+  "validaciones": [
+    {
+      "nombre": "salidas_calculadas",
+      "ok": false,
+      "bloqueante": false,
+      "detalle": "Promedio de ventas diarias: las salidas esperadas se calcularon ejecutando la solución (el modelo había escrito otras en 1 de 3 casos). Revisa que la solución haga lo que pide el enunciado.",
+      "elemento_uid": "reg01-tc-t1"
+    },
+    {
+      "nombre": "casos_variados",
+      "ok": false,
+      "bloqueante": false,
+      "detalle": "Esta tarea usa exactamente los mismos casos de prueba que otra: varía los datos entre tareas.",
+      "elemento_uid": "reg01-tc-t2"
+    },
+    {
+      "nombre": "ejemplo_ejecutable",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "El ejemplo resuelto pasa 2 de 3 casos.",
+      "elemento_uid": "reg01-tc-t1"
+    },
+    {
+      "nombre": "verificador:apoyo_coherente",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "Es «por completar» pero el código inicial no marca huecos (/* HUECO n: … */).",
+      "elemento_uid": "reg01-tc-t2"
+    }
+  ],
+  "intentos": 3,
+  "uso": {
+    "entrada": 67260,
+    "salida": 18127,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v8",
+  "duracion_ms": 433139
+}

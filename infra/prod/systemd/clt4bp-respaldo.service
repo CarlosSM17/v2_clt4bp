@@ -1,0 +1,11 @@
+# /etc/systemd/system/clt4bp-respaldo.service -- lo lanza clt4bp-respaldo.timer
+[Unit]
+Description=CLT4BP - respaldo cifrado con restic
+After=postgresql.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/clt4bp-respaldar
+Nice=10
+IOSchedulingClass=idle

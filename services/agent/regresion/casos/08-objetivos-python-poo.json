@@ -1,0 +1,10 @@
+{
+  "descripcion": "Objetivos de desempeño sobre clases y objetos en Python.",
+  "solicitud": {
+    "plantilla": "objetivos",
+    "curso": {"titulo": "Introducción a Python", "lenguaje": "python", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "alcance": {"prefijo": "reg08", "tema": "Definición de clases y creación de objetos en Python."},
+    "indicaciones": ""
+  }
+}

@@ -1,0 +1,11 @@
+# /etc/systemd/system/clt4bp-respaldo.timer -- todos los días a las 09:30 UTC (03:30 en la Ciudad de México)
+[Unit]
+Description=CLT4BP - respaldo diario
+
+[Timer]
+OnCalendar=*-*-* 09:30:00
+Persistent=true
+RandomizedDelaySec=15min
+
+[Install]
+WantedBy=timers.target

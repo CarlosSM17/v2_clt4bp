@@ -1,0 +1,99 @@
+{
+  "plantilla": "info_procedimental",
+  "elementos": [
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg02-p1",
+        "tarea_uid": "tc1-t3",
+        "tipo": "ficha_sintaxis",
+        "titulo": "Sintaxis para recorrer listas",
+        "cuerpo_md": "Para recorrer una lista de datos en C:\n- `int i = 0;` (inicialización)\n- `while (i < n)` (condición)\n- `i++` (incremento)\n- `calificaciones[i]` (acceso a la lista)\n\nEjemplo:\n```c\nint n = 3;\nint calificaciones[3] = {85, 92, 78};\nfor (int i = 0; i < n; i++) {\n    // Acceso a calificaciones[i]\n}\n```",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar los elementos de recorrido por separado para reducir la carga intrínseca"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El estudiante necesita entender cómo recorrer listas antes de resolver el problema de contar aprobatorias. Los elementos aislados ayudan a no saturar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg02-p2",
+        "tarea_uid": "tc1-t3",
+        "tipo": "ejemplo_isomorfico",
+        "titulo": "Ejemplo isomórfico: Contar aprobatorias",
+        "cuerpo_md": "Ejemplo con estructura similar pero datos diferentes:\n\n```c\n#include <stdio.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int aprobados = 0;\n    for (int i = 0; i < n; i++) {\n        int calificacion;\n        scanf(\"%d\", &calificacion);\n        if (calificacion >= 6) {\n            aprobados++;\n        }\n    }\n    printf(\"%.0f\", aprobados);\n    return 0;\n}\n```",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Variar los datos (calificaciones) pero mantener la estructura para reforzar la transferencia"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El ejemplo isomórfico muestra la misma lógica que la tarea actual pero con datos diferentes, ayudando a construir esquemas transferibles sin sobrecargar la memoria.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg02-p3",
+        "tarea_uid": "tc1-t3",
+        "tipo": "guia_preguntas",
+        "titulo": "Guía de preguntas para resolver",
+        "cuerpo_md": "Pregúntate:\n1. ¿Cómo inicializamos el contador de aprobados?\n2. ¿Qué condición debe cumplir una calificación para ser aprobatoria?\n3. ¿Cómo leemos las calificaciones en el bucle?\n4. ¿Cómo mostramos el resultado con dos decimales?",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_explicacion",
+              "como": "Explicar el razonamiento para cada paso mejora la comprensión y transferencia"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 2,
+          "justificacion": "Las preguntas guía ayudan al estudiante a estructurar su pensamiento sin dar pistas directas, fomentando la autoexplicación y la transferencia de conocimientos.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [],
+  "validaciones": [
+    {
+      "nombre": "validaciones",
+      "ok": true,
+      "bloqueante": true,
+      "detalle": "Sin problemas.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 1,
+  "uso": {
+    "entrada": 4055,
+    "salida": 997,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 19910
+}

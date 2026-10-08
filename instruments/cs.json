@@ -1,0 +1,114 @@
+{
+  "clave": "cs",
+  "version": "es-2026",
+  "nombre": "Escala de carga cognitiva (Leppink et al.)",
+  "fuente": "Leppink, Paas, Van der Vleuten, Van Gog y Van Merriënboer (2013).",
+  "escala": {
+    "min": 0,
+    "max": 10,
+    "etiquetas": {
+      "0": "Nada en absoluto",
+      "10": "Por completo"
+    }
+  },
+  "partes": [
+    {
+      "titulo": "Carga cognitiva",
+      "items": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "c10"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "c1",
+      "texto": "Los temas tratados en la actividad fueron muy complejos.",
+      "inverso": false
+    },
+    {
+      "id": "c2",
+      "texto": "La actividad abordó código de programa que percibí como muy complejo.",
+      "inverso": false
+    },
+    {
+      "id": "c3",
+      "texto": "La actividad abordó conceptos y definiciones que percibí como muy complejos.",
+      "inverso": false
+    },
+    {
+      "id": "c4",
+      "texto": "Las instrucciones o explicaciones durante la actividad fueron muy confusas.",
+      "inverso": false
+    },
+    {
+      "id": "c5",
+      "texto": "Las instrucciones o explicaciones fueron, en términos de aprendizaje, muy ineficaces.",
+      "inverso": false
+    },
+    {
+      "id": "c6",
+      "texto": "Las instrucciones o explicaciones estaban llenas de lenguaje confuso.",
+      "inverso": false
+    },
+    {
+      "id": "c7",
+      "texto": "La actividad mejoró significativamente mi comprensión del/de los tema(s) tratado(s).",
+      "inverso": false
+    },
+    {
+      "id": "c8",
+      "texto": "La actividad mejoró significativamente mis conocimientos y comprensión de programación.",
+      "inverso": false
+    },
+    {
+      "id": "c9",
+      "texto": "La actividad mejoró significativamente mi comprensión del código de programa tratado.",
+      "inverso": false
+    },
+    {
+      "id": "c10",
+      "texto": "La actividad mejoró significativamente mi comprensión de los conceptos y definiciones.",
+      "inverso": false
+    }
+  ],
+  "subescalas": [
+    {
+      "clave": "intrinseca",
+      "nombre": "Carga intrínseca",
+      "items": [
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    {
+      "clave": "extrinseca",
+      "nombre": "Carga extrínseca",
+      "items": [
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    {
+      "clave": "germana",
+      "nombre": "Carga germana",
+      "items": [
+        "c7",
+        "c8",
+        "c9",
+        "c10"
+      ]
+    }
+  ],
+  "indices": {}
+}

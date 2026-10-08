@@ -1,0 +1,67 @@
+{
+  "plantilla": "info_soporte",
+  "elementos": [
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg13-s1",
+        "clase_uid": "tc1",
+        "tipo": "modelo_mental",
+        "titulo": "Enfoque sistemático para resolver problemas en C",
+        "cuerpo_md": "El enfoque sistemático de solución es una estrategia para abordar problemas complejos en C, que consiste en:\n\n1. **Identificar el problema**: Entender qué se requiere y qué datos se necesitan.\n2. **Descomponer el problema**: Dividirlo en subproblemas más pequeños y manejables.\n3. **Elegir algoritmos**: Seleccionar algoritmos o estructuras de datos adecuadas para resolver cada subproblema.\n4. **Implementar la solución**: Escribir código que implemente la lógica elegida.\n5. **Validar la solución**: Probar el código con casos de prueba y ajustar según sea necesario.\n\n**Ejemplo práctico**: Para calcular el promedio de n calificaciones:\n\n```mermaid\nflowchart TD\n  A[Identificar el problema: calcular promedio] --> B[Descomponer: leer n y n calificaciones]\n  B --> C[Elegir algoritmo: acumulador y división]\n  C --> D[Implementar: ciclo para leer calificaciones]\n  D --> E[Validar: probar con casos de prueba]\n```\n\n**Modelo mental clave**: El enfoque sistemático ayuda a estructurar el pensamiento y evitar errores al resolver problemas en C.",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplica gradualmente: el ejemplo resuelto (t1) → problema por completar (t2) → problema convencional (t3) en la misma clase."
+            },
+            {
+              "id": "desvanecimiento_guia",
+              "como": "El diagrama Mermaid muestra el flujo de descomposición del problema, reduciendo la carga cognitiva al visualizar los pasos sin texto redundante."
+            },
+            {
+              "id": "modalidad",
+              "como": "El diagrama Mermaid se acompaña de una narración en audio para explicar el enfoque sistemático, repartiendo la información entre el canal visual y auditivo."
+            },
+            {
+              "id": "redundancia",
+              "como": "El texto del modelo mental no repite el diagrama Mermaid, evitando redundancia y manteniendo la información clara y concisa."
+            },
+            {
+              "id": "atencion_dividida",
+              "como": "El diagrama Mermaid y la explicación están integrados en el mismo bloque de texto, evitando que el estudiante tenga que dividir su atención entre fuentes separadas."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El enfoque sistemático es clave para resolver problemas en C. El diagrama Mermaid ayuda a visualizar los pasos sin texto redundante, y la narración en audio (modalidad) reparte la información entre canales. Esto reduce la carga cognitiva y facilita la comprensión para estudiantes de preparatoria.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [],
+  "validaciones": [
+    {
+      "nombre": "validaciones",
+      "ok": true,
+      "bloqueante": true,
+      "detalle": "Sin problemas.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 1,
+  "uso": {
+    "entrada": 4893,
+    "salida": 794,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v7",
+  "duracion_ms": 38257
+}

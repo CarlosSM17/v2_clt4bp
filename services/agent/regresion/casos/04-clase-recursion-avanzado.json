@@ -1,0 +1,16 @@
+{
+  "descripcion": "Clase de recursión en C para un grupo avanzado: debe aplicar la reversión de la experiencia (menos guía).",
+  "solicitud": {
+    "plantilla": "clase_tareas",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "universidad"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [
+      {"clave": "G3", "nombre": "Ruta C", "nivel": "avanzado",
+        "resumen": {"n": 12, "nivel_modal": "avanzado", "media": {"autoeficacia": 6.2, "ansiedad": 2.4, "metacognicion": 6.0},
+                    "proporcion": {"baja_autoeficacia": 0.0, "alta_ansiedad": 0.0, "baja_autorregulacion": 0.0}},
+        "efectos_sugeridos": ["solucion_libre", "imaginacion"]}
+    ],
+    "alcance": {"prefijo": "reg04", "objetivos": ["OB-1"], "orden": 3},
+    "indicaciones": "El grupo ya domina ciclos e funciones; prioriza problemas de recursión con solución libre."
+  }
+}

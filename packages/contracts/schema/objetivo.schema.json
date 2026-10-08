@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/objetivo.schema.json",
+  "title": "Objetivo",
+  "description": "Objetivo de aprendizaje (paso 1 de CLT4BP; paso 3 de los Diez Pasos).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "codigo", "orden", "descripcion", "tipo", "evaluacion"],
+  "properties": {
+    "uid": { "type": "string" },
+    "codigo": { "type": "string", "pattern": "^OB-[0-9]+$" },
+    "orden": { "type": "integer", "minimum": 1 },
+    "descripcion": { "type": "string", "minLength": 10, "description": "Verbo observable + condición + criterio." },
+    "tipo": { "type": "string", "enum": ["conocimiento", "habilidad", "actitud"] },
+    "evaluacion": {
+      "type": "array",
+      "description": "Métodos con que se comprobará el objetivo.",
+      "items": { "type": "string", "enum": ["recall", "comprension", "practica", "cis_imms", "mslq", "cs"] },
+      "minItems": 1
+    }
+  }
+}

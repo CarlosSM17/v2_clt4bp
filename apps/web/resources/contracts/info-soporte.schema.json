@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/info-soporte.schema.json",
+  "title": "InfoSoporte",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "clase_uid", "tipo", "titulo", "cuerpo_md", "diseno"],
+  "properties": {
+    "uid": { "type": "string" },
+    "clase_uid": { "type": "string" },
+    "tipo": { "type": "string", "enum": ["modelo_mental", "sap", "explicacion", "mapa_conceptual", "guion_video"] },
+    "titulo": { "type": "string" },
+    "cuerpo_md": { "type": "string", "description": "Markdown; diagramas en bloques ```mermaid." },
+    "diseno": { "$ref": "comunes.schema.json#/$defs/Diseno" }
+  }
+}

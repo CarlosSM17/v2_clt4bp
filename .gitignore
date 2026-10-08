@@ -1,0 +1,22 @@
+# Dependencias
+node_modules/
+vendor/
+.venv/
+__pycache__/
+
+# Construcción
+dist/
+out/
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Sistema, editores y pruebas
+.DS_Store
+Thumbs.db
+.idea/
+*.log
+coverage/
+.pytest_cache/

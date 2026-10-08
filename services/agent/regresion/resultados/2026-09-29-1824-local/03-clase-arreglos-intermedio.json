@@ -1,0 +1,291 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg03-tc",
+        "titulo": "Procesamiento avanzado de calificaciones",
+        "descripcion_complejidad": "Clase de tareas para procesar calificaciones en C con mayor complejidad que las existentes",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplicó en la secuencia de tareas: ejemplo resuelto → problema por completar → problema convencional"
+            },
+            {
+              "id": "variabilidad",
+              "como": "Tareas con contextos y datos distintos (promedio, calificación más alta, cantidad aprobatorias) para construir esquemas transferibles"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 30,
+          "justificacion": "Los grupos tienen nivel intermedio y necesitan variabilidad contextual para aplicar los conceptos en escenarios diferentes. El desvanecimiento de la guía asegura progresión desde ejemplos resueltos hasta problemas independientes.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg03-tc-t1",
+        "clase_uid": "reg03-tc",
+        "orden": 1,
+        "titulo": "Promedio con redondeo",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La coordinación académica necesita el promedio de un grupo con redondeo a dos decimales. El programa lee **n** y después **n** calificaciones, y muestra el promedio redondeado a dos decimales. Estudia la solución y explica por qué se usa `round` en lugar de `floor` para el cálculo del promedio.",
+        "arcs": {
+          "atencion": "El contexto de redondeo es relevante para evitar errores en calificaciones",
+          "relevancia": "El promedio con redondeo es crítico en contextos académicos",
+          "confianza": "El uso de `round` es una técnica estándar en C para redondeo",
+          "satisfaccion": "El resultado es un número con dos decimales, como se requiere en calificaciones"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int n;\n    double sum = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        sum += calificacion;\n    }\n    double promedio = sum / n;\n    printf(\"%.2f\\n\", round(promedio));\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int n;\n    double sum = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        sum += calificacion;\n    }\n    double promedio = sum / n;\n    printf(\"%.2f\\n\", round(promedio));\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n80.5\n79.2",
+            "salida_esperada": "79.85",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n90.0\n85.5\n82.3",
+            "salida_esperada": "85.93",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n100.0",
+            "salida_esperada": "100.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Se aplicó para estudiantes intermedios que necesitan entender el uso de `round` en el cálculo del promedio"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 10,
+          "justificacion": "El grupo tiene nivel intermedio y requiere entender el redondeo para evitar errores en calificaciones. El ejemplo resuelto con explicación detallada ayuda a comprender el uso de `round`.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg03-tc-t2",
+        "clase_uid": "reg03-tc",
+        "orden": 2,
+        "titulo": "Calificación más alta con validación",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El jefe de grupo quiere saber cuál fue la calificación más alta del examen, pero solo acepta calificaciones entre 0 y 100. Completa los huecos para que el programa lea **n** calificaciones y muestre la mayor válida con un decimal. Si hay calificaciones fuera de rango, ignóralas y muestra un mensaje de error.",
+        "arcs": {
+          "atencion": "La validación de rango es crítica para evitar datos inválidos",
+          "relevancia": "El jefe de grupo necesita calificaciones válidas para evaluar el grupo",
+          "confianza": "El uso de `scanf` con validación es una técnica estándar en C",
+          "satisfaccion": "El programa muestra la calificación más alta válida o un mensaje de error"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_valido = -1.0;\n    int cantidad_invalidos = 0;\n\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        /* HUECO 1: Validar rango */\n        /* HUECO 2: Actualizar max_valido */\n        /* HUECO 3: Contar invalidos */\n    }\n\n    if (cantidad_invalidos > 0) {\n        printf(\"Error: calificaciones fuera de rango\\n\");\n    } else {\n        printf(\"%.1f\\n\", max_valido);\n    }\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_valido = -1.0;\n    int cantidad_invalidos = 0;\n\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        if (calificacion < 0 || calificacion > 100) {\n            cantidad_invalidos++;\n        } else {\n            if (max_valido < calificacion) {\n                max_valido = calificacion;\n            }\n        }\n    }\n\n    if (cantidad_invalidos > 0) {\n        printf(\"Error: calificaciones fuera de rango\\n\");\n    } else {\n        printf(\"%.1f\\n\", max_valido);\n    }\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n-10\n85.5\n101",
+            "salida_esperada": "Error: calificaciones fuera de rango",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n90.0\n85.5",
+            "salida_esperada": "90.0",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n100.0",
+            "salida_esperada": "100.0",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplicó para pasar de un ejemplo resuelto a un problema por completar con huecos"
+            },
+            {
+              "id": "variabilidad",
+              "como": "El contexto de validación de rango añade variabilidad en el proceso de lectura de datos"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "El grupo tiene nivel intermedio y requiere validar rango para calificaciones. Los huecos ayudan a mantener el apoyo gradual mientras se introduce la validación.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg03-tc-t3",
+        "clase_uid": "reg03-tc",
+        "orden": 3,
+        "titulo": "Estadísticas de aprobación",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La dirección necesita saber cuántos estudiantes aprobaron (calificación de 6 o más) y el promedio de calificaciones aprobatorias. Escribe un programa que lea **n** y después **n** calificaciones, y muestre cuántos aprobaron y el promedio de aprobatorias con dos decimales.",
+        "arcs": {
+          "atencion": "Las estadísticas de aprobación son relevantes para evaluar el desempeño del grupo",
+          "relevancia": "La dirección necesita datos para tomar decisiones académicas",
+          "confianza": "El cálculo de promedio y conteo es una técnica estándar en C",
+          "satisfaccion": "El programa muestra dos resultados: cantidad aprobatorias y promedio de aprobatorias"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double sum_aprobados = 0.0;\n    int count_aprobados = 0;\n\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        /* HUECO 1: Verificar aprobación */\n        /* HUECO 2: Acumular promedio */\n    }\n\n    printf(\"%d %.2f\\n\", count_aprobados, sum_aprobados / count_aprobados);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double sum_aprobados = 0.0;\n    int count_aprobados = 0;\n\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        if (calificacion >= 6.0) {\n            count_aprobados++;\n            sum_aprobados += calificacion;\n        }\n    }\n\n    if (count_aprobados > 0) {\n        printf(\"%d %.2f\\n\", count_aprobados, sum_aprobados / count_aprobados);\n    } else {\n        printf(\"0 0.00\\n\");\n    }\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n5.5\n7.0\n9.5",
+            "salida_esperada": "2 8.25",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n4.0\n5.0",
+            "salida_esperada": "0 0.00",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n6.0",
+            "salida_esperada": "1 6.00",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplicó para pasar de un problema por completar a un problema convencional sin apoyo"
+            },
+            {
+              "id": "variabilidad",
+              "como": "El contexto de aprobación y promedio de aprobatorias añade variabilidad en el análisis de datos"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 20,
+          "justificacion": "El grupo tiene nivel intermedio y requiere calcular estadísticas complejas. La tarea convencional permite aplicar los conceptos sin guía adicional.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg03-tc-s1",
+        "clase_uid": "reg03-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Modelo mental para procesamiento de calificaciones",
+        "cuerpo_md": "Para procesar calificaciones en C:\n1. Leer el número de calificaciones\n2. Recorrer cada calificación\n3. Aplicar lógica de validación o procesamiento (ej: redondeo, validación de rango, cálculo de aprobación)\n4. Acumular resultados\n5. Mostrar resultados finales\n\nDiagrama Mermaid:\n```mermaid\ngraph TD\n    A[Leer n] --> B[Recorrer n calificaciones]\n    B --> C{Validar rango?}\n    C -->|Sí| D[Contar invalido]\n    C -->|No| E[Actualizar max]\n    B --> F{Aprobación?}\n    F -->|Sí| G[Acumular promedio]\n    F -->|No| H[Ignorar]\n    G --> I[Mostrar resultados]\n```",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "El modelo mental ayuda a entender la secuencia de procesamiento sin detalles específicos"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El modelo mental proporciona una visión general del proceso de procesamiento de calificaciones, ayudando a los estudiantes a estructurar su pensamiento antes de implementar el código.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg03-tc-t2-p1",
+        "tarea_uid": "reg03-tc-t2",
+        "tipo": "protocolo_verbal",
+        "titulo": "Protocolo verbal para validación de rango",
+        "cuerpo_md": "Al validar rango en calificaciones:\n1. Lee la calificación\n2. Compara con 0 y 100\n3. Si está fuera de rango, incrementa el contador de invalidos\n4. Si está dentro, actualiza el max_valido\n5. Repite hasta terminar las calificaciones",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "El protocolo verbal guía el proceso de validación de rango con pasos observables"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El protocolo verbal ayuda a los estudiantes a seguir los pasos de validación de rango de manera observable y práctica.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "Promedio con redondeo: El ejemplo resuelto pasa 1 de 3 casos.",
+    "Promedio con redondeo: La solución pasa 1 de 3 casos. Con la entrada '2\n80.5\n79.2' se esperaba '79.85' y el programa imprimió '80.00'. Corrige la solución o la salida esperada, según cuál esté mal.",
+    "«Estadísticas de aprobación»: se marcó como oculto el último caso de prueba (un problema sin apoyo necesita uno).",
+    "Quedaron 2 problemas sin resolver después de 3 intentos: revísalos antes de aceptar."
+  ],
+  "validaciones": [
+    {
+      "nombre": "ejemplo_ejecutable",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "El ejemplo resuelto pasa 1 de 3 casos.",
+      "elemento_uid": "reg03-tc-t1"
+    },
+    {
+      "nombre": "verificador:codigo_verificado",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "La solución pasa 1 de 3 casos. Con la entrada '2\\n80.5\\n79.2' se esperaba '79.85' y el programa imprimió '80.00'. Corrige la solución o la salida esperada, según cuál esté mal.",
+      "elemento_uid": "reg03-tc-t1"
+    },
+    {
+      "nombre": "verificador:ejemplo_sin_autoexplicacion",
+      "ok": false,
+      "bloqueante": false,
+      "detalle": "Considera pedir auto-explicación: potencia el efecto del ejemplo resuelto.",
+      "elemento_uid": "reg03-tc-t1"
+    }
+  ],
+  "intentos": 3,
+  "uso": {
+    "entrada": 20931,
+    "salida": 11736,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 322771
+}

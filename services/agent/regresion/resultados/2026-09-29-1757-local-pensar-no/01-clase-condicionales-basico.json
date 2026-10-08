@@ -1,0 +1,247 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg01-tc",
+        "titulo": "Ventas diarias en la tienda escolar",
+        "descripcion_complejidad": "Clase de tareas para calcular estadísticas de ventas diarias en una tienda escolar",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Ejemplo resuelto para estudiantes con bajo conocimiento previo: explicación detallada del acumulador y el ciclo"
+            },
+            {
+              "id": "problema_completar",
+              "como": "Problema por completar con pistas específicas para evitar redundancia en el ciclo"
+            },
+            {
+              "id": "variabilidad",
+              "como": "Variabilidad en contextos: tienda escolar vs. grupo de estudiantes"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 25,
+          "justificacion": "Los estudiantes tienen bajo conocimiento previo y necesitan elementos aislados y explicación detallada para procesar el ciclo. La variabilidad en contextos (tienda escolar) ayuda a transferir el conocimiento a problemas nuevos.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t1",
+        "clase_uid": "reg01-tc",
+        "orden": 1,
+        "titulo": "Promedio de ventas diarias",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La administración de la tienda escolar necesita el promedio de ventas diarias. El programa lee **n** y después **n** ventas (en pesos), y muestra el promedio con dos decimales. Estudia la solución y explica por qué el acumulador empieza en cero.",
+        "arcs": {
+          "atencion": "La tienda escolar es un contexto familiar y relevante para los estudiantes",
+          "relevancia": "Calcular el promedio ayuda a entender la eficiencia del día",
+          "confianza": "El ejemplo resuelto con acumulador en cero es una base sólida para el ciclo",
+          "satisfaccion": "El promedio con dos decimales es un resultado práctico y fácil de entender"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double suma = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        suma += venta;\n    }\n    printf(\"%.2f\\n\", suma / n);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double suma = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        suma += venta;\n    }\n    printf(\"%.2f\\n\", suma / n);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n100.00\n200.00\n150.00",
+            "salida_esperada": "150.00\n",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Ejemplo resuelto para estudiantes con bajo conocimiento previo: explicación detallada del acumulador y el ciclo"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 10,
+          "justificacion": "El ejemplo resuelto ayuda a estudiantes con bajo conocimiento previo a entender cómo el acumulador empieza en cero y el ciclo funciona.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t2",
+        "clase_uid": "reg01-tc",
+        "orden": 2,
+        "titulo": "Venta más alta del día",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El gerente quiere saber cuál fue la venta más alta del día. Completa los huecos para que el programa lea **n** ventas (en pesos) y muestre la mayor con un decimal.",
+        "arcs": {
+          "atencion": "El contexto de la tienda escolar es familiar y relevante para los estudiantes",
+          "relevancia": "Identificar la venta más alta ayuda a priorizar recursos",
+          "confianza": "El problema por completar tiene pistas específicas para evitar redundancia en el ciclo",
+          "satisfaccion": "La venta más alta es un resultado práctico y fácil de entender"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_venta = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        /* HUECO 1: Compara la venta actual con max_venta */\n        /* HUECO 2: Actualiza max_venta si es necesario */\n    }\n    printf(\"%.1f\\n\", max_venta);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_venta = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        if (venta > max_venta) {\n            max_venta = venta;\n        }\n    }\n    printf(\"%.1f\\n\", max_venta);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n100.00\n200.00\n150.00",
+            "salida_esperada": "200.00\n",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "problema_completar",
+              "como": "Problema por completar con pistas específicas para evitar redundancia en el ciclo"
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "El problema por completar con pistas específicas ayuda a estudiantes a procesar el ciclo sin redundancia.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t3",
+        "clase_uid": "reg01-tc",
+        "orden": 3,
+        "titulo": "Ventas por categoría",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "El director quiere saber cuántas ventas se hicieron en cada categoría (libros, materiales, otros). Escribe un programa que lea **n** ventas (en pesos) y muestre cuántas ventas por categoría, usando las categorías definidas en el código.",
+        "arcs": {
+          "atencion": "El contexto de la tienda escolar es familiar y relevante para los estudiantes",
+          "relevancia": "Las categorías ayudan a entender mejor las ventas",
+          "confianza": "El problema convencional requiere un enfoque sistemático para resolver",
+          "satisfaccion": "Las categorías son prácticas y fáciles de entender"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int libros = 0, materiales = 0, otros = 0;\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        // TODO: Añade código para categorizar la venta\n    }\n    printf(\"Libros: %d\\nMateriales: %d\\nOtros: %d\\n\", libros, materiales, otros);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int libros = 0, materiales =  0, otros = 0;\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        if (venta < 50) {\n            libros++;\n        } else if (venta < 200) {\n            materiales++;\n        } else {\n            otros++;\n        }\n    }\n    printf(\"Libros: %d\\nMateriales: %d\\nOtros: %d\\n\", libros, materiales, otros);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n10.00\n150.00\n250.00",
+            "salida_esperada": "Libros: 1\nMateriales: 1\nOtros: 1\n",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Variabilidad en contextos: tienda escolar vs. grupo de estudiantes"
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 20,
+          "justificacion": "La variabilidad en contextos (tienda escolar) ayuda a transferir el conocimiento a problemas nuevos.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg01-tc-s1",
+        "clase_uid": "reg01-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Modelo mental para recorrer listas de ventas",
+        "cuerpo_md": "Para calcular estadísticas en ventas diarias:\n1. Lee el número de ventas (n)\n2. Inicializa acumuladores (suma, max, contadores)\n3. Recorre cada venta con un ciclo\n4. Actualiza los acumuladores según la lógica del problema\n5. Muestra el resultado final",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Elementos aislados: explicación detallada de los acumuladores y ciclos"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El modelo mental ayuda a estudiantes con bajo conocimiento previo a entender los pasos necesarios para recorrer listas de ventas.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p1",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "protocolo_verbal",
+        "titulo": "Modelado experto: pensando en voz alta",
+        "cuerpo_md": "Para resolver el problema de la venta más alta:\n- Inicializo max_venta en 0.0\n- Recorro cada venta\n- Si la venta actual es mayor que max_venta, actualizo max_venta\n- Muestro el resultado final",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "Modelado experto: pensando en voz alta para explicar el ciclo"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El modelado experto ayuda a estudiantes a entender el ciclo sin redundancia.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "Quedaron 2 problemas sin resolver después de 3 intentos: revísalos antes de aceptar."
+  ],
+  "validaciones": [
+    {
+      "nombre": "verificador:casos_de_prueba",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "Un problema sin apoyo necesita casos ocultos: si no, se puede «programar para los ejemplos».",
+      "elemento_uid": "reg01-tc-t3"
+    },
+    {
+      "nombre": "verificador:codigo_verificado",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "La solución pasa 0 de 1 casos.",
+      "elemento_uid": "reg01-tc-t2"
+    }
+  ],
+  "intentos": 3,
+  "uso": {
+    "entrada": 22167,
+    "salida": 9084,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 195875
+}

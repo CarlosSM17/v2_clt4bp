@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/clase-tareas.schema.json",
+  "title": "ClaseTareas",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "titulo", "descripcion_complejidad", "orden", "objetivos", "diseno"],
+  "properties": {
+    "uid": { "type": "string" },
+    "titulo": { "type": "string" },
+    "descripcion_complejidad": { "type": "string", "description": "Qué hace a esta clase más compleja que la anterior." },
+    "ficha_md": { "type": "string", "description": "Ficha de diseño instruccional del tema, para el instructor: objetivos por ruta, métodos de evaluación, efectos por componente, matriz de diferenciación y plan de implementación. El aula no la muestra." },
+    "orden": { "type": "integer", "minimum": 1 },
+    "objetivos": { "type": "array", "items": { "type": "string" }, "description": "Códigos de objetivo, p. ej. OB-3." },
+    "diseno": { "$ref": "comunes.schema.json#/$defs/Diseno" }
+  }
+}

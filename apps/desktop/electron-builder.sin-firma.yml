@@ -1,0 +1,5 @@
+# Solo para compilaciones de prueba sin certificado: npx electron-builder --win --config electron-builder.sin-firma.yml
+extends: ./electron-builder.yml
+win:
+  signtoolOptions: null
+  signExecutable: false

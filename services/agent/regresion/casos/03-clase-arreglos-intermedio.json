@@ -1,0 +1,16 @@
+{
+  "descripcion": "Clase de arreglos en C para un grupo de nivel intermedio en universidad.",
+  "solicitud": {
+    "plantilla": "clase_tareas",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "universidad"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [
+      {"clave": "G2", "nombre": "Ruta B", "nivel": "intermedio",
+        "resumen": {"n": 22, "nivel_modal": "intermedio", "media": {"autoeficacia": 5.1, "ansiedad": 3.8, "metacognicion": 5.0},
+                    "proporcion": {"baja_autoeficacia": 0.18, "alta_ansiedad": 0.14, "baja_autorregulacion": 0.09}},
+        "efectos_sugeridos": ["variabilidad_contextual", "practica_variada"]}
+    ],
+    "alcance": {"prefijo": "reg03", "objetivos": ["OB-1"], "orden": 2},
+    "indicaciones": "Contexto: procesamiento de calificaciones de un grupo escolar guardadas en un arreglo."
+  }
+}

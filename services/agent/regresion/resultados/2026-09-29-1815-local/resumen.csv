@@ -1,0 +1,3 @@
+caso,plantilla,modelo,prompt,intentos,bloqueantes,avisos,elementos,costo_usd,segundos,tokens_cache_lectura
+01-clase-condicionales-basico,clase_tareas,ollama:qwen3:4b,sistema-v3,3,1,0,6,0.0,206.6,0
+03-clase-arreglos-intermedio,clase_tareas,ollama:qwen3:4b,sistema-v3,3,1,0,6,0.0,208.9,0

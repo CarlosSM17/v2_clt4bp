@@ -1,0 +1,54 @@
+# Agente local de CLT4BP conectado a la plataforma en la nube (ADR 0008).
+#
+# En el equipo del instructor (Windows, macOS o Linux) con Docker y Ollama nativo (usa la GPU). El conector abre la
+# conexión hacia la plataforma (solo de salida, HTTPS): no hace falta IP pública, túneles ni puertos abiertos.
+# Uso: copia ejemplo.env a .env, llénalo y ejecuta ./iniciar.ps1 (Windows) o ./iniciar.sh (macOS y Linux).
+name: clt4bp-agente
+
+services:
+  # Trazas paso a paso y ejecución de programas con la API de Piston (el agente calcula salidas con él)
+  trazador:
+    build: ../../services/trazador
+    image: clt4bp-trazador
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:exec,size=64m
+    mem_limit: 768m
+    pids_limit: 128
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+
+  agente:
+    build: ../../services/agent
+    image: clt4bp-agente
+    restart: unless-stopped
+    environment:
+      AGENTE_TOKEN: ${AGENTE_TOKEN:?Falta AGENTE_TOKEN en .env}
+      PROVEEDOR: ${PROVEEDOR:-local}
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+      MODELO_LOCAL_NORMAL: ${MODELO_LOCAL_NORMAL:-qwen3:4b}
+      MODELO_LOCAL_LIGERO: ${MODELO_LOCAL_LIGERO:-qwen3:4b}
+      MODELO_LOCAL_ALTO: ${MODELO_LOCAL_ALTO:-qwen3:8b}
+      OLLAMA_NUM_CTX: ${OLLAMA_NUM_CTX:-24576}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      PISTON_URL: http://trazador:2010
+      TRAZADOR_URL: http://trazador:2010
+    extra_hosts:
+      - host.docker.internal:host-gateway # Linux: Ollama del equipo (en Docker Desktop ya existe)
+    ports:
+      - "127.0.0.1:8100:8100" # solo para revisar /salud desde este equipo
+    depends_on: [trazador]
+
+  conector:
+    build: ../../services/agent
+    image: clt4bp-agente
+    restart: unless-stopped
+    command: ["python", "-m", "app.relevo"]
+    environment:
+      RELEVO_URL: ${RELEVO_URL:?Falta RELEVO_URL (la dirección de la plataforma) en .env}
+      AGENTE_TOKEN: ${AGENTE_TOKEN:?Falta AGENTE_TOKEN en .env}
+      AGENTE_LOCAL_URL: http://agente:8100
+      RELEVO_HILOS: ${RELEVO_HILOS:-3}
+    depends_on: [agente]

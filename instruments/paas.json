@@ -1,0 +1,39 @@
+{
+  "clave": "paas",
+  "version": "es-2026",
+  "nombre": "Escala de esfuerzo mental (Paas)",
+  "fuente": "Paas (1992). Escala de un ítem, de 1 a 9.",
+  "escala": {
+    "min": 1,
+    "max": 9,
+    "etiquetas": {
+      "1": "Muy, muy bajo",
+      "9": "Muy, muy alto"
+    }
+  },
+  "partes": [
+    {
+      "titulo": "Esfuerzo mental",
+      "items": [
+        "p1"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "p1",
+      "texto": "Indica el esfuerzo mental que invertiste al realizar esta tarea.",
+      "inverso": false
+    }
+  ],
+  "subescalas": [
+    {
+      "clave": "esfuerzo",
+      "nombre": "Esfuerzo mental",
+      "items": [
+        "p1"
+      ]
+    }
+  ],
+  "indices": {}
+}

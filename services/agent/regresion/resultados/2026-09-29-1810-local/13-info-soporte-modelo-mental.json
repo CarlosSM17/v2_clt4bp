@@ -1,0 +1,59 @@
+{
+  "plantilla": "info_soporte",
+  "elementos": [
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg13-s1",
+        "clase_uid": "tc1",
+        "tipo": "modelo_mental",
+        "titulo": "Enfoque sistemático para resolver problemas con listas",
+        "cuerpo_md": "Para resolver problemas con listas de datos en C, sigue estos pasos:\n\n1. **Identifica el dato a recorrer**\n   - Ejemplo: En el problema del promedio, el dato a recorrer es cada calificación.\n\n2. **Inicializa el acumulador**\n   - Usa una variable `sum` que empiece en 0 para acumular las calificaciones.\n\n3. **Recorre la lista**\n   - Con un bucle `for` desde 0 hasta `n-1`.\n\n4. **Actualiza el acumulador**\n   - En cada iteración, suma la calificación actual a `sum`.\n\n5. **Calcula el resultado**\n   - Divide `sum` por `n` para obtener el promedio.\n\n**Ejemplo aplicado al promedio**\n\n```c\n#include <stdio.h>\n\nint main() {\n    int n;\n    double sum = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        sum += calificacion;\n    }\n    printf(\"%.2f\\n\", sum / n);\n    return 0;\n}\n```\n\n**¿Por qué el acumulador empieza en cero?**\n- Si no inicializas el acumulador, el valor inicial será indeterminado (puede ser cualquier número, incluso el valor de una variable anterior). Inicializar en 0 asegura que el acumulador empiece desde cero, lo que es necesario para calcular el promedio correctamente.",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "modalidad",
+              "como": "Usando diagramas Mermaid para explicar el enfoque sistemático, se reduce el texto y se reparte la información entre el canal visual y auditivo (audio narrado)."
+            },
+            {
+              "id": "atencion_dividida",
+              "como": "La explicación está integrada en el código, sin separarla en otra página o ventana, para evitar la atención dividida."
+            },
+            {
+              "id": "redundancia",
+              "como": "No se repite textualmente la explicación en el diagrama o narración; el diagrama Mermaid y la explicación son complementarios."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 10,
+          "justificacion": "El enfoque sistemático es clave para resolver problemas con listas. El diagrama Mermaid ayuda a visualizar los pasos sin texto excesivo, y la explicación integrada en el código evita la atención dividida. La redundancia se evita al no repetir información en el texto y el diagrama.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [],
+  "validaciones": [
+    {
+      "nombre": "validaciones",
+      "ok": true,
+      "bloqueante": true,
+      "detalle": "Sin problemas.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 1,
+  "uso": {
+    "entrada": 4077,
+    "salida": 752,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 13880
+}

@@ -1,0 +1,279 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg01-tc",
+        "titulo": "Ventas diarias en la tienda escolar",
+        "descripcion_complejidad": "Clase de tareas para calcular estadísticas de ventas diarias en una tienda escolar",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Para estudiantes con poco conocimiento previo, se presenta el código completo con comentarios detallados que explican por qué el acumulador empieza en cero, liberando la memoria de trabajo de la búsqueda de una solución."
+            },
+            {
+              "id": "problema_completar",
+              "como": "Se proporciona un código parcial con huecos marcados (/* HUECO n: pista */) para que el estudiante complete el programa que calcule la venta más alta, manteniendo la carga cognitiva baja y obligando a procesar la información con atención."
+            },
+            {
+              "id": "variabilidad",
+              "como": "Se varían los contextos y datos en las tareas (ventas diarias, cantidad de productos, precios) para construir esquemas transferibles a problemas nuevos, sin aumentar la carga intrínseca."
+            },
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se sigue la secuencia de desvanecimiento de la guía: ejemplo resuelto → problema por completar → problema convencional, permitiendo al estudiante avanzar gradualmente sin sobrecarga."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 25,
+          "justificacion": "Los grupos tienen niveles básicos y necesitan apoyo en la integración de elementos. La variabilidad en contextos (ventas diarias) y el desvanecimiento de la guía ayudan a mantener la carga cognitiva baja mientras se construyen habilidades para recorrer listas de datos.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t1",
+        "clase_uid": "reg01-tc",
+        "orden": 1,
+        "titulo": "Promedio de ventas diarias",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La administración de la tienda escolar necesita el promedio de ventas diarias. El programa lee **n** y después **n** ventas (en dólares), y muestra el promedio con dos decimales. Estudia la solución y explica con tus palabras por qué el acumulador empieza en cero.",
+        "arcs": {
+          "atencion": "El contexto de una tienda escolar es relevante y específico para los estudiantes, que pueden relacionarlo con su experiencia diaria.",
+          "relevancia": "Calcular el promedio de ventas ayuda a entender la eficiencia de la tienda y es una habilidad práctica para gestionar recursos.",
+          "confianza": "El ejemplo resuelto con comentarios detallados reduce la incertidumbre y permite al estudiante sentirse seguro al comenzar.",
+          "satisfaccion": "Al explicar por qué el acumulador empieza en cero, el estudiante obtiene una comprensión profunda del concepto de acumulación."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double suma = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        suma += venta;\n    }\n    printf(\"%.2f\\n\", suma / n);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double suma = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        suma += venta;\n    }\n    printf(\"%.2f\\n\", suma / n);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n10.50\n20.75",
+            "salida_esperada": "15.63",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n5.00\n15.00\n25.00",
+            "salida_esperada": "15.00",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n100.00",
+            "salida_esperada": "100.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Se presenta el código completo con comentarios detallados que explican por qué el acumulador empieza en cero, liberando la memoria de trabajo de la búsqueda de una solución."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Para estudiantes con poco conocimiento previo, se presenta el ejemplo resuelto para liberar la memoria de trabajo y evitar la búsqueda de soluciones.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t2",
+        "clase_uid": "reg01-tc",
+        "orden": 2,
+        "titulo": "Venta más alta del día",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El gerente quiere saber cuál fue la venta más alta del día. Completa los huecos para que el programa lea **n** ventas (en dólares) y muestre la mayor con un decimal.",
+        "arcs": {
+          "atencion": "El contexto de una tienda escolar y la necesidad de identificar la venta más alta son relevantes para los estudiantes.",
+          "relevancia": "Identificar la venta más alta ayuda a la tienda a entender los puntos fuertes de su operación y a optimizar sus estrategias.",
+          "confianza": "La estructura del código parcial es similar a la tarea anterior, lo que genera confianza para el estudiante.",
+          "satisfaccion": "Al completar el código, el estudiante obtiene una satisfacción al resolver un problema práctico."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_venta = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        /* HUECO 1: ¿cómo actualizamos max_venta si la venta es mayor que el actual max? */\n        /* HUECO 2: ¿qué hacer al final? */\n    }\n    printf(\"%.1f\\n\", max_venta);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_venta = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        if (venta > max_venta) {\n            max_venta = venta;\n        }\n    }\n    printf(\"%.1f\\n\", max_venta);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n10.50\n20.75",
+            "salida_esperada": "20.75",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n5.00\n15.00\n25.00",
+            "salida_esperada": "25.00",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n100.00",
+            "salida_esperada": "100.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "problema_completar",
+              "como": "Se proporciona un código parcial con huecos marcados para que el estudiante complete el programa que calcule la venta más alta, manteniendo la carga cognitiva baja y obligando a procesar la información con atención."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 10,
+          "justificacion": "Para estudiantes con nivel básico, se presenta un problema por completar que requiere un poco de reflexión pero no es demasiado complejo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t3",
+        "clase_uid": "reg01-tc",
+        "orden": 3,
+        "titulo": "Ventas aprobatorias",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La dirección necesita saber cuántas ventas superan el umbral de $50.00 (ventas aprobatorias). Escribe un programa que lea **n** ventas (en dólares) y muestre cuántas son aprobatorias.",
+        "arcs": {
+          "atencion": "El contexto de una tienda escolar y el umbral de $50.00 son relevantes para los estudiantes.",
+          "relevancia": "Calcular las ventas aprobatorias ayuda a la tienda a entender si está cumpliendo con los objetivos de ventas.",
+          "confianza": "El estudiante ya ha practicado con recorridos de listas, lo que genera confianza para resolver este problema.",
+          "satisfaccion": "Al escribir el programa, el estudiante obtiene una satisfacción al aplicar lo aprendido en un contexto práctico."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    int ventas_aprobatorias = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double venta;\n        scanf(\"%lf\", &venta);\n        if (venta > 50.00) {\n            ventas_aprobatorias++;\n        }\n    }\n    printf(\"%d\\n\", ventas_aprobatorias);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n10.50\n20.75",
+            "salida_esperada": "0",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n50.01\n20.75\n100.00",
+            "salida_esperada": "2",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n50.00",
+            "salida_esperada": "0",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Se varían los contextos y datos en las tareas (ventas diarias, cantidad de productos, precios) para construir esquemas transferibles a problemas nuevos, sin aumentar la carga intrínseca."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "Se presenta un problema convencional que requiere aplicación directa de los conceptos aprendidos, con variabilidad en los datos para mantener la carga cognitiva baja.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg01-tc-s1",
+        "clase_uid": "reg01-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Modelo mental para recorrer listas de ventas",
+        "cuerpo_md": "Para recorrer listas de ventas en C:\n1. Leer el número de ventas (n)\n2. Inicializar un acumulador (suma) o un contador (ventas_aprobatorias)\n3. Recorrer cada venta con un bucle for\n4. Actualizar el acumulador o el contador según la condición\n5. Mostrar el resultado final\n\n**Diagrama Mermaid**:\n```mermaid\ngraph TD\n    A[Leer n] --> B[Iniciar acumulador]\n    B --> C[For i = 0 to n-1]\n    C --> D[Leer venta]\n    D --> E{Venta > umbral?}\n    E -->|Sí| F[Incrementar contador]\n    E -->|No| G[Continuar]\n    F --> H[Mostrar contador]\n```\n\n**Ejemplo de uso**:\n- Para calcular el promedio: acumulador = suma de ventas / n\n- Para contar ventas aprobatorias: contador = número de ventas > 50.00",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Se presentan los pasos del modelo mental de forma separada para evitar sobrecarga en la memoria de trabajo."
+            },
+            {
+              "id": "variabilidad",
+              "como": "Se varían los contextos y datos en las tareas para construir esquemas transferibles a problemas nuevos."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El modelo mental ayuda a los estudiantes a entender cómo recorrer listas de ventas y aplicarlo a diferentes problemas, sin sobrecargar su memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p1",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "protocolo_verbal",
+        "titulo": "Modelado experto: cómo actualizar max_venta",
+        "cuerpo_md": "Para actualizar max_venta en el bucle:\n1. Compara la venta actual con max_venta\n2. Si la venta es mayor, actualiza max_venta\n3. Repite hasta terminar todas las ventas\n\n**Ejemplo de pensamiento en voz alta**:\n- 'Leí la venta 10.50, ¿es mayor que 0.0? Sí, entonces max_venta = 10.50'\n- 'Leí la venta 20.75, ¿es mayor que 10.50? Sí, entonces max_venta = 20.75'",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "Se presenta un modelo experto en voz alta que muestra cómo actualizar max_venta, facilitando la comprensión del proceso."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El modelo experto en voz alta ayuda a los estudiantes a entender cómo actualizar max_venta sin sobrecargar su memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "«Ventas aprobatorias»: se marcó como oculto el último caso de prueba (un problema sin apoyo necesita uno).",
+    "Quedaron 1 problemas sin resolver después de 3 intentos: revísalos antes de aceptar."
+  ],
+  "validaciones": [
+    {
+      "nombre": "esquema",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "La respuesta se cortó por longitud: sé más breve o genera menos elementos.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 3,
+  "uso": {
+    "entrada": 24861,
+    "salida": 9804,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 206599
+}

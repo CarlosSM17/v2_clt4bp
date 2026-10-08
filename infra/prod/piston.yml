@@ -1,0 +1,27 @@
+# /opt/clt4bp-piston/compose.yml — Piston en producción. Los límites de aquí son el techo:
+# ninguna llamada (de Laravel o del agente) puede pedir más.
+name: clt4bp-piston
+
+services:
+  piston:
+    image: ghcr.io/engineer-man/piston:latest
+    container_name: clt4bp-piston
+    restart: unless-stopped
+    privileged: true # lo exige su sandbox (isolate)
+    ports:
+      - "127.0.0.1:2000:2000" # nunca expuesto a la red
+    environment:
+      PISTON_DISABLE_NETWORKING: "true" # los programas no salen a internet
+      PISTON_OUTPUT_MAX_SIZE: "65536"
+      PISTON_RUN_TIMEOUT: "5000" # ms
+      PISTON_COMPILE_TIMEOUT: "15000" # ms
+      PISTON_RUN_MEMORY_LIMIT: "268435456" # 256 MB
+      PISTON_MAX_PROCESS_COUNT: "64"
+      PISTON_MAX_CONCURRENT_JOBS: "32"
+    volumes:
+      - piston_packages:/piston/packages
+    tmpfs:
+      - /tmp:exec
+
+volumes:
+  piston_packages:

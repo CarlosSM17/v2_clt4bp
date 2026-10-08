@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/diseno-curso.schema.json",
+  "title": "DisenoCurso",
+  "description": "Fotografía completa del diseño de un curso: lo que revisa el verificador y lo que empaqueta una publicación.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["curso", "objetivos", "clases", "tareas", "soporte", "procedimental", "practica_parcial", "variantes", "medios"],
+  "properties": {
+    "curso": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "titulo", "lenguaje", "grupos"],
+      "properties": {
+        "id": { "type": "integer" },
+        "titulo": { "type": "string" },
+        "lenguaje": { "$ref": "comunes.schema.json#/$defs/Lenguaje" },
+        "grupos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["clave", "nombre", "nivel"],
+            "properties": {
+              "clave": { "type": "string" },
+              "nombre": { "type": "string" },
+              "nivel": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "objetivos": { "type": "array", "items": { "$ref": "objetivo.schema.json" } },
+    "clases": { "type": "array", "items": { "$ref": "clase-tareas.schema.json" } },
+    "tareas": { "type": "array", "items": { "$ref": "tarea.schema.json" } },
+    "soporte": { "type": "array", "items": { "$ref": "info-soporte.schema.json" } },
+    "procedimental": { "type": "array", "items": { "$ref": "info-procedimental.schema.json" } },
+    "practica_parcial": { "type": "array", "items": { "$ref": "practica-parcial.schema.json" } },
+    "variantes": { "type": "array", "items": { "$ref": "variante.schema.json" } },
+    "medios": { "type": "array", "items": { "$ref": "medio.schema.json" } }
+  }
+}

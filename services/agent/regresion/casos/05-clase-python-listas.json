@@ -1,0 +1,11 @@
+{
+  "descripcion": "Clase de listas en Python, curso sin grupos diferenciados.",
+  "solicitud": {
+    "plantilla": "clase_tareas",
+    "curso": {"titulo": "Introducción a Python", "lenguaje": "python", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [],
+    "alcance": {"prefijo": "reg05", "objetivos": ["OB-1"], "orden": 2},
+    "indicaciones": "Contexto: una lista de temperaturas diarias registradas por una estación meteorológica escolar."
+  }
+}

@@ -1,0 +1,636 @@
+{
+  "clave": "mslq",
+  "version": "es-2026",
+  "nombre": "Cuestionario de Motivación y Estrategias de Aprendizaje (MSLQ)",
+  "fuente": "Pintrich, Smith, García y McKeachie (1991); versión en español del Anexo A.1 de la tesis.",
+  "escala": {
+    "min": 1,
+    "max": 7,
+    "etiquetas": {
+      "1": "Totalmente en desacuerdo",
+      "7": "Totalmente de acuerdo"
+    }
+  },
+  "partes": [
+    {
+      "titulo": "Parte A. Motivación",
+      "items": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6",
+        "m7",
+        "m8",
+        "m9",
+        "m10",
+        "m11",
+        "m12",
+        "m13",
+        "m14",
+        "m15",
+        "m16",
+        "m17",
+        "m18",
+        "m19",
+        "m20",
+        "m21",
+        "m22",
+        "m23",
+        "m24",
+        "m25",
+        "m26",
+        "m27",
+        "m28",
+        "m29",
+        "m30",
+        "m31"
+      ]
+    },
+    {
+      "titulo": "Parte B. Estrategias de aprendizaje",
+      "items": [
+        "m32",
+        "m33",
+        "m34",
+        "m35",
+        "m36",
+        "m37",
+        "m38",
+        "m39",
+        "m40",
+        "m41",
+        "m42",
+        "m43",
+        "m44",
+        "m45",
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57",
+        "m58",
+        "m59",
+        "m60",
+        "m61",
+        "m62",
+        "m63",
+        "m64",
+        "m65",
+        "m66",
+        "m67",
+        "m68",
+        "m69",
+        "m70",
+        "m71",
+        "m72",
+        "m73"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "m1",
+      "texto": "En una clase como esta, prefiero material de curso que realmente me desafíe para poder aprender cosas nuevas.",
+      "inverso": false
+    },
+    {
+      "id": "m2",
+      "texto": "En una clase como ésta, prefiero material que despierte mi curiosidad, aunque sea difícil de aprender.",
+      "inverso": false
+    },
+    {
+      "id": "m3",
+      "texto": "Lo más satisfactorio para mí de este curso es intentar comprender el contenido lo más a fondo posible.",
+      "inverso": false
+    },
+    {
+      "id": "m4",
+      "texto": "Cuando tengo la oportunidad en esta clase, elijo tareas del curso que puedo aprender incluso si no garantizan una buena calificación.",
+      "inverso": false
+    },
+    {
+      "id": "m5",
+      "texto": "Obtener una buena nota en esta clase es lo más satisfactorio para mí en este momento.",
+      "inverso": false
+    },
+    {
+      "id": "m6",
+      "texto": "Lo más importante para mí en este momento es mejorar mi promedio general de calificaciones, por lo que mi principal preocupación en esta clase es obtener una buena calificación.",
+      "inverso": false
+    },
+    {
+      "id": "m7",
+      "texto": "Si puedo, quiero obtener mejores notas en esta clase que la mayoría de los otros estudiantes.",
+      "inverso": false
+    },
+    {
+      "id": "m8",
+      "texto": "Quiero tener un buen desempeño en esta clase porque es importante mostrar mi capacidad a mi familia, amigos, empleador u otros.",
+      "inverso": false
+    },
+    {
+      "id": "m9",
+      "texto": "Creo que podré utilizar lo aprendido en este curso en otros cursos.",
+      "inverso": false
+    },
+    {
+      "id": "m10",
+      "texto": "Es importante para mí aprender el material del curso en esta clase.",
+      "inverso": false
+    },
+    {
+      "id": "m11",
+      "texto": "Estoy muy interesado en el contenido de este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m12",
+      "texto": "Pienso que el material del curso en esta clase es útil para aprender.",
+      "inverso": false
+    },
+    {
+      "id": "m13",
+      "texto": "Me gusta el tema de este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m14",
+      "texto": "Para mí es muy importante comprender el tema de este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m15",
+      "texto": "Si estudio de manera apropiada, entonces podré aprender el material de este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m16",
+      "texto": "Es mi culpa si no aprendo el material de este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m17",
+      "texto": "Si me esfuerzo lo suficiente, entenderé el material del curso.",
+      "inverso": false
+    },
+    {
+      "id": "m18",
+      "texto": "Si no entiendo el material del curso es porque no me esforcé lo suficiente.",
+      "inverso": false
+    },
+    {
+      "id": "m19",
+      "texto": "Creo que recibiré una calificación excelente en esta clase.",
+      "inverso": false
+    },
+    {
+      "id": "m20",
+      "texto": "Estoy seguro de que puedo comprender el material más difícil presentado en las lecturas de este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m21",
+      "texto": "Estoy seguro de que puedo comprender los conceptos básicos enseñados en este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m22",
+      "texto": "Estoy seguro de que puedo comprender el material más complejo presentado por el instructor en este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m23",
+      "texto": "Estoy seguro de que puedo hacer un excelente trabajo en las tareas y exámenes de este curso.",
+      "inverso": false
+    },
+    {
+      "id": "m24",
+      "texto": "Espero tener un buen desempeño en esta clase.",
+      "inverso": false
+    },
+    {
+      "id": "m25",
+      "texto": "Estoy seguro de que puedo dominar las habilidades que se enseñan en esta clase.",
+      "inverso": false
+    },
+    {
+      "id": "m26",
+      "texto": "Teniendo en cuenta la dificultad de este curso, el profesor y mis habilidades, creo que me irá bien en esta clase.",
+      "inverso": false
+    },
+    {
+      "id": "m27",
+      "texto": "Cuando hago un examen, pienso en lo mal que me está yendo en comparación con otros estudiantes.",
+      "inverso": false
+    },
+    {
+      "id": "m28",
+      "texto": "Cuando hago un examen, pienso en elementos de otras partes del examen que no puedo responder.",
+      "inverso": false
+    },
+    {
+      "id": "m29",
+      "texto": "Cuando hago exámenes pienso en las consecuencias de fallar.",
+      "inverso": false
+    },
+    {
+      "id": "m30",
+      "texto": "Tengo una sensación de inquietud y malestar cuando hago un examen.",
+      "inverso": false
+    },
+    {
+      "id": "m31",
+      "texto": "Siento que mi corazón late rápido cuando hago un examen.",
+      "inverso": false
+    },
+    {
+      "id": "m32",
+      "texto": "Tomo notas durante las clases para ayudarme a recordar la información importante.",
+      "inverso": false
+    },
+    {
+      "id": "m33",
+      "texto": "Repito mentalmente los términos clave mientras estudio para recordarlos mejor.",
+      "inverso": false
+    },
+    {
+      "id": "m34",
+      "texto": "Escribo las ideas principales varias veces para reforzarlas en mi memoria.",
+      "inverso": false
+    },
+    {
+      "id": "m35",
+      "texto": "Practico ejercicios repetitivos para dominar el contenido.",
+      "inverso": false
+    },
+    {
+      "id": "m36",
+      "texto": "Relaciono el contenido que estoy aprendiendo con cosas que ya conozco.",
+      "inverso": false
+    },
+    {
+      "id": "m37",
+      "texto": "Explico el material a mí mismo para entenderlo mejor.",
+      "inverso": false
+    },
+    {
+      "id": "m38",
+      "texto": "Trato de encontrar ejemplos reales de los conceptos que aprendo.",
+      "inverso": false
+    },
+    {
+      "id": "m39",
+      "texto": "Conecto diferentes temas para crear una visión más completa de lo que estudio.",
+      "inverso": false
+    },
+    {
+      "id": "m40",
+      "texto": "Hago preguntas sobre el material para profundizar en mi comprensión.",
+      "inverso": false
+    },
+    {
+      "id": "m41",
+      "texto": "Uso asociaciones para recordar la información más fácilmente.",
+      "inverso": false
+    },
+    {
+      "id": "m42",
+      "texto": "Uso esquemas o diagramas para organizar la información importante.",
+      "inverso": false
+    },
+    {
+      "id": "m43",
+      "texto": "Subrayo las ideas principales al leer el material de estudio.",
+      "inverso": false
+    },
+    {
+      "id": "m44",
+      "texto": "Hago resúmenes de lo que aprendo para enfocarme en los puntos clave.",
+      "inverso": false
+    },
+    {
+      "id": "m45",
+      "texto": "Divido el material en secciones más pequeñas para aprenderlo mejor.",
+      "inverso": false
+    },
+    {
+      "id": "m46",
+      "texto": "Reviso regularmente si estoy entendiendo lo que estoy estudiando.",
+      "inverso": false
+    },
+    {
+      "id": "m47",
+      "texto": "Hago una pausa para reflexionar sobre lo que acabo de leer o aprender.",
+      "inverso": false
+    },
+    {
+      "id": "m48",
+      "texto": "Me esfuerzo por encontrar soluciones alternativas si no entiendo algo.",
+      "inverso": false
+    },
+    {
+      "id": "m49",
+      "texto": "Evalúo la calidad de mi trabajo académico antes de entregarlo.",
+      "inverso": false
+    },
+    {
+      "id": "m50",
+      "texto": "Identifico las partes más difíciles de un tema para enfocarme en ellas.",
+      "inverso": false
+    },
+    {
+      "id": "m51",
+      "texto": "Me hago preguntas a mí mismo mientras estudio para comprobar mi conocimiento.",
+      "inverso": false
+    },
+    {
+      "id": "m52",
+      "texto": "Planifico mis sesiones de estudio antes de comenzar.",
+      "inverso": false
+    },
+    {
+      "id": "m53",
+      "texto": "Cambio mi estrategia de aprendizaje si noto que algo no funciona.",
+      "inverso": false
+    },
+    {
+      "id": "m54",
+      "texto": "Verifico si mis notas son completas después de una clase o lectura.",
+      "inverso": false
+    },
+    {
+      "id": "m55",
+      "texto": "Pienso en cómo el contenido aprendido podría ser útil en el futuro.",
+      "inverso": false
+    },
+    {
+      "id": "m56",
+      "texto": "Reflexiono sobre cómo mejoré en mi aprendizaje después de una tarea difícil.",
+      "inverso": false
+    },
+    {
+      "id": "m57",
+      "texto": "Me pregunto cómo lo que aprendí se relaciona con mi vida diaria.",
+      "inverso": false
+    },
+    {
+      "id": "m58",
+      "texto": "Establezco horarios claros para completar mis actividades académicas.",
+      "inverso": false
+    },
+    {
+      "id": "m59",
+      "texto": "Intento cumplir con las fechas límite sin retrasos.",
+      "inverso": false
+    },
+    {
+      "id": "m60",
+      "texto": "Distribuyo mi tiempo entre diferentes tareas para mantener el equilibrio.",
+      "inverso": false
+    },
+    {
+      "id": "m61",
+      "texto": "Dedico tiempo extra a temas que me parecen más complicados.",
+      "inverso": false
+    },
+    {
+      "id": "m62",
+      "texto": "Sigo trabajando en tareas difíciles, aunque me resulten frustrantes.",
+      "inverso": false
+    },
+    {
+      "id": "m63",
+      "texto": "Mantengo el esfuerzo incluso cuando el material no me interesa.",
+      "inverso": false
+    },
+    {
+      "id": "m64",
+      "texto": "Busco motivación extra para terminar mis estudios si pierdo interés.",
+      "inverso": false
+    },
+    {
+      "id": "m65",
+      "texto": "Me obligo a estudiar incluso cuando no tengo ganas.",
+      "inverso": false
+    },
+    {
+      "id": "m66",
+      "texto": "Pido ayuda a mis profesores cuando no entiendo algo.",
+      "inverso": false
+    },
+    {
+      "id": "m67",
+      "texto": "Formo grupos de estudio para aprender junto con mis compañeros.",
+      "inverso": false
+    },
+    {
+      "id": "m68",
+      "texto": "Me siento cómodo solicitando aclaraciones sobre temas complicados.",
+      "inverso": false
+    },
+    {
+      "id": "m69",
+      "texto": "Recurro a fuentes externas, como libros o internet, si necesito más información.",
+      "inverso": false
+    },
+    {
+      "id": "m70",
+      "texto": "Me aseguro de tener un lugar tranquilo y ordenado para estudiar.",
+      "inverso": false
+    },
+    {
+      "id": "m71",
+      "texto": "Elijo ambientes sin distracciones para concentrarme mejor.",
+      "inverso": false
+    },
+    {
+      "id": "m72",
+      "texto": "Organizo mis materiales de estudio antes de comenzar.",
+      "inverso": false
+    },
+    {
+      "id": "m73",
+      "texto": "Utilizo recursos como bibliotecas o laboratorios para mejorar mi aprendizaje.",
+      "inverso": false
+    }
+  ],
+  "subescalas": [
+    {
+      "clave": "intrinseca",
+      "nombre": "Orientación intrínseca hacia la meta",
+      "items": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ]
+    },
+    {
+      "clave": "extrinseca",
+      "nombre": "Orientación extrínseca hacia la meta",
+      "items": [
+        "m5",
+        "m6",
+        "m7",
+        "m8"
+      ]
+    },
+    {
+      "clave": "valor_tarea",
+      "nombre": "Valor de la tarea",
+      "items": [
+        "m9",
+        "m10",
+        "m11",
+        "m12",
+        "m13",
+        "m14"
+      ]
+    },
+    {
+      "clave": "autoeficacia",
+      "nombre": "Autoeficacia",
+      "items": [
+        "m15",
+        "m16",
+        "m17",
+        "m18",
+        "m19",
+        "m20",
+        "m21",
+        "m22",
+        "m23",
+        "m24",
+        "m25",
+        "m26"
+      ]
+    },
+    {
+      "clave": "ansiedad",
+      "nombre": "Ansiedad ante los exámenes",
+      "items": [
+        "m27",
+        "m28",
+        "m29",
+        "m30",
+        "m31"
+      ]
+    },
+    {
+      "clave": "repaso",
+      "nombre": "Repetición",
+      "items": [
+        "m32",
+        "m33",
+        "m34",
+        "m35"
+      ]
+    },
+    {
+      "clave": "elaboracion",
+      "nombre": "Elaboración",
+      "items": [
+        "m36",
+        "m37",
+        "m38",
+        "m39",
+        "m40",
+        "m41"
+      ]
+    },
+    {
+      "clave": "organizacion",
+      "nombre": "Organización",
+      "items": [
+        "m42",
+        "m43",
+        "m44",
+        "m45"
+      ]
+    },
+    {
+      "clave": "metacognicion",
+      "nombre": "Control de la comprensión (metacognición)",
+      "items": [
+        "m46",
+        "m47",
+        "m48",
+        "m49",
+        "m50",
+        "m51",
+        "m52",
+        "m53",
+        "m54",
+        "m55",
+        "m56",
+        "m57"
+      ]
+    },
+    {
+      "clave": "gestion_tiempo",
+      "nombre": "Gestión del tiempo y del estudio",
+      "items": [
+        "m58",
+        "m59",
+        "m60",
+        "m61"
+      ]
+    },
+    {
+      "clave": "regulacion_esfuerzo",
+      "nombre": "Regulación del esfuerzo",
+      "items": [
+        "m62",
+        "m63",
+        "m64",
+        "m65"
+      ]
+    },
+    {
+      "clave": "busqueda_ayuda",
+      "nombre": "Búsqueda de ayuda",
+      "items": [
+        "m66",
+        "m67",
+        "m68",
+        "m69"
+      ]
+    },
+    {
+      "clave": "entorno_aprendizaje",
+      "nombre": "Entorno de aprendizaje",
+      "items": [
+        "m70",
+        "m71",
+        "m72",
+        "m73"
+      ]
+    }
+  ],
+  "indices": {
+    "motivacion": [
+      "autoeficacia",
+      "valor_tarea",
+      "intrinseca"
+    ],
+    "estrategias_cognitivas": [
+      "repaso",
+      "elaboracion",
+      "organizacion"
+    ],
+    "autorregulacion": [
+      "metacognicion",
+      "gestion_tiempo",
+      "regulacion_esfuerzo"
+    ]
+  }
+}

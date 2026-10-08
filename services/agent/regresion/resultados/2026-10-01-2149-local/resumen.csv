@@ -1,0 +1,2 @@
+caso,plantilla,modelo,prompt,intentos,bloqueantes,avisos,elementos,costo_usd,segundos,tokens_cache_lectura
+13-info-soporte-modelo-mental,info_soporte,ollama:qwen3:4b,sistema-v7,1,0,0,1,0.0,38.3,0

@@ -1,0 +1,10 @@
+{
+  "descripcion": "Ayudas justo a tiempo para la tarea convencional de la clase 1.",
+  "solicitud": {
+    "plantilla": "info_procedimental",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "alcance": {"prefijo": "reg02", "tarea_uid": "tc1-t3"},
+    "indicaciones": ""
+  }
+}

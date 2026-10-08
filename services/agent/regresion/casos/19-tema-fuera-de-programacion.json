@@ -1,0 +1,10 @@
+{
+  "descripcion": "Caso difícil: se pide un tema fuera de programación. El agente debe advertirlo en vez de inventar objetivos ajenos al curso.",
+  "solicitud": {
+    "plantilla": "objetivos",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "alcance": {"prefijo": "reg19", "tema": "Historia del arte renacentista."},
+    "indicaciones": ""
+  }
+}

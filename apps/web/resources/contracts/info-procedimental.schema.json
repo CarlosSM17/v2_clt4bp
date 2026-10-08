@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/info-procedimental.schema.json",
+  "title": "InfoProcedimental",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "tipo", "titulo", "cuerpo_md", "diseno"],
+  "$comment": "Lleva tarea_uid o clase_uid (exactamente uno). No se expresa con anyOf: los generadores de tipos lo convierten en uniones incómodas; lo validan Laravel (ValidadorManifiesto, TiposElemento), el agente y la consola.",
+  "properties": {
+    "uid": { "type": "string" },
+    "tarea_uid": { "type": "string", "description": "Tarea a la que ayuda (ayuda justo a tiempo de una sola tarea). Lleva tarea_uid o clase_uid, no ambos." },
+    "clase_uid": { "type": "string", "description": "Clase (tema) a la que pertenece: tarjeta de sintaxis, guía de rutina, errores frecuentes, ejemplo isomórfico o protocolo verbal del tema." },
+    "tipo": { "type": "string", "enum": ["ficha_sintaxis", "guia_preguntas", "errores_frecuentes", "ejemplo_isomorfico", "protocolo_verbal"] },
+    "titulo": { "type": "string" },
+    "cuerpo_md": { "type": "string" },
+    "diseno": { "$ref": "comunes.schema.json#/$defs/Diseno" }
+  }
+}

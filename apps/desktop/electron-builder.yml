@@ -1,0 +1,49 @@
+# Empaquetado de la consola (Etapa 7). Instalador NSIS para Windows, firmado, con actualizaciones automáticas.
+appId: mx.clt4bp.consola
+productName: CLT4BP Consola
+copyright: Copyright © 2026 Carlos Sandoval
+directories:
+  buildResources: build
+  output: dist
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintcache,eslint.config.mjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+asarUnpack:
+  - resources/**
+npmRebuild: false
+
+# Interruptores de Electron que se fijan dentro del ejecutable (no se pueden cambiar después sin volver a firmar):
+# nadie puede usar la consola como un Node.js cualquiera ni cargar código que no venga del app.asar firmado.
+electronFuses:
+  runAsNode: false
+  enableNodeOptionsEnvironmentVariable: false
+  enableNodeCliInspectArguments: false
+  enableCookieEncryption: true
+  enableEmbeddedAsarIntegrityValidation: true
+  onlyLoadAppFromAsar: true
+
+win:
+  target: nsis
+  executableName: clt4bp-consola
+  signtoolOptions:
+    certificateSha1: PON-AQUI-LA-HUELLA-SHA1-DE-TU-CERTIFICADO
+    publisherName: Nombre exacto del titular del certificado
+    signingHashAlgorithms: [sha256]
+    rfc3161TimeStampServer: http://timestamp.digicert.com
+
+nsis:
+  artifactName: clt4bp-consola-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+  oneClick: true
+  perMachine: false
+
+# Instalador y actualizaciones se sirven desde el propio servidor (Nginx, 7.2)
+publish:
+  provider: generic
+  url: https://clt4bp.midominio.mx/descargas/consola/

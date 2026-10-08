@@ -1,0 +1,68 @@
+# Servicios locales de desarrollo de CLT4BP.
+# Uso (desde la raíz del repositorio):
+#   docker compose -f infra/docker-compose.yml up -d
+name: clt4bp
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: clt4bp-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: clt4bp
+      POSTGRES_USER: clt4bp
+      POSTGRES_PASSWORD: secret        # solo para desarrollo local
+    ports:
+      - "127.0.0.1:5433:5432"          # 5433 porque este equipo ya tiene un PostgreSQL local en el 5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clt4bp -d clt4bp"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: clt4bp-mail
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:1025:1025"   # SMTP
+      - "127.0.0.1:8025:8025"   # bandeja web
+
+  piston:
+    image: ghcr.io/engineer-man/piston:latest
+    container_name: clt4bp-piston
+    restart: unless-stopped
+    privileged: true              # Piston lo necesita para su sandbox (isolate)
+    ports:
+      - "127.0.0.1:2000:2000"
+    environment:
+      PISTON_OUTPUT_MAX_SIZE: "65536"  # por omisión corta la salida a 1024 caracteres (Etapa 7)
+    volumes:
+      - piston_packages:/piston/packages
+    tmpfs:
+      - /tmp:exec
+
+  # Trazas de código paso a paso (gdb y Python). Sin internet, sin privilegios y con límites: el código no es
+  # confiable. Ver services/trazador y ADR 0006
+  trazador:
+    build: ../services/trazador
+    image: clt4bp-trazador
+    container_name: clt4bp-trazador
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:2010:2010"
+    read_only: true
+    tmpfs:
+      - /tmp:exec,size=64m
+    mem_limit: 768m
+    pids_limit: 128
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  db_data:
+  piston_packages:

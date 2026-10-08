@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/variante.schema.json",
+  "title": "Variante",
+  "description": "Versión de un elemento para un grupo diferenciado (paso 4). Solo guarda lo que cambia; el resto se hereda del elemento base.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "elemento_uid", "grupo_clave", "cambios", "diferenciacion"],
+  "properties": {
+    "uid": { "type": "string" },
+    "elemento_uid": { "type": "string" },
+    "grupo_clave": { "type": "string", "pattern": "^G[0-9]+$" },
+    "cambios": {
+      "type": "object",
+      "description": "Campos del elemento base que cambian para este grupo. No puede cambiar identificadores, la posición, la solución ni los casos de prueba: todos los grupos se evalúan con el mismo criterio.",
+      "additionalProperties": true,
+      "propertyNames": { "not": { "enum": ["uid", "clase_uid", "tarea_uid", "orden", "solucion", "casos_prueba"] } }
+    },
+    "diferenciacion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimensiones", "razon"],
+      "properties": {
+        "dimensiones": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "enum": ["contenido", "proceso", "producto"] }
+        },
+        "razon": { "type": "string", "description": "Por qué este grupo necesita la variante (Tomlinson)." }
+      }
+    }
+  }
+}

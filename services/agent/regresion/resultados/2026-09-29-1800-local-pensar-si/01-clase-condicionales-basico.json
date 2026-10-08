@@ -1,0 +1,241 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg01-tc",
+        "titulo": "Procesar datos de ventas diarias",
+        "descripcion_complejidad": "Clase de tareas más compleja que las existentes, enfocada en procesamiento de ventas escolares",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Las tareas de la clase tienen diferentes escenarios (total de ventas, venta más alta, ventas por categoría) pero mantienen la estructura de lectura y procesamiento de listas, lo que ayuda a construir esquemas transferibles."
+            },
+            {
+              "id": "desvanecimiento_guia",
+              "como": "La clase sigue el desvanecimiento de la guía: ejemplo resuelto → problema por completar → problema convencional, permitiendo a los estudiantes avanzar gradualmente en la autonomía."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "La clase se diseña para abordar el contexto de una tienda escolar, con tareas que van de simple a complejo y que mantienen la estructura de procesamiento de listas de datos. Los efectos de variabilidad y desvanecimiento de la guía aseguran que los estudiantes puedan transferir conocimientos y avanzar en autonomía.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t1",
+        "clase_uid": "reg01-tc",
+        "orden": 1,
+        "titulo": "Total de ventas diarias",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La tienda escolar necesita calcular el total de ventas del día. El programa lee **n** transacciones y cada transacción tiene un monto. Muestra el total con dos decimales. Estudia la solución y explica por qué el acumulador empieza en cero.",
+        "arcs": {
+          "atencion": "Contexto real: una tienda escolar que registra ventas diarias",
+          "relevancia": "Procesamiento de ventas es crítico para la gestión financiera de la tienda",
+          "confianza": "Solución completa con explicación de por qué el acumulador empieza en cero",
+          "satisfaccion": "El estudiante obtiene un resultado práctico (total de ventas)"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double total = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double amount;\n        scanf(\"%lf\", &amount);\n        total += amount;\n    }\n    printf(\"Total: %.2f\\n\", total);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double total = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double amount;\n        scanf(\"%lf\", &amount);\n        total += amount;\n    }\n    printf(\"Total: %.2f\\n\", total);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n100.5\n200.3",
+            "salida_esperada": "Total: 300.80\n",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Estudiar la solución completa de un problema, paso a paso, produce más aprendizaje en novatos que resolver problemas equivalentes: libera la memoria de trabajo de la búsqueda de una solución."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El ejemplo resuelto se usa para estudiantes con poco conocimiento previo (nivel básico) y permite liberar la memoria de trabajo al explicar por qué el acumulador empieza en cero.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t2",
+        "clase_uid": "reg01-tc",
+        "orden": 2,
+        "titulo": "Venta más alta del día",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El gerente quiere saber cuál fue la venta más alta del día. Completa los huecos para que el programa lea **n** transacciones y muestre la mayor con un decimal.",
+        "arcs": {
+          "atencion": "Problema práctico: identificar la venta más alta para tomar decisiones",
+          "relevancia": "El análisis de ventas es clave para optimizar inventario y precios",
+          "confianza": "Guía estructurada para completar el código sin redundancia",
+          "satisfaccion": "El estudiante obtiene una respuesta específica (venta más alta)"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_sale = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double sale;\n        scanf(\"%lf\", &sale);\n        /* HUECO 1: Actualiza max_sale si sale es mayor que max_sale */\n    }\n    printf(\"Venta maxima: %.1f\\n\", max_sale);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max_sale = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double sale;\n        scanf(\"%lf\", &sale);\n        if (sale > max_sale) {\n            max_sale = sale;\n        }\n    }\n    printf(\"Venta maxima: %.1f\\n\", max_sale);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n150.2\n200.5\n120.8",
+            "salida_esperada": "Venta maxima: 200.5\n",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "problema_completar",
+              "como": "Una solución parcial que el estudiante termina. Mantiene los beneficios del ejemplo resuelto y obliga a procesarlo con atención; es el puente hacia el problema convencional."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 8,
+          "justificacion": "El problema por completar se usa después de un ejemplo resuelto para mantener la conexión con la solución y obligar a procesar el código con atención.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t3",
+        "clase_uid": "reg01-tc",
+        "orden": 3,
+        "titulo": "Ventas por categoría",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La dirección necesita saber cuántas transacciones superan 1000 pesos. Escribe un programa que lea **n** transacciones y muestre cuántas son mayores que 1000.",
+        "arcs": {
+          "atencion": "Problema de análisis financiero: identificar transacciones críticas",
+          "relevancia": "Ajustar estrategias de inventario según ventas superiores a 1000 pesos",
+          "confianza": "El estudiante debe aplicar el mismo patrón de procesamiento que en las tareas anteriores",
+          "satisfaccion": "El estudiante obtiene una respuesta específica (cantidad de transacciones superiores)"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    int count = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double sale;\n        scanf(\"%lf\", &sale);\n        if (sale > 1000.0) {\n            count++;\n        }\n    }\n    printf(\"Ventas superiores a 1000: %d\\n\", count);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "4\n500.0\n1200.5\n800.2\n1000.0",
+            "salida_esperada": "Ventas superiores a 1000: 1\n",
+            "oculto": false
+          },
+          {
+            "entrada": "5\n1000.1\n1500.2\n900.5\n1200.3\n1000.0",
+            "salida_esperada": "Ventas superiores a 1000: 2\n",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "solucion_libre",
+              "como": "Los problemas sin meta específica evitan la búsqueda medios-fines y favorecen explorar las relaciones del problema."
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 7,
+          "justificacion": "El problema convencional requiere que el estudiante aplique el patrón de procesamiento aprendido en las tareas anteriores para resolver un problema específico.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg01-tc-s1",
+        "clase_uid": "reg01-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Modelo mental: Procesamiento de ventas",
+        "cuerpo_md": "Para calcular ventas, se sigue un ciclo que lee cada transacción y actualiza un acumulador o contador según el criterio. El modelo se aplica a cualquier tipo de operación en listas de datos.",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "Los estudiantes ven al experto ejecutar el ciclo de lectura y procesamiento de transacciones."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El modelo mental ayuda a los estudiantes a visualizar el flujo de procesamiento de transacciones sin distracciones.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p1",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "protocolo_verbal",
+        "titulo": "Paso a paso para completar la venta más alta",
+        "cuerpo_md": "1. Inicia el acumulador en 0.0\n2. Lee el número de transacciones\n3. Para cada transacción, lee el monto\n4. Si el monto es mayor que el acumulador actual, actualiza el acumulador\n5. Muestra el resultado",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_gestion",
+              "como": "El estudiante aprende a integrar fuentes separadas (código y explicación) para resolver el problema."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 4,
+          "justificacion": "El protocolo verbal ayuda a los estudiantes a estructurar su pensamiento antes de completar el código.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "Quedaron 1 problemas sin resolver después de 3 intentos: revísalos antes de aceptar."
+  ],
+  "validaciones": [
+    {
+      "nombre": "esquema",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "La respuesta se cortó por longitud: sé más breve o genera menos elementos.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 3,
+  "uso": {
+    "entrada": 21583,
+    "salida": 19126,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 409537
+}

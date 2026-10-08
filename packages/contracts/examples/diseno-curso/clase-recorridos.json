@@ -1,0 +1,201 @@
+{
+  "curso": {
+    "id": 1,
+    "titulo": "Programación en C",
+    "lenguaje": "c",
+    "grupos": [
+      { "clave": "G1", "nombre": "Ruta A", "nivel": "basico" },
+      { "clave": "G2", "nombre": "Ruta B", "nivel": "avanzado" }
+    ]
+  },
+  "objetivos": [
+    {
+      "uid": "ob1",
+      "codigo": "OB-1",
+      "orden": 1,
+      "descripcion": "Escribir programas en C que recorran una lista de datos leída de la entrada para acumular, comparar y contar.",
+      "tipo": "habilidad",
+      "evaluacion": ["comprension", "practica"]
+    }
+  ],
+  "clases": [
+    {
+      "uid": "tc1",
+      "titulo": "Recorrer una lista de datos",
+      "descripcion_complejidad": "Un solo ciclo sobre datos leídos de la entrada, sin arreglos.",
+      "orden": 1,
+      "objetivos": ["OB-1"],
+      "diseno": {
+        "paso_clt4bp": 5,
+        "componente": "tarea",
+        "efectos": [{ "id": "interactividad_elementos", "como": "Primera clase: un ciclo y un acumulador." }],
+        "interactividad": "baja",
+        "tiempo_estimado_min": 45,
+        "justificacion": "Clase inicial de baja interactividad.",
+        "advertencias": []
+      }
+    }
+  ],
+  "tareas": [
+    {
+      "uid": "tc1-t1",
+      "clase_uid": "tc1",
+      "orden": 1,
+      "titulo": "Promedio del grupo",
+      "nivel_apoyo": "ejemplo_resuelto",
+      "enunciado_md": "La coordinación académica necesita el promedio de un grupo. El programa lee **n** y después **n** calificaciones, y muestra el promedio con dos decimales. Estudia la solución y explica con tus palabras por qué el acumulador empieza en cero.",
+      "arcs": {
+        "atencion": "¿Cuánto tardarías en promediar a mano 300 calificaciones?",
+        "relevancia": "Los sistemas escolares calculan promedios todos los días.",
+        "confianza": "La solución está completa: tu trabajo es entenderla paso a paso.",
+        "satisfaccion": "En la siguiente tarea completarás un programa parecido."
+      },
+      "lenguaje": "c",
+      "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n;\n    scanf(\"%d\", &n); /* 1. Leer cuántos datos vienen */\n    double x, suma = 0.0; /* 2. El acumulador empieza en cero */\n    for (int i = 0; i < n; i++) { /* 3. Repetir n veces: leer y acumular */\n        scanf(\"%lf\", &x);\n        suma += x;\n    }\n    printf(\"%.2f\\n\", suma / n); /* 4. Dividir entre n e imprimir */\n    return 0;\n}\n",
+      "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n;\n    scanf(\"%d\", &n);\n    double x, suma = 0.0;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lf\", &x);\n        suma += x;\n    }\n    printf(\"%.2f\\n\", suma / n);\n    return 0;\n}\n",
+      "casos_prueba": [
+        { "entrada": "3\n8 9 10\n", "salida_esperada": "9.00\n", "oculto": false },
+        { "entrada": "2\n6 7\n", "salida_esperada": "6.50\n", "oculto": true }
+      ],
+      "pide_autoexplicacion": true,
+      "colaborativa": false,
+      "diseno": {
+        "paso_clt4bp": 5,
+        "componente": "tarea",
+        "efectos": [
+          { "id": "ejemplo_resuelto", "como": "Solución completa con cuatro pasos comentados." },
+          { "id": "atencion_dividida", "como": "Cada explicación va junto a su línea de código." },
+          { "id": "auto_explicacion", "como": "Se pide explicar el valor inicial del acumulador." }
+        ],
+        "interactividad": "baja",
+        "tiempo_estimado_min": 10,
+        "justificacion": "Grupo con poco conocimiento previo: la clase abre con un ejemplo resuelto.",
+        "advertencias": []
+      }
+    },
+    {
+      "uid": "tc1-t2",
+      "clase_uid": "tc1",
+      "orden": 2,
+      "titulo": "La calificación más alta",
+      "nivel_apoyo": "por_completar",
+      "enunciado_md": "El jefe de grupo quiere saber cuál fue la calificación más alta del examen. Completa los huecos para que el programa lea **n** calificaciones y muestre la mayor con un decimal.",
+      "arcs": {
+        "atencion": "¿Quién sacó la mejor nota? Tu programa lo sabrá antes que nadie.",
+        "relevancia": "Buscar el máximo es la base de rankings y reportes.",
+        "confianza": "Solo falta una línea: la estructura ya está hecha.",
+        "satisfaccion": "Con esto ya sabes recorrer, acumular y comparar."
+      },
+      "lenguaje": "c",
+      "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n;\n    scanf(\"%d\", &n);\n    double x, mayor;\n    scanf(\"%lf\", &mayor); /* El primer dato es el mayor hasta ahora */\n    for (int i = 1; i < n; i++) {\n        scanf(\"%lf\", &x);\n        /* HUECO 1: si x supera a mayor, actualiza mayor */\n    }\n    printf(\"%.1f\\n\", mayor);\n    return 0;\n}\n",
+      "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n;\n    scanf(\"%d\", &n);\n    double x, mayor;\n    scanf(\"%lf\", &mayor);\n    for (int i = 1; i < n; i++) {\n        scanf(\"%lf\", &x);\n        if (x > mayor) mayor = x;\n    }\n    printf(\"%.1f\\n\", mayor);\n    return 0;\n}\n",
+      "casos_prueba": [
+        { "entrada": "4\n7 9.5 8 6\n", "salida_esperada": "9.5\n", "oculto": false },
+        { "entrada": "3\n5 5 5\n", "salida_esperada": "5.0\n", "oculto": true }
+      ],
+      "pide_autoexplicacion": false,
+      "colaborativa": false,
+      "diseno": {
+        "paso_clt4bp": 5,
+        "componente": "tarea",
+        "efectos": [
+          { "id": "problema_completar", "como": "Un hueco en la comparación; el resto del recorrido ya está." },
+          { "id": "desvanecimiento_guia", "como": "Segunda tarea de la clase: menos apoyo que el ejemplo." }
+        ],
+        "interactividad": "media",
+        "tiempo_estimado_min": 15,
+        "justificacion": "Transición del ejemplo resuelto al problema convencional.",
+        "advertencias": []
+      }
+    },
+    {
+      "uid": "tc1-t3",
+      "clase_uid": "tc1",
+      "orden": 3,
+      "titulo": "¿Cuántos aprobaron?",
+      "nivel_apoyo": "convencional",
+      "enunciado_md": "La dirección necesita saber cuántos estudiantes aprobaron (calificación de 6 o más). Escribe un programa que lea **n** y después **n** calificaciones, y muestre cuántas son aprobatorias.",
+      "arcs": {
+        "atencion": "Adivina: ¿aprobó más de la mitad?",
+        "relevancia": "Los reportes de aprovechamiento empiezan con este conteo.",
+        "confianza": "Usa el mismo recorrido de las dos tareas anteriores.",
+        "satisfaccion": "Resolviste tu primer problema sin ayuda."
+      },
+      "lenguaje": "c",
+      "codigo_inicial": "",
+      "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n, aprobados = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double x;\n        scanf(\"%lf\", &x);\n        if (x >= 6.0) aprobados++;\n    }\n    printf(\"%d\\n\", aprobados);\n    return 0;\n}\n",
+      "casos_prueba": [
+        { "entrada": "5\n5 6 7 9 4\n", "salida_esperada": "3\n", "oculto": false },
+        { "entrada": "3\n6 6 5.9\n", "salida_esperada": "2\n", "oculto": true }
+      ],
+      "pide_autoexplicacion": false,
+      "colaborativa": true,
+      "diseno": {
+        "paso_clt4bp": 5,
+        "componente": "tarea",
+        "efectos": [
+          { "id": "desvanecimiento_guia", "como": "Problema convencional: sin código inicial." },
+          { "id": "memoria_colectiva", "como": "Se resuelve en pareja y se discute en el foro de la tarea." }
+        ],
+        "interactividad": "media",
+        "tiempo_estimado_min": 20,
+        "justificacion": "Cierre de la clase sin apoyo.",
+        "advertencias": []
+      }
+    }
+  ],
+  "soporte": [
+    {
+      "uid": "tc1-s1",
+      "clase_uid": "tc1",
+      "tipo": "sap",
+      "titulo": "Cómo recorrer una lista de datos",
+      "cuerpo_md": "Todo recorrido sigue los mismos pasos:\n\n1. Lee cuántos datos vienen.\n2. Prepara la variable que guarda el resultado (acumulador, máximo o contador).\n3. Repite: lee un dato y actualiza el resultado.\n4. Muestra el resultado.\n\n```mermaid\nflowchart LR\n  A[Leer n] --> B[Preparar resultado] --> C{¿Quedan datos?}\n  C -- sí --> D[Leer y actualizar] --> C\n  C -- no --> E[Mostrar]\n```",
+      "diseno": {
+        "paso_clt4bp": 6,
+        "componente": "soporte",
+        "efectos": [{ "id": "modalidad", "como": "El diagrama se explica con narración en el video de la clase." }],
+        "interactividad": "baja",
+        "tiempo_estimado_min": 10,
+        "justificacion": "Enfoque sistemático de solución para toda la clase.",
+        "advertencias": []
+      }
+    }
+  ],
+  "procedimental": [
+    {
+      "uid": "tc1-t2-p1",
+      "tarea_uid": "tc1-t2",
+      "tipo": "ficha_sintaxis",
+      "titulo": "if dentro de un for",
+      "cuerpo_md": "```c\nfor (int i = 1; i < n; i++) {\n    scanf(\"%lf\", &x);\n    if (x > mayor) mayor = x; /* compara y actualiza */\n}\n```",
+      "diseno": {
+        "paso_clt4bp": 7,
+        "componente": "procedimental",
+        "efectos": [{ "id": "atencion_dividida", "como": "La regla aparece junto al código que la usa." }],
+        "interactividad": "baja",
+        "tiempo_estimado_min": 2,
+        "justificacion": "Ayuda justo a tiempo para el único hueco de la tarea.",
+        "advertencias": []
+      }
+    }
+  ],
+  "practica_parcial": [],
+  "variantes": [
+    {
+      "uid": "tc1-t1-G2",
+      "elemento_uid": "tc1-t1",
+      "grupo_clave": "G2",
+      "cambios": {
+        "nivel_apoyo": "por_completar",
+        "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n;\n    scanf(\"%d\", &n);\n    double x, suma = /* HUECO 1: valor inicial del acumulador */;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lf\", &x);\n        /* HUECO 2: acumula x */\n    }\n    printf(\"%.2f\\n\", suma / n);\n    return 0;\n}\n",
+        "pide_autoexplicacion": false
+      },
+      "diferenciacion": {
+        "dimensiones": ["proceso"],
+        "razon": "Ruta B ya domina los ciclos: el ejemplo resuelto sería redundante (reversión de la experiencia)."
+      }
+    }
+  ],
+  "medios": []
+}

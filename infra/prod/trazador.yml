@@ -1,0 +1,35 @@
+# /opt/clt4bp-trazador/compose.yml — trazador de CLT4BP en producción (pasos reales de las trazas de código, con gdb).
+# Se construye desde la versión desplegada; tras cambiar services/trazador, como root:
+#   docker compose -f /opt/clt4bp-trazador/compose.yml up -d --build
+# Ejecuta código no confiable: sin privilegios, sistema de archivos de solo lectura y límites de memoria y procesos.
+# A diferencia de Piston no corta la red por sí mismo: bloquea las conexiones salientes de su subred con
+#   iptables -I DOCKER-USER -s 172.29.10.0/24 -m conntrack ! --ctstate ESTABLISHED,RELATED -j DROP
+# y hazlo persistente (netfilter-persistent save). Ver docs/despliegue.md.
+name: clt4bp-trazador
+
+services:
+  trazador:
+    build: /srv/clt4bp/current/services/trazador
+    image: clt4bp-trazador
+    container_name: clt4bp-trazador
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:2010:2010" # solo lo llama el agente
+    environment:
+      TRAZA_MAX_PASOS: "300"
+      TRAZA_SIMULTANEAS: "4"
+    read_only: true
+    tmpfs:
+      - /tmp:exec,size=64m
+    mem_limit: 768m
+    pids_limit: 128
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    networks: [trazador]
+
+networks:
+  trazador:
+    ipam:
+      config:
+        - subnet: 172.29.10.0/24 # fija, para la regla de iptables que corta su salida a internet

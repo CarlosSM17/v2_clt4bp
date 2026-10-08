@@ -1,0 +1,10 @@
+node_modules
+dist
+out
+.DS_Store
+.eslintcache
+*.tsbuildinfo
+*.log*
+
+# .env.production no lleva secretos (solo la URL pública del servidor, Etapa 7): sí se versiona
+!.env.production

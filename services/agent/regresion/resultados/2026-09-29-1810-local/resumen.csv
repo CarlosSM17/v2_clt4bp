@@ -1,0 +1,5 @@
+caso,plantilla,modelo,prompt,intentos,bloqueantes,avisos,elementos,costo_usd,segundos,tokens_cache_lectura
+01-clase-condicionales-basico,clase_tareas,ollama:qwen3:4b,sistema-v3,3,2,0,6,0.0,222.1,0
+02-ayudas-tarea-por-completar,info_procedimental,ollama:qwen3:4b,sistema-v3,1,0,0,3,0.0,19.9,0
+07-objetivos-funciones-cpp,objetivos,ollama:qwen3:4b,sistema-v3,1,0,0,1,0.0,4.0,0
+13-info-soporte-modelo-mental,info_soporte,ollama:qwen3:4b,sistema-v3,1,0,0,1,0.0,13.9,0

@@ -1,0 +1,16 @@
+{
+  "descripcion": "Preselección de efectos para un grupo avanzado.",
+  "solicitud": {
+    "plantilla": "preseleccion",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "universidad"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [
+      {"clave": "G3", "nombre": "Ruta C", "nivel": "avanzado",
+        "resumen": {"n": 12, "nivel_modal": "avanzado", "media": {"autoeficacia": 6.2, "ansiedad": 2.4, "metacognicion": 6.0},
+                    "proporcion": {"baja_autoeficacia": 0.0, "alta_ansiedad": 0.0, "baja_autorregulacion": 0.0}},
+        "efectos_sugeridos": ["solucion_libre", "imaginacion"]}
+    ],
+    "alcance": {"prefijo": "reg10", "grupo_clave": "G3"},
+    "indicaciones": ""
+  }
+}

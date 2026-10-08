@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/tarea.schema.json",
+  "title": "Tarea",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "clase_uid", "orden", "titulo", "nivel_apoyo", "enunciado_md", "arcs", "lenguaje",
+               "codigo_inicial", "solucion", "casos_prueba", "pide_autoexplicacion", "colaborativa", "diseno"],
+  "properties": {
+    "uid": { "type": "string" },
+    "clase_uid": { "type": "string" },
+    "orden": { "type": "integer", "minimum": 1 },
+    "titulo": { "type": "string" },
+    "nivel_apoyo": { "$ref": "comunes.schema.json#/$defs/NivelApoyo" },
+    "enunciado_md": { "type": "string", "description": "Enunciado en Markdown, con el escenario auténtico." },
+    "arcs": { "$ref": "comunes.schema.json#/$defs/Arcs" },
+    "lenguaje": { "$ref": "comunes.schema.json#/$defs/Lenguaje" },
+    "codigo_inicial": { "type": "string", "description": "Vacío en convencional; solución comentada en ejemplo resuelto; con huecos '/* HUECO n: ... */' en por completar." },
+    "solucion": { "type": "string", "description": "Solución de referencia completa; debe pasar todos los casos de prueba." },
+    "casos_prueba": { "type": "array", "items": { "$ref": "comunes.schema.json#/$defs/CasoPrueba" } },
+    "pide_autoexplicacion": { "type": "boolean" },
+    "colaborativa": { "type": "boolean" },
+    "rutas": {
+      "type": "array", "items": { "type": "string", "pattern": "^G[0-9]+$" }, "default": [],
+      "description": "Grupos (rutas) que trabajan esta tarea; vacío = todos. El estudiante solo ve las tareas de su ruta."
+    },
+    "diseno": { "$ref": "comunes.schema.json#/$defs/Diseno" }
+  }
+}

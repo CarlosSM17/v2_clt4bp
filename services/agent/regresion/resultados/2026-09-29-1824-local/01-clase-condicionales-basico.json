@@ -1,0 +1,270 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg01-tc",
+        "titulo": "Ventas diarias en una tienda escolar",
+        "descripcion_complejidad": "Clase de tareas para calcular estadísticas de ventas en una tienda escolar",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Se aplica para estudiantes con poco conocimiento previo: el ejemplo resuelto muestra cómo recorrer una lista de ventas y calcular el promedio, con explicación detallada del acumulador."
+            },
+            {
+              "id": "problema_completar",
+              "como": "Se aplica para estudiantes con conocimiento intermedio: el problema por completar requiere completar los huecos en el código para calcular la calificación más alta, manteniendo la guía mínima."
+            },
+            {
+              "id": "variabilidad",
+              "como": "Se aplica para mantener la carga cognitiva baja: las tareas varían en contexto (ventas de diferentes productos) y datos (números aleatorios), pero mantienen la estructura de recorrer listas."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 25,
+          "justificacion": "Los grupos tienen niveles básicos y alta ansiedad, por lo que se prioriza la explicación detallada y el desvanecimiento gradual de la guía. La variabilidad en contextos (ventas escolares) ayuda a aplicar los conocimientos sin sobrecargar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t1",
+        "clase_uid": "reg01-tc",
+        "orden": 1,
+        "titulo": "Promedio de ventas por producto",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La administración de la tienda escolar necesita el promedio de ventas por producto. El programa lee **n** y después **n** ventas (cada venta es un producto y su precio), y muestra el promedio con dos decimales. Estudia la solución y explica por qué el acumulador empieza en cero.",
+        "arcs": {
+          "atencion": "El contexto de una tienda escolar es relevante y cercano a los estudiantes, generando interés inmediato.",
+          "relevancia": "Calcular el promedio de ventas es una tarea práctica para la administración, vinculada a su experiencia diaria.",
+          "confianza": "El ejemplo resuelto muestra una solución clara y sencilla, permitiendo que los estudiantes confíen en el proceso.",
+          "satisfaccion": "Al finalizar, el estudiante obtiene una respuesta numérica con dos decimales, que es inmediatamente útil para la toma de decisiones."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double total = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        int producto;\n        double precio;\n        scanf(\"%d %lf\", &producto, &precio);\n        total += precio;\n    }\n    printf(\"%.2f\\n\", total / n);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double total = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        int producto;\n        double precio;\n        scanf(\"%d %lf\", &producto, &precio);\n        total += precio;\n    }\n    printf(\"%.2f\\n\", total / n);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n1 10.5\n2 20.0",
+            "salida_esperada": "15.25",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n3 5.0\n4 10.0\n5 15.0",
+            "salida_esperada": "10.00",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n10 100.0",
+            "salida_esperada": "100.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Se aplica para estudiantes con poco conocimiento previo: el ejemplo resuelto muestra cómo recorrer una lista de ventas y calcular el promedio, con explicación detallada del acumulador."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 10,
+          "justificacion": "El grupo tiene niveles básicos y alta ansiedad, por lo que se prioriza la explicación detallada y el desvanecimiento gradual de la guía. El ejemplo resuelto ayuda a liberar la memoria de trabajo al mostrar la solución completa.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t2",
+        "clase_uid": "reg01-tc",
+        "orden": 2,
+        "titulo": "Venta más alta del día",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El gerente quiere saber cuál fue la venta más alta del día. Completa los huecos para que el programa lea **n** ventas (cada venta es un producto y su precio) y muestre el precio más alto con dos decimales.",
+        "arcs": {
+          "atencion": "El contexto de una venta alta es relevante para la toma de decisiones del gerente, generando interés inmediato.",
+          "relevancia": "Identificar la venta más alta ayuda a priorizar productos en alta demanda, vinculada a la experiencia del gerente.",
+          "confianza": "El problema por completar tiene una guía mínima, permitiendo que los estudiantes confíen en el proceso sin sobrecarga.",
+          "satisfaccion": "Al finalizar, el estudiante obtiene un precio específico con dos decimales, que es inmediatamente útil para la toma de decisiones."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double maximo = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        int producto;\n        double precio;\n        scanf(\"%d %lf\", &producto, &precio);\n        /* HUECO 1: ¿Cómo actualizamos maximo? */\n        /* HUECO 2: ¿Qué condición usamos para actualizar maximo? */\n    }\n    printf(\"%.2f\\n\", maximo);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double maximo = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        int producto;\n        double precio;\n        scanf(\"%d %lf\", &producto, &precio);\n        if (precio > maximo) {\n            maximo = precio;\n        }\n    }\n    printf(\"%.2f\\n\", maximo);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n1 10.5\n2 20.0",
+            "salida_esperada": "20.00",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n3 5.0\n4 10.0\n5 15.0",
+            "salida_esperada": "15.00",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n10 100.0",
+            "salida_esperada": "100.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "problema_completar",
+              "como": "Se aplica para estudiantes con conocimiento intermedio: el problema por completar requiere completar los huecos en el código para calcular la calificación más alta, manteniendo la guía mínima."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "El grupo tiene niveles básicos y alta ansiedad, por lo que se prioriza la guía mínima para evitar sobrecarga. El problema por completar ayuda a mantener la carga cognitiva baja mientras se introduce la lógica de comparación.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t3",
+        "clase_uid": "reg01-tc",
+        "orden": 3,
+        "titulo": "Ventas por producto",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La tienda necesita saber cuántos productos se vendieron en cada categoría (categorías: 'A', 'B', 'C'). Escribe un programa que lea **n** ventas (cada venta es un producto y su precio) y muestre cuántos productos de cada categoría se vendieron.",
+        "arcs": {
+          "atencion": "El contexto de categorías de productos es relevante para la gestión de inventario, generando interés en la toma de decisiones.",
+          "relevancia": "Contabilizar ventas por categoría ayuda a optimizar el inventario y las decisiones de compra, vinculada a la experiencia de la tienda.",
+          "confianza": "El problema convencional requiere que el estudiante aplique los conocimientos sin guía, permitiendo que confíe en su capacidad de resolver problemas complejos.",
+          "satisfaccion": "Al finalizar, el estudiante obtiene un reporte detallado por categorías, que es inmediatamente útil para la toma de decisiones."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int ventasA = 0, ventasB = 0, ventasC = 0;\n    for (int i = 0; i < n; i++) {\n        int producto;\n        double precio;\n        scanf(\"%d %lf\", &producto, &precio);\n        // ¿Cómo identificar la categoría del producto?\n    }\n    printf(\"Ventas por categoria:\\nA: %d\\nB: %d\\nC: %d\\n\", ventasA, ventasB, ventasC);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int ventasA = 0, ventasB = 0, ventasC = 0;\n    for (int i = 0; i < n; i++) {\n        int producto;\n        double precio;\n        scanf(\"%d %lf\", &producto, &precio);\n        if (producto == 1) {\n            ventasA++;\n        } else if (producto == 2) {\n            ventasB++;\n        } else if (producto == 3) {\n            ventasC++;\n        }\n    }\n    printf(\"Ventas por categoria:\\nA: %d\\nB: %d\\nC: %d\\n\", ventasA, ventasB, ventasC);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n1 10.5\n2 20.0\n3 15.0",
+            "salida_esperada": "Ventas por categoria:\nA: 1\nB: 1\nC: 1",
+            "oculto": false
+          },
+          {
+            "entrada": "4\n1 10.5\n1 20.0\n2 15.0\n3 10.0",
+            "salida_esperada": "Ventas por categoria:\nA: 2\nB: 1\nC: 1",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n1 100.0\n3 50.0",
+            "salida_esperada": "Ventas por categoria:\nA: 1\nB: 0\nC: 1",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Se aplica para mantener la carga cognitiva baja: las tareas varían en contexto (ventas escolares) y datos (números aleatorios), pero mantienen la estructura de recorrer listas."
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 20,
+          "justificacion": "El grupo tiene niveles básicos y alta ansiedad, por lo que se prioriza la variabilidad en contextos para aplicar los conocimientos sin sobrecargar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg01-tc-s1",
+        "clase_uid": "reg01-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Modelo mental para recorrer listas de ventas",
+        "cuerpo_md": "Para calcular estadísticas de ventas, sigue estos pasos:\n1. Lee el número de ventas.\n2. Recorre cada venta: lee el producto y su precio.\n3. Aplica la lógica para calcular la estadística deseada (promedio, máximo, conteo por categoría).",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Se aplica para estudiantes con poco conocimiento previo: primero se explican los elementos por separado (leer ventas, recorrer listas) y después se integran."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Los estudiantes tienen alta ansiedad y baja autoeficacia, por lo que se prioriza la explicación detallada y el desvanecimiento gradual de la guía.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p1",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "protocolo_verbal",
+        "titulo": "Modelado experto: cómo actualizar el máximo",
+        "cuerpo_md": "Para actualizar el máximo en el código:\n- Inicia con `maximo = 0.0`.\n- Para cada venta, compara el precio con `maximo`.\n- Si el precio es mayor, actualiza `maximo` con el nuevo precio.",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "Se aplica para estudiantes con poco conocimiento previo: el modelado experto muestra cómo actualizar el máximo paso a paso, facilitando la comprensión."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "Los estudiantes tienen alta ansiedad, por lo que se prioriza el modelado experto para reducir la carga cognitiva.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "«Ventas por producto»: se marcó como oculto el último caso de prueba (un problema sin apoyo necesita uno)."
+  ],
+  "validaciones": [
+    {
+      "nombre": "validaciones",
+      "ok": true,
+      "bloqueante": true,
+      "detalle": "Sin problemas.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 1,
+  "uso": {
+    "entrada": 4299,
+    "salida": 3902,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 86368
+}

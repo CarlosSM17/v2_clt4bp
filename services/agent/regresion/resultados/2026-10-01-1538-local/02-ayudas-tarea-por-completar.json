@@ -1,0 +1,101 @@
+{
+  "plantilla": "info_procedimental",
+  "elementos": [
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg02-p1",
+        "tarea_uid": "tc1-t3",
+        "tipo": "ficha_sintaxis",
+        "titulo": "Sintaxis para leer y acumular",
+        "cuerpo_md": "```c\nint n;\nint calificacion;\nint total = 0;\nwhile (scanf(\"%d\", &n) == 1) {\n  scanf(\"%d\", &calificacion);\n  total += calificacion;\n}\n```",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar la sintaxis de la lectura y acumulación separadamente para reducir la carga intrínseca"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 2,
+          "justificacion": "La tarea requiere leer y acumular calificaciones, y la sintaxis es crítica para evitar errores en la lectura y acumulación. Presentarla separadamente ayuda a los estudiantes a entender cada parte sin saturar su memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg02-p2",
+        "tarea_uid": "tc1-t3",
+        "tipo": "ejemplo_isomorfico",
+        "titulo": "Ejemplo isomórfico: Promedio de precios",
+        "cuerpo_md": "```c\nint n;\nint precio;\nfloat total = 0;\nwhile (scanf(\"%d\", &n) == 1) {\n  scanf(\"%d\", &precio);\n  total += precio;\n}\nprintf(\"%.2f\", total / n);\n```",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Usar un ejemplo isomórfico con datos diferentes (precios en lugar de calificaciones) para variar el contexto sin cambiar la estructura"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 1,
+          "justificacion": "El ejemplo isomórfico muestra la misma estructura de lectura y acumulación pero con un contexto diferente (precios), ayudando a los estudiantes a aplicar la sintaxis a situaciones nuevas sin repetir la lógica.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg02-p3",
+        "tarea_uid": "tc1-t3",
+        "tipo": "guia_preguntas",
+        "titulo": "Guía de preguntas para la tarea",
+        "cuerpo_md": "1. ¿Qué variable necesitas para contar cuántos aprobaron?\n2. ¿Cómo leerías la calificación de un estudiante?\n3. ¿Qué operación usas para saber si una calificación es aprobatoria?\n4. ¿Cómo acumularías las calificaciones aprobatorias?",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_explicacion",
+              "como": "Las preguntas guían al estudiante a explicarse a sí mismo el proceso, mejorando la comprensión y transferencia"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 1,
+          "justificacion": "Las preguntas específicas ayudan al estudiante a reflexionar sobre cada paso, fomentando la autoexplicación y la transferencia del conocimiento a nuevas situaciones.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "Quedaron 1 problemas sin resolver después de 3 intentos: revísalos antes de aceptar."
+  ],
+  "validaciones": [
+    {
+      "nombre": "ejemplo_con_traza",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "Ejemplo isomórfico: Promedio de precios: un ejemplo isomórfico lleva una traza paso a paso (bloque ```traza) con su código, la entrada y lo que imprime cada paso.",
+      "elemento_uid": "reg02-p2"
+    }
+  ],
+  "intentos": 3,
+  "uso": {
+    "entrada": 16819,
+    "salida": 2667,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v6",
+  "duracion_ms": 47409
+}

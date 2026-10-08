@@ -1,0 +1,21 @@
+# /etc/systemd/system/clt4bp-agente.service — servicio del agente (FastAPI), solo en 127.0.0.1
+[Unit]
+Description=CLT4BP - agente de diseño y estadísticos
+After=network-online.target docker.service ollama.service
+Wants=network-online.target ollama.service
+
+[Service]
+User=deploy
+Group=deploy
+WorkingDirectory=/srv/clt4bp/current/services/agent
+EnvironmentFile=/srv/clt4bp/shared/agente.env
+ExecStart=/srv/clt4bp/current/services/agent/.venv/bin/fastapi run app/main.py --host 127.0.0.1 --port 8100 --workers 2
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target

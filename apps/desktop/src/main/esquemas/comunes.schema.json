@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/comunes.schema.json",
+  "title": "Comunes",
+  "$defs": {
+    "EfectoId": {
+      "title": "EfectoId",
+      "description": "Identificador de uno de los 17 efectos de la TCC usados por CLT4BP.",
+      "type": "string",
+      "enum": [
+        "ejemplo_resuelto", "problema_completar", "modalidad", "variabilidad",
+        "elementos_aislados", "redundancia", "atencion_dividida", "informacion_transitoria",
+        "interactividad_elementos", "movimiento_humano", "auto_gestion", "auto_explicacion",
+        "imaginacion", "solucion_libre", "memoria_colectiva", "desvanecimiento_guia",
+        "reversion_experiencia"
+      ]
+    },
+    "Componente": { "title": "Componente", "type": "string",
+      "enum": ["tarea", "soporte", "procedimental", "practica_parcial", "evaluacion"] },
+    "NivelApoyo": { "title": "NivelApoyo", "type": "string",
+      "enum": ["ejemplo_resuelto", "por_completar", "convencional", "solucion_libre"] },
+    "Interactividad": { "title": "Interactividad", "type": "string", "enum": ["baja", "media", "alta"] },
+    "Lenguaje": { "title": "Lenguaje", "type": "string", "enum": ["c", "cpp", "python"] },
+    "EfectoAplicado": {
+      "title": "EfectoAplicado", "type": "object", "additionalProperties": false,
+      "required": ["id", "como"],
+      "properties": {
+        "id": { "$ref": "#/$defs/EfectoId" },
+        "como": { "type": "string", "description": "Una frase: cómo se aplicó el efecto." }
+      }
+    },
+    "Arcs": {
+      "title": "Arcs", "type": "object", "additionalProperties": false,
+      "required": ["atencion", "relevancia", "confianza", "satisfaccion"],
+      "properties": {
+        "atencion": { "type": "string" }, "relevancia": { "type": "string" },
+        "confianza": { "type": "string" }, "satisfaccion": { "type": "string" }
+      }
+    },
+    "Diseno": {
+      "title": "Diseno",
+      "description": "Metadatos de diseño que acompañan a todo elemento del curso.",
+      "type": "object", "additionalProperties": false,
+      "required": ["paso_clt4bp", "componente", "efectos", "interactividad", "tiempo_estimado_min", "justificacion", "advertencias"],
+      "properties": {
+        "paso_clt4bp": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "componente": { "$ref": "#/$defs/Componente" },
+        "efectos": { "type": "array", "items": { "$ref": "#/$defs/EfectoAplicado" } },
+        "interactividad": { "$ref": "#/$defs/Interactividad" },
+        "tiempo_estimado_min": { "type": "integer", "minimum": 1 },
+        "justificacion": { "type": "string" },
+        "advertencias": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "CasoPrueba": {
+      "title": "CasoPrueba", "type": "object", "additionalProperties": false,
+      "required": ["entrada", "salida_esperada", "oculto"],
+      "properties": {
+        "entrada": { "type": "string", "description": "Texto que recibe el programa por stdin." },
+        "salida_esperada": { "type": "string" },
+        "oculto": { "type": "boolean" }
+      }
+    }
+  }
+}

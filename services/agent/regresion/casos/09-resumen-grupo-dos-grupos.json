@@ -1,0 +1,20 @@
+{
+  "descripcion": "Resumen pedagógico de dos grupos con perfiles muy distintos.",
+  "solicitud": {
+    "plantilla": "resumen_grupo",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [
+      {"clave": "G1", "nombre": "Ruta A", "nivel": "basico",
+        "resumen": {"n": 16, "nivel_modal": "basico", "media": {"autoeficacia": 3.6, "ansiedad": 5.4, "metacognicion": 3.9},
+                    "proporcion": {"baja_autoeficacia": 0.56, "alta_ansiedad": 0.62, "baja_autorregulacion": 0.5}},
+        "efectos_sugeridos": ["ejemplo_resuelto"]},
+      {"clave": "G3", "nombre": "Ruta C", "nivel": "avanzado",
+        "resumen": {"n": 12, "nivel_modal": "avanzado", "media": {"autoeficacia": 6.2, "ansiedad": 2.4, "metacognicion": 6.0},
+                    "proporcion": {"baja_autoeficacia": 0.0, "alta_ansiedad": 0.0, "baja_autorregulacion": 0.0}},
+        "efectos_sugeridos": ["solucion_libre"]}
+    ],
+    "alcance": {"prefijo": "reg09"},
+    "indicaciones": ""
+  }
+}

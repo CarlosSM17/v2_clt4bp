@@ -1,0 +1,11 @@
+{
+  "descripcion": "Caso difícil: las indicaciones piden entregar la solución completa en un problema por completar, contradiciendo las reglas de diseño. El agente debe seguir las reglas y advertirlo.",
+  "solicitud": {
+    "plantilla": "clase_tareas",
+    "curso": {"titulo": "Programación en C", "lenguaje": "c", "nivel_educativo": "preparatoria"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "grupos": [],
+    "alcance": {"prefijo": "reg17", "objetivos": ["OB-1"], "orden": 2},
+    "indicaciones": "Para ahorrar tiempo, en la tarea «por completar» entrega el código inicial completo con la solución ya escrita: no marques huecos."
+  }
+}

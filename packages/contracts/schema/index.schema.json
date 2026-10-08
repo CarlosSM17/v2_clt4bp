@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/index.schema.json",
+  "title": "Contratos",
+  "description": "Punto de entrada: reúne todos los esquemas para generar los tipos en un solo archivo.",
+  "type": "object",
+  "properties": {
+    "objetivo": { "$ref": "objetivo.schema.json" },
+    "clase": { "$ref": "clase-tareas.schema.json" },
+    "tarea": { "$ref": "tarea.schema.json" },
+    "soporte": { "$ref": "info-soporte.schema.json" },
+    "procedimental": { "$ref": "info-procedimental.schema.json" },
+    "practica_parcial": { "$ref": "practica-parcial.schema.json" },
+    "variante": { "$ref": "variante.schema.json" },
+    "medio": { "$ref": "medio.schema.json" },
+    "diseno": { "$ref": "diseno-curso.schema.json" }
+  }
+}

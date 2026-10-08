@@ -1,0 +1,73 @@
+{
+  "name": "clt4bp-consola",
+  "version": "1.0.0",
+  "description": "Consola del instructor de CLT4BP",
+  "main": "./out/main/index.js",
+  "author": "CLT4BP",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint --cache .",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@codemirror/lang-cpp": "^6.0.3",
+    "@codemirror/lang-markdown": "^6.5.2",
+    "@codemirror/lang-python": "^6.2.1",
+    "@electron-toolkit/preload": "^3.0.2",
+    "@electron-toolkit/utils": "^4.0.0",
+    "ajv": "^8.20.0",
+    "codemirror": "^6.0.2",
+    "dompurify": "^3.4.16",
+    "electron-updater": "^6.8.9",
+    "fix-webm-duration": "^1.0.6",
+    "highlight.js": "^11.12.0",
+    "markdown-it": "^15.0.2",
+    "mermaid": "^12.0.0",
+    "pinia": "^4.0.3",
+    "vue-codemirror": "^6.1.1",
+    "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config-prettier": "3.0.0",
+    "@electron-toolkit/eslint-config-ts": "^3.1.0",
+    "@electron-toolkit/tsconfig": "^2.0.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/dompurify": "^3.0.5",
+    "@types/markdown-it": "^14.2.0",
+    "@types/node": "^22.19.1",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^5.0.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.6.2",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.6",
+    "vitest": "^5.0.2",
+    "vue": "^3.5.25",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "^3.1.6"
+  },
+  "allowScripts": {
+    "electron@44.4.5": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true,
+    "electron-winstaller": false
+  },
+  "overrides": {
+    "lodash-es": "^4.18.1"
+  }
+}

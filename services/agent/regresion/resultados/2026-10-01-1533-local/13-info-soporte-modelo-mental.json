@@ -1,0 +1,115 @@
+{
+  "plantilla": "info_soporte",
+  "elementos": [
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg13-s1",
+        "clase_uid": "tc1",
+        "tipo": "modelo_mental",
+        "titulo": "Enfoque sistemático para recorrer listas",
+        "cuerpo_md": "El enfoque sistemático para recorrer listas de datos en C se basa en tres pasos clave:\n\n1. **Definir el estado inicial**\n   - Inicializar acumuladores (ej: `suma = 0`) y índices (ej: `i = 0`)\n   - Establecer el número de elementos a procesar (`n`)\n\n2. **Iterar con un ciclo**\n   - Usar `for` para recorrer los datos\n   - Actualizar el estado en cada iteración (ej: `suma += x`)\n\n3. **Procesar el resultado final**\n   - Imprimir el valor acumulado o el estado final\n\n**Diagrama de flujo**:\n\n```mermaid\nflowchart TD\n  A[\"n = 3\"] --> B{\"¿i < n?\"}\n  B -- \"sí\" --> C[\"x = 10, i = 0\"] --> D[\"suma += x\"] --> B\n  B -- \"sí\" --> E[\"x = 20, i = 1\"] --> F[\"suma += x\"] --> B\n  B -- \"sí\" --> G[\"x = 30, i = 2\"] --> H[\"suma += x\"] --> B\n  B -- \"no\" --> I[\"imprimir suma\"]\n```\n\n**Explicación**:\n- `n` es el número de elementos a leer\n- `i` es el índice que avanza en la lista\n- `suma` acumula los valores\n- Al final, se imprime el total",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplica gradualmente: ejemplo resuelto → problema por completar → problema convencional"
+            },
+            {
+              "id": "movimiento_humano",
+              "como": "Se muestra al experto ejecutando el ciclo para ilustrar la secuencia"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El enfoque sistemático es clave para recorrer listas. El diagrama simplifica la explicación y evita la redundancia al no repetir los pasos en texto. Se usa el desvanecimiento de la guía para mantener el apoyo progresivo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg13-s2",
+        "clase_uid": "tc1",
+        "tipo": "modelo_mental",
+        "titulo": "Ejemplo de recorrido con números",
+        "cuerpo_md": "Ejemplo de cómo recorrer una lista de 3 números:\n\n```mermaid\nflowchart TD\n  A[\"n = 3\"] --> B{\"¿i < n?\"}\n  B -- \"sí\" --> C[\"x = 10, i = 0\"] --> D[\"suma += x\"] --> B\n  B -- \"sí\" --> E[\"x = 20, i = 1\"] --> F[\"suma += x\"] --> B\n  B -- \"sí\" --> G[\"x = 30, i = 2\"] --> H[\"suma += x\"] --> I[\"imprimir suma\"]\n  B -- \"no\" --> I\n```\n\n**Explicación**:\n- `n` es el número de elementos a leer\n- `i` es el índice que avanza en la lista\n- `suma` acumula los valores\n- Al final, se imprime el total",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "Se muestra al experto ejecutando el ciclo con un ejemplo concreto"
+            },
+            {
+              "id": "atencion_dividida",
+              "como": "Se integra el diagrama con la explicación para evitar que el estudiante se centre solo en texto"
+            },
+            {
+              "id": "redundancia",
+              "como": "Se evita repetir la explicación en texto y diagrama"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El diagrama Mermaid reduce la carga cognitiva al visualizar el flujo sin texto redundante. El ejemplo concreto ayuda a entender cómo se actualiza el estado en cada iteración.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg13-s3",
+        "clase_uid": "tc1",
+        "tipo": "guion_video",
+        "titulo": "Modelado experto: recorriendo listas",
+        "cuerpo_md": "Video de 2 minutos: el experto explica cómo recorrer listas de datos en C\n\n**Contenido**:\n1. Inicia con un ejemplo de recorrido de 3 números\n2. Muestra cómo inicializar `n` y `suma`\n3. Explica el ciclo `for` y la actualización de `suma`\n4. Finaliza con la impresión del resultado\n\n**Notas**:\n- Usa lenguaje sencillo y evita tecnicismos\n- Muestra el código en la consola en tiempo real\n- Incluye una pausa para que el estudiante reflexione",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "El experto muestra cómo escribir y ejecutar código en tiempo real"
+            },
+            {
+              "id": "modalidad",
+              "como": "Se usa narración en audio para explicar el proceso, evitando texto en pantalla"
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 2,
+          "justificacion": "El video muestra el proceso de recorrido en acción, ayudando a los estudiantes a visualizar cómo se actualiza el estado. La narración en audio evita la atención dividida y la redundancia.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [],
+  "validaciones": [
+    {
+      "nombre": "validaciones",
+      "ok": true,
+      "bloqueante": true,
+      "detalle": "Sin problemas.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 2,
+  "uso": {
+    "entrada": 11336,
+    "salida": 2830,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v6",
+  "duracion_ms": 53355
+}

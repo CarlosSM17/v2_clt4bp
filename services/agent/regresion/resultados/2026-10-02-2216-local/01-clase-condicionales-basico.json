@@ -1,0 +1,424 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg01-tc",
+        "titulo": "Registrar ventas diarias",
+        "descripcion_complejidad": "Clase de tareas para registrar ventas diarias en C",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Ejemplo resuelto para estudiantes con poco conocimiento previo: explicación detallada del acumulador y el manejo de casos límite."
+            },
+            {
+              "id": "elementos_aislados",
+              "como": "Presentación de los elementos por separado (lectura de datos, acumulación) antes de integrarlos."
+            },
+            {
+              "id": "auto_explicacion",
+              "como": "Incentivo para explicar el razonamiento del acumulador en el ejemplo resuelto."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 25,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que se prioriza la explicación detallada y el desvanecimiento gradual de la guía. El ejemplo resuelto ayuda a liberar la memoria de trabajo, mientras que los elementos aislados y la autoexplicación fortalecen la comprensión.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t1",
+        "clase_uid": "reg01-tc",
+        "orden": 1,
+        "titulo": "Promedio de ventas diarias",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La dirección de la tienda necesita el promedio de ventas diarias. El programa lee **n** y después **n** ventas (cada venta es un número entero), y muestra el promedio con dos decimales. Estudia la solución y explica por qué el acumulador empieza en cero, especialmente en el caso de n = 0.\n\n### Ejecución paso a paso\n\nAvanza línea por línea y observa cómo cambian las variables y la salida.\n\n```traza\ntitulo: Promedio de ventas diarias\nlenguaje: c\nentrada: 0\n---\n#include <stdio.h>\n\nint main(void) {\n    int n, venta, suma = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        suma += venta;\n    }\n    if (n == 0) {\n        printf(\"0.00\\n\");\n    } else {\n        printf(\"%.2f\\n\", (float)suma / n);\n    }\n    return 0;\n}\n---\n{\"l\":4,\"f\":\"main\",\"v\":[],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736552474420,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"venta\",\"d\":140736552474416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140736552474428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736552474420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140736552474416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140736552474428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736552474420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140736552474416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140736552474428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736552474420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140736552474416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140736552474428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":15,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"0.00\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736552474420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140736552474416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140736552474428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140736552474420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140736552474416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140736552474428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```\n",
+        "arcs": {
+          "atencion": "¿Qué es un promedio y por qué es relevante para la tienda?",
+          "relevancia": "Ayudar a la dirección a tomar decisiones sobre el rendimiento diario",
+          "confianza": "El programa maneja casos límite (n = 0) sin errores",
+          "satisfaccion": "El promedio se muestra con dos decimales y se calcula correctamente"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n, venta, suma = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        suma += venta;\n    }\n    if (n == 0) {\n        printf(\"0.00\\n\");\n    } else {\n        printf(\"%.2f\\n\", (float)suma / n);\n    }\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n, venta, suma = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        suma += venta;\n    }\n    if (n == 0) {\n        printf(\"0.00\\n\");\n    } else {\n        printf(\"%.2f\\n\", (float)suma / n);\n    }\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "0",
+            "salida_esperada": "0.00",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n10\n20",
+            "salida_esperada": "15.00",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n100\n200\n300",
+            "salida_esperada": "200.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": true,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Ejemplo resuelto para estudiantes con poco conocimiento previo: explicación detallada del acumulador y el manejo de casos límite."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 10,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que se prioriza la explicación detallada y el desvanecimiento gradual de la guía. El ejemplo resuelto ayuda a liberar la memoria de trabajo, mientras que los elementos aislados y la autoexplicación fortalecen la comprensión.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t2",
+        "clase_uid": "reg01-tc",
+        "orden": 2,
+        "titulo": "Venta más alta del día",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El gerente quiere saber cuál fue la venta más alta del día. Completa los huecos para que el programa lea **n** ventas (cada venta es un número entero) y muestre la mayor con un decimal.",
+        "arcs": {
+          "atencion": "¿Qué es la venta más alta y por qué es relevante para el gerente?",
+          "relevancia": "Ayudar a identificar ventas excepcionales para mejorar la estrategia",
+          "confianza": "El programa maneja casos límite (n = 0) sin errores",
+          "satisfaccion": "La venta más alta se muestra con un decimal y se calcula correctamente"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n, venta, max = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        /* HUECO 1: Compara la venta actual con max */\n        /* HUECO 2: Actualiza max si es necesario */\n    }\n    if (n == 0) {\n        printf(\"0.0\\n\");\n    } else {\n        printf(\"%.1f\\n\", (float)max);\n    }\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n, venta, max = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        if (venta > max) {\n            max = venta;\n        }\n    }\n    if (n == 0) {\n        printf(\"0.0\\n\");\n    } else {\n        printf(\"%.1f\\n\", (float)max);\n    }\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "0",
+            "salida_esperada": "0.0",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n10\n20",
+            "salida_esperada": "20.0",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n100\n200\n300",
+            "salida_esperada": "300.0",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentación de los elementos por separado (lectura de datos, comparación) antes de integrarlos."
+            },
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Desvanecimiento gradual de la guía: el ejemplo resuelto (t1) se usa como base para completar los huecos en este problema."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 15,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que se prioriza la explicación detallada y el desvanecimiento gradual de la guía. Los elementos aislados y la autoexplicación fortalecen la comprensión.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg01-tc-t3",
+        "clase_uid": "reg01-tc",
+        "orden": 3,
+        "titulo": "Ventas por día",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La tienda necesita saber cuántas ventas diarias son mayores que 100. Escribe un programa que lea **n** y después **n** ventas (cada venta es un número entero) y muestre cuántas son mayores que 100.",
+        "arcs": {
+          "atencion": "¿Qué es una venta mayor que 100 y por qué es relevante para la tienda?",
+          "relevancia": "Identificar ventas excepcionales para optimizar el inventario",
+          "confianza": "El programa maneja casos límite (n = 0) sin errores",
+          "satisfaccion": "El conteo se muestra correctamente y se maneja n = 0"
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main(void) {\n    int n, venta, contador = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        /* HUECO 1: Comprueba si la venta es mayor que 100 */\n        /* HUECO 2: Actualiza el contador si es necesario */\n    }\n    printf(\"%d\\n\", contador);\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main(void) {\n    int n, venta, contador = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        if (venta > 100) {\n            contador++;\n        }\n    }\n    printf(\"%d\\n\", contador);\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "0",
+            "salida_esperada": "0",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n10\n20",
+            "salida_esperada": "0",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n101\n200\n300",
+            "salida_esperada": "3",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Desvanecimiento gradual de la guía: el ejemplo resuelto (t1) y el problema por completar (t2) se usan como base para resolver el problema convencional."
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 20,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que se prioriza la explicación detallada y el desvanecimiento gradual de la guía. Los elementos aislados y la autoexplicación fortalecen la comprensión.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg01-tc-s1",
+        "clase_uid": "reg01-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Cómo resolver problemas de recorrido en C",
+        "cuerpo_md": "## La idea clave\n\nPara resolver problemas que requieren recorrer una lista de datos en C, primero debes leer la cantidad de elementos a procesar y luego cada elemento individualmente. El acumulador (variable que suma) empieza en cero porque no hay elementos para sumar antes de leerlos.\n\n## Una analogía\n\nImagina que estás contando las manzanas en una caja: primero sabes cuántas cajas hay (n), y luego cuentas cada manzana en cada caja.\n\n## Cómo funciona\n\n```mermaid\nflowchart TD\n    A[\"n = cantidad de ventas\"] --> B{¿n > 0?}\n    B -- \"sí\" --> C[\"leer cada venta y sumarla\"] --> D[\"calcular promedio\"]\n    B -- \"no\" --> E[\"mostrar 0.00\"]\n```\n\n## Ejemplo paso a paso\n\n```traza\ntitulo: Promedio de ventas diarias\nlenguaje: c\nentrada: 0\n---\n#include <stdio.h>\n\nint main(void) {\n    int n, venta, suma = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        suma += venta;\n    }\n    if (n == 0) {\n        printf(\"0.00\\n\");\n    } else {\n        printf(\"%.2f\\n\", (float)suma / n);\n    }\n    return 0;\n}\n---\n{\"l\":4,\"f\":\"main\",\"v\":[],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140726620080420,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"venta\",\"d\":140726620080416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140726620080428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140726620080420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140726620080416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140726620080428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":10,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140726620080420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140726620080416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140726620080428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":11,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140726620080420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140726620080416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140726620080428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":15,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"0.00\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140726620080420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140726620080416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140726620080428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[[\"n\",\"0\"],[\"venta\",\"?\"],[\"suma\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140726620080420,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"venta\",\"d\":140726620080416,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"suma\",\"d\":140726620080428,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":16,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```\n\n## Errores comunes\n\n| Error | Cómo evitarlo |\n|-------|---------------|\n| Olvidar el caso n = 0 | Verificar si hay ventas antes de calcular el promedio |\n| Dividir por cero | Usar `n == 0` para evitar la división |\n| No usar `float` para el promedio | Convertir la suma a float antes de dividir |\n\n## En resumen\n\n- [ ] Leer `n` (cantidad de ventas)\n- [ ] Si `n` es 0, mostrar `0.00`\n- [ ] Si `n` > 0, sumar todas las ventas\n- [ ] Calcular el promedio y mostrar con dos decimales",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar los pasos de lectura y acumulación por separado para estudiantes con poco conocimiento previo"
+            },
+            {
+              "id": "auto_explicacion",
+              "como": "Incluir una explicación en el ejemplo paso a paso para que el estudiante se explique a sí mismo"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 12,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que se priorizan los elementos aislados y la autoexplicación para reducir la carga cognitiva. El ejemplo paso a paso ayuda a visualizar el flujo sin sobrecargar la memoria.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p1",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "ficha_sintaxis",
+        "titulo": "Sintaxis para recorrer listas en C",
+        "cuerpo_md": "### Ficha de sintaxis: Recorrer listas\n\n| Instrucción | Para qué sirve | Ejemplo |\n|-------------|----------------|---------|\n| `scanf(\"%d\", &x)` | Leer un entero de la entrada estándar | `scanf(\"%d\", &n);` |\n| `for (int i = 0; i < n; i++)` | Recorrer n veces | `for (int i = 0; i < n; i++) { ... }` |\n| `x += y` | Sumar dos valores | `suma += venta;` |\n| `if (condicion)` | Verificar una condición | `if (i == n) { ... }` |",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar los elementos de sintaxis separadamente para reducir la carga cognitiva en estudiantes con baja autoeficacia"
+            },
+            {
+              "id": "auto_explicacion",
+              "como": "Incluir preguntas que el estudiante pueda resolver por sí mismo para mejorar la comprensión"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El grupo tiene baja autoeficacia y alta ansiedad, por lo que se priorizan elementos aislados y autoexplicación para evitar sobrecarga. La ficha de sintaxis presenta cada instrucción de forma separada y con ejemplos simples, sin combinar estructuras complejas.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p2",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "ejemplo_isomorfico",
+        "titulo": "Ejemplo isomórfico: Venta más alta del día",
+        "cuerpo_md": "```mermaid\nflowchart TD\n    A[\"n = 0\"] --> B{\"¿n > 0?\"}\n    B -- \"sí\" --> C[\"max = venta; i = 1\"] --> D{\"¿i < n?\"}\n    D -- \"sí\" --> E[\"max = max > venta?\" -> max = venta] --> D\n    D -- \"no\" --> F[\"imprimir max\"]\n    B -- \"no\" --> F\n```\n\n### Trazas de ejecución\n\n**Entrada:** `3\n10\n20\n30`\n\n```traza\ntitulo: Venta más alta del día\nlenguaje: c\nentrada: 3 10 20 30\n---\n#include <stdio.h>\n\nint main(void) {\n    int n, venta, max = 0, i = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        if (venta > max) {\n            max = venta;\n        }\n    }\n    printf(\"%.1f\\n\", (float)max);\n    return 0;\n}\n---\n{\"l\":4,\"f\":\"main\",\"v\":[],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"venta\",\"?\"],[\"max\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"?\"],[\"max\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"?\"],[\"max\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"10\"],[\"max\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"10\"],[\"max\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"10\"],[\"max\",\"10\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"10\"],[\"max\",\"10\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"20\"],[\"max\",\"10\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"20\"],[\"max\",\"10\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"10\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"20\"],[\"max\",\"20\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"20\"],[\"max\",\"20\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"30\"],[\"max\",\"20\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"30\"],[\"max\",\"20\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"20\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"30\"],[\"max\",\"30\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106824,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":12,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"30\"],[\"max\",\"30\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":13,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"30\"],[\"max\",\"30\"],[\"i\",\"0\"]],\"s\":\"30.0\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":14,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"30\"],[\"max\",\"30\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140732047106816,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140732047106812,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"max\",\"d\":140732047106828,\"t\":\"valor\",\"x\":\"30\",\"tam\":4},{\"n\":\"i\",\"d\":140732047106820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":14,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```\n",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar la estructura de recorrido de listas sin combinar con condiciones complejas para evitar sobrecarga"
+            },
+            {
+              "id": "auto_explicacion",
+              "como": "Incluir preguntas que el estudiante pueda resolver por sí mismo para mejorar la comprensión"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El grupo tiene baja autoeficacia y alta ansiedad, por lo que se presenta un ejemplo isomórfico con estructura simple (sin condiciones complejas) para reducir la carga cognitiva. El flujo de ejecución se muestra paso a paso para ayudar a visualizar cómo se actualiza la variable `max`.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t2-p3",
+        "tarea_uid": "reg01-tc-t2",
+        "tipo": "guia_preguntas",
+        "titulo": "Guía de preguntas para el estudiante",
+        "cuerpo_md": "### Preguntas que te ayudarán a resolver el problema\n\n1. ¿Cómo inicializamos la variable `max` para que sea la primera venta?\n2. ¿Qué condición debe cumplir `venta` para que `max` se actualice?\n3. ¿Qué pasa si no hay ventas (n = 0)?\n4. ¿Cómo se actualiza `max` en cada iteración del ciclo?",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_explicacion",
+              "como": "Preguntas que el estudiante pueda resolver por sí mismo para mejorar la comprensión"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 2,
+          "justificacion": "El grupo tiene baja autoeficacia y alta ansiedad, por lo que se incluyen preguntas específicas y sencillas que el estudiante pueda resolver sin necesidad de ayuda adicional. Las preguntas están orientadas a los conceptos clave de inicialización y actualización de variables.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t3-p1",
+        "tarea_uid": "reg01-tc-t3",
+        "tipo": "ficha_sintaxis",
+        "titulo": "Sintaxis para comparar ventas",
+        "cuerpo_md": "### Sintaxis para comparar ventas\n\n| Instrucción | ¿Qué hace? | Ejemplo |\n|-------------|-------------|---------|\n| `if (condición)` | Evalúa una condición y ejecuta el bloque si es verdadera | `if (venta > 100) { contador++; }` |\n| `contador++` | Incrementa el contador en 1 | `int contador = 0; contador++;` |\n| `scanf` | Lee datos de la entrada estándar | `scanf(\"%d\", &venta);` |\n| `printf` | Muestra datos en la salida estándar | `printf(\"%d\\n\", contador);` |",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Presentar los elementos de sintaxis por separado para estudiantes con poco conocimiento previo"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que es necesario presentar los elementos de sintaxis de forma aislada para reducir la carga cognitiva",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t3-p2",
+        "tarea_uid": "reg01-tc-t3",
+        "tipo": "ejemplo_isomorfico",
+        "titulo": "Ejemplo isomórfico: Ventas mayores que 100",
+        "cuerpo_md": "```mermaid\nflowchart TD\n    A[\"contador = 0\"] --> B{\"¿n > 0?\"}\n    B -- \"sí\" --> C[\"leer venta\"] --> D{\"¿venta > 100?\"}\n    D -- \"sí\" --> E[\"contador++\"] --> B\n    D -- \"no\" --> F[\"leer siguiente venta\"] --> B\n    B -- \"no\" --> G[\"imprimir contador\"]\n```\n\n### Trazas de ejecución\n\n**Entrada**: `3\n150\n100\n50`\n\n```traza\ntitulo: Ventas mayores que 100\nlenguaje: c\nentrada: 3 150 100 50\n---\n#include <stdio.h>\n\nint main(void) {\n    int n, venta, contador = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &venta);\n        if (venta > 100) {\n            contador++;\n        }\n    }\n    printf(\"%d\\n\", contador);\n    return 0;\n}\n---\n{\"l\":4,\"f\":\"main\",\"v\":[],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[]}]}\n{\"l\":5,\"f\":\"main\",\"v\":[[\"n\",\"?\"],[\"venta\",\"?\"],[\"contador\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"?\"],[\"contador\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"?\"],[\"contador\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"?\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"150\"],[\"contador\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"150\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":9,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"150\"],[\"contador\",\"0\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"150\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"0\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"150\"],[\"contador\",\"1\"],[\"i\",\"0\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"150\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"0\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"150\"],[\"contador\",\"1\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"150\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"100\"],[\"contador\",\"1\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"100\"],[\"contador\",\"1\"],[\"i\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":7,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"100\"],[\"contador\",\"1\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"100\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":8,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"50\"],[\"contador\",\"1\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"50\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":6,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"50\"],[\"contador\",\"1\"],[\"i\",\"2\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"50\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4},{\"n\":\"i\",\"d\":140723649319816,\"t\":\"valor\",\"x\":\"2\",\"tam\":4}]}]}\n{\"l\":12,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"50\"],[\"contador\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"50\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":13,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"50\"],[\"contador\",\"1\"]],\"s\":\"1\\n\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"50\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":14,\"f\":\"main\",\"v\":[[\"n\",\"3\"],[\"venta\",\"50\"],[\"contador\",\"1\"]],\"s\":\"\",\"m\":[{\"f\":\"main\",\"v\":[{\"n\":\"n\",\"d\":140723649319812,\"t\":\"valor\",\"x\":\"3\",\"tam\":4},{\"n\":\"venta\",\"d\":140723649319808,\"t\":\"valor\",\"x\":\"50\",\"tam\":4},{\"n\":\"contador\",\"d\":140723649319820,\"t\":\"valor\",\"x\":\"1\",\"tam\":4}]}]}\n{\"l\":14,\"f\":\"main\",\"v\":[],\"s\":\"\",\"fin\":true}\n```\n",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "variabilidad",
+              "como": "Usar un contexto diferente (ventas) para mostrar la misma estructura de comparación"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que es necesario mostrar un ejemplo isomórfico con un contexto familiar (ventas) para reducir la carga cognitiva",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg01-tc-t3-p3",
+        "tarea_uid": "reg01-tc-t3",
+        "tipo": "guia_preguntas",
+        "titulo": "Guía de preguntas para resolver",
+        "cuerpo_md": "¿Qué pasaría si no inicializamos el contador?\n¿Cómo leería el programa la entrada si no usamos `scanf`?\n¿Por qué el bucle debe ejecutarse `n` veces?\n¿Qué ocurre si el número de ventas es cero?",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "auto_explicacion",
+              "como": "Preguntas que el estudiante puede responder para explicarse a sí mismo el proceso"
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "Los estudiantes tienen baja autoeficacia y alta ansiedad, por lo que es necesario dar preguntas que fomenten la autoexplicación sin dar soluciones",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "«Ventas por día»: se marcó como oculto el último caso de prueba (un problema sin apoyo necesita uno).",
+    "Soporte: El material actual no incluye la información de soporte para la clase 'reg01-tc' (ventas diarias).",
+    "Soporte: Quedaron 1 problemas sin resolver después de 3 intentos: revísalos antes de aceptar.",
+    "Ayuda de reg01-tc-t2: El grupo tiene baja autoeficacia y alta ansiedad, por lo que se debe evitar la carga cognitiva alta: no se incluye la estructura de un ciclo en el ejemplo isomórfico para no sobrecargar.",
+    "Ayuda de reg01-tc-t3: El material actual no incluye ejemplos isomórficos para el contexto de ventas, así que se creará uno nuevo"
+  ],
+  "validaciones": [
+    {
+      "nombre": "salidas_calculadas",
+      "ok": false,
+      "bloqueante": false,
+      "detalle": "Ventas por día: las salidas esperadas se calcularon ejecutando la solución (el modelo había escrito otras en 1 de 3 casos). Revisa que la solución haga lo que pide el enunciado.",
+      "elemento_uid": "reg01-tc-t3"
+    },
+    {
+      "nombre": "casos_variados",
+      "ok": false,
+      "bloqueante": false,
+      "detalle": "Esta tarea usa exactamente los mismos casos de prueba que otra: varía los datos entre tareas.",
+      "elemento_uid": "reg01-tc-t2"
+    },
+    {
+      "nombre": "diagrama_valido",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "Cómo resolver problemas de recorrido en C: un diagrama la etiqueta «B{¿n > 0?}» lleva símbolos: escríbela entre comillas, p. ej. A[\"…\"].",
+      "elemento_uid": "reg01-tc-s1"
+    }
+  ],
+  "intentos": 1,
+  "uso": {
+    "entrada": 42468,
+    "salida": 13384,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v8",
+  "duracion_ms": 270890
+}

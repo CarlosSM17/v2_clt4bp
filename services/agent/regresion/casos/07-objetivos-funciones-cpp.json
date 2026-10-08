@@ -1,0 +1,10 @@
+{
+  "descripcion": "Objetivos de desempeño sobre funciones y paso de parámetros en C++.",
+  "solicitud": {
+    "plantilla": "objetivos",
+    "curso": {"titulo": "Programación en C++", "lenguaje": "cpp", "nivel_educativo": "universidad"},
+    "diseno_desde": "packages/contracts/examples/diseno-curso/clase-recorridos.json",
+    "alcance": {"prefijo": "reg07", "tema": "Funciones con paso de parámetros por valor y por referencia."},
+    "indicaciones": ""
+  }
+}

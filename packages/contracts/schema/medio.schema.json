@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clt4bp.local/schema/medio.schema.json",
+  "title": "Medio",
+  "description": "Archivo multimedia del curso (imagen, audio, video o grabación de protocolo verbal). En Markdown se cita como media:<uid>.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uid", "tipo", "titulo", "duracion_s", "segmentos", "transcripcion"],
+  "properties": {
+    "uid": { "type": "string" },
+    "tipo": { "type": "string", "enum": ["imagen", "audio", "video", "protocolo_verbal"] },
+    "titulo": { "type": "string" },
+    "duracion_s": { "type": ["number", "null"], "minimum": 0 },
+    "segmentos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["inicio_s", "etiqueta"],
+        "properties": {
+          "inicio_s": { "type": "number", "minimum": 0 },
+          "etiqueta": { "type": "string" }
+        }
+      }
+    },
+    "transcripcion": { "type": ["string", "null"] }
+  }
+}

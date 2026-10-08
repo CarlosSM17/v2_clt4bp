@@ -1,0 +1,274 @@
+{
+  "plantilla": "clase_tareas",
+  "elementos": [
+    {
+      "tipo": "clase",
+      "contenido": {
+        "uid": "reg03-tc",
+        "titulo": "Procesamiento de calificaciones",
+        "descripcion_complejidad": "Procesamiento de calificaciones en C: acumulación, comparación y conteo en listas",
+        "orden": 2,
+        "objetivos": [
+          "OB-1"
+        ],
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se aplica en la secuencia de tareas: ejemplo resuelto (tc2-t1) → por completar (tc2-t2) → convencional (tc2-t3). Cada tarea reduce la guía gradualmente."
+            },
+            {
+              "id": "variabilidad",
+              "como": "Tareas con contextos y datos distintos: promedio, máxima y conteo de aprobaron, variando en el número de calificaciones y formatos de salida."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 45,
+          "justificacion": "Los grupos tienen nivel intermedio y necesitan variabilidad para consolidar los conceptos. La secuencia de desvanecimiento de guía ayuda a transitar de apoyo a autonomía.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg03-tc-t1",
+        "clase_uid": "reg03-tc",
+        "orden": 1,
+        "titulo": "Promedio con redondeo",
+        "nivel_apoyo": "ejemplo_resuelto",
+        "enunciado_md": "La coordinación académica necesita el promedio de un grupo con redondeo a dos decimales. El programa lee **n** y después **n** calificaciones, y muestra el promedio redondeado a dos decimales. Estudia la solución y explica por qué se usa `round` en lugar de `floor` para el promedio.",
+        "arcs": {
+          "atencion": "El contexto es relevante: promedio de calificaciones es un problema común en educación.",
+          "relevancia": "El promedio es clave para evaluar el desempeño del grupo en el curso.",
+          "confianza": "El uso de `round` es una técnica estándar para evitar errores de redondeo en flotantes.",
+          "satisfaccion": "El resultado es práctico: el promedio redondeado a dos decimales es fácil de interpretar."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int n;\n    double sum = 0.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        sum += calificacion;\n    }\n    double promedio = sum / n;\n    printf(\"%.2f\\n\", round(promedio));\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int n;\n    double sum = .0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        sum += calificacion;\n    }\n    double promedio = sum / n;\n    printf(\"%.2f\\n\", round(promedio));\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "3\n85.5\n90.2\n88.7",
+            "salida_esperada": "88.15",
+            "oculto": false
+          },
+          {
+            "entrada": "2\n75.0\n80.0",
+            "salida_esperada": "77.50",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n95.0",
+            "salida_esperada": "95.00",
+            "oculto": false
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "ejemplo_resuelto",
+              "como": "Se presenta el código completo con explicación comentada para estudiantes intermedios que necesitan entender la lógica de redondeo."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 15,
+          "justificacion": "Para estudiantes intermedios, el ejemplo resuelto ayuda a entender la lógica de redondeo sin sobrecargar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg03-tc-t2",
+        "clase_uid": "reg03-tc",
+        "orden": 2,
+        "titulo": "Calificación más alta con condición",
+        "nivel_apoyo": "por_completar",
+        "enunciado_md": "El jefe de grupo quiere saber cuál fue la calificación más alta del examen, pero solo si hay al menos dos calificaciones. Completa los huecos para que el programa lea **n** calificaciones y muestre la mayor con un decimal si hay al menos dos calificaciones, o un mensaje de error si no hay suficientes.",
+        "arcs": {
+          "atencion": "El contexto es relevante: el jefe de grupo necesita una calificación específica para evaluar el grupo.",
+          "relevancia": "La calificación más alta es clave para identificar el desempeño máximo del grupo.",
+          "confianza": "El uso de condición para validar el número de calificaciones es una técnica estándar en programación.",
+          "satisfaccion": "El resultado es práctico: el mensaje de error ayuda a evitar errores en el procesamiento."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max = -1.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        /* HUECO 1: Actualiza max si la calificacion es mayor que max */\n        /* HUECO 2: Si n < 2, muestra mensaje de error */\n    }\n    if (n >= 2) {\n        printf(\"%.1f\\n\", max);\n    } else {\n        printf(\"Error: Necesitas al menos dos calificaciones\\n\");\n    }\n    return 0;\n}",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    double max = -1.0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        if (calificacion > max) {\n            max = calificacion;\n        }\n    }\n    if (n >= 2) {\n        printf(\"%.1f\\n\", max);\n    } else {\n        printf(\"Error: Necesitas al menos dos calificaciones\\n\");\n    }\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n85.5\n90.2",
+            "salida_esperada": "90.2",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n85.5",
+            "salida_esperada": "Error: Necesitas al menos dos calificaciones",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n85.5\n90.2\n88.7",
+            "salida_esperada": "90.2",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se mantiene el apoyo de ejemplo resuelto para la tarea anterior y se introduce un hueco para completar la lógica de comparación."
+            },
+            {
+              "id": "variabilidad",
+              "como": "El contexto varía en el número de calificaciones y la validación de entrada, lo que ayuda a aplicar los conceptos en situaciones reales."
+            }
+          ],
+          "interactividad": "media",
+          "tiempo_estimado_min": 20,
+          "justificacion": "Los estudiantes intermedios necesitan ayuda para completar la lógica de comparación y validación de entrada, pero sin sobrecargar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "tarea",
+      "contenido": {
+        "uid": "reg03-tc-t3",
+        "clase_uid": "reg03-tc",
+        "orden": 3,
+        "titulo": "Aprobaciones con condición",
+        "nivel_apoyo": "convencional",
+        "enunciado_md": "La dirección necesita saber cuántos estudiantes aprobaron (calificación de 6 o más) en el grupo. Escribe un programa que lea **n** y después **n** calificaciones, y muestre cuántas son aprobatorias, pero solo si hay al menos dos calificaciones.",
+        "arcs": {
+          "atencion": "El contexto es relevante: la dirección necesita evaluar el desempeño del grupo en el curso.",
+          "relevancia": "El conteo de aprobaron es clave para tomar decisiones educativas.",
+          "confianza": "El uso de condición para validar el número de calificaciones es una técnica estándar en programación.",
+          "satisfaccion": "El resultado es práctico: el conteo de aprobaron ayuda a evaluar el desempeño del grupo."
+        },
+        "lenguaje": "c",
+        "codigo_inicial": "",
+        "solucion": "#include <stdio.h>\n\nint main() {\n    int n;\n    int aprobaron = 0;\n    scanf(\"%d\", &n);\n    for (int i = 0; i < n; i++) {\n        double calificacion;\n        scanf(\"%lf\", &calificacion);\n        if (calificacion >= 6.0) {\n            aprobaron++;\n        }\n    }\n    if (n >= 2) {\n        printf(\"%d\\n\", aprobaron);\n    } else {\n        printf(\"Error: Necesitas al menos dos calificaciones\\n\");\n    }\n    return 0;\n}",
+        "casos_prueba": [
+          {
+            "entrada": "2\n5.5\n6.0",
+            "salida_esperada": "1",
+            "oculto": false
+          },
+          {
+            "entrada": "1\n5.5",
+            "salida_esperada": "Error: Necesitas al menos dos calificaciones",
+            "oculto": false
+          },
+          {
+            "entrada": "3\n5.5\n6.0\n7.5",
+            "salida_esperada": "2",
+            "oculto": true
+          }
+        ],
+        "pide_autoexplicacion": false,
+        "colaborativa": false,
+        "diseno": {
+          "paso_clt4bp": 5,
+          "componente": "tarea",
+          "efectos": [
+            {
+              "id": "desvanecimiento_guia",
+              "como": "Se elimina el apoyo de la guía para que los estudiantes apliquen la lógica de conteo y validación de entrada sin ayuda."
+            },
+            {
+              "id": "variabilidad",
+              "como": "El contexto varía en el número de calificaciones y la validación de entrada, lo que ayuda a aplicar los conceptos en situaciones reales."
+            }
+          ],
+          "interactividad": "alta",
+          "tiempo_estimado_min": 25,
+          "justificacion": "Los estudiantes avanzados pueden aplicar la lógica de conteo y validación de entrada sin apoyo adicional, pero requieren un contexto real para el problema.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "soporte",
+      "contenido": {
+        "uid": "reg03-tc-s1",
+        "clase_uid": "reg03-tc",
+        "tipo": "modelo_mental",
+        "titulo": "Modelo mental: Procesamiento de calificaciones",
+        "cuerpo_md": "Para procesar calificaciones en C:\n1. Lee el número de calificaciones (n)\n2. Inicializa acumulador (sum) y máximo (max) a valores iniciales\n3. Recorre las calificaciones y actualiza los acumuladores\n4. Valida el número de calificaciones para evitar errores\n5. Muestra el resultado según las condiciones",
+        "diseno": {
+          "paso_clt4bp": 6,
+          "componente": "soporte",
+          "efectos": [
+            {
+              "id": "elementos_aislados",
+              "como": "Se aíslan los pasos de lectura, inicialización y actualización para evitar sobrecarga de la memoria de trabajo."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 5,
+          "justificacion": "El modelo mental ayuda a los estudiantes a estructurar el proceso de procesamiento de calificaciones sin sobrecargar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    },
+    {
+      "tipo": "procedimental",
+      "contenido": {
+        "uid": "reg03-tc-t2-p1",
+        "tarea_uid": "reg03-tc-t2",
+        "tipo": "protocolo_verbal",
+        "titulo": "Modelado experto: Cómo validar el número de calificaciones",
+        "cuerpo_md": "Para validar el número de calificaciones:\n- Si el número de calificaciones es menor que 2, muestra un mensaje de error\n- Sino, recorre las calificaciones y actualiza el máximo",
+        "diseno": {
+          "paso_clt4bp": 7,
+          "componente": "procedimental",
+          "efectos": [
+            {
+              "id": "movimiento_humano",
+              "como": "Se muestra el modelado experto para que los estudiantes vean cómo se ejecuta la validación en el código."
+            }
+          ],
+          "interactividad": "baja",
+          "tiempo_estimado_min": 3,
+          "justificacion": "El modelado experto ayuda a los estudiantes a entender la lógica de validación de entrada sin sobrecargar la memoria de trabajo.",
+          "advertencias": []
+        }
+      }
+    }
+  ],
+  "notas": {},
+  "advertencias": [
+    "Quedaron 1 problemas sin resolver después de 3 intentos: revísalos antes de aceptar."
+  ],
+  "validaciones": [
+    {
+      "nombre": "esquema",
+      "ok": false,
+      "bloqueante": true,
+      "detalle": "La respuesta se cortó por longitud: sé más breve o genera menos elementos.",
+      "elemento_uid": null
+    }
+  ],
+  "intentos": 3,
+  "uso": {
+    "entrada": 23757,
+    "salida": 9949,
+    "cache_escritura": 0,
+    "cache_lectura": 0,
+    "costo_usd": 0.0
+  },
+  "modelo": "ollama:qwen3:4b",
+  "version_prompt": "sistema-v3",
+  "duracion_ms": 208898
+}

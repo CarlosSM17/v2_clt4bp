@@ -1,0 +1,121 @@
+[
+  {
+    "id": "ejemplo_resuelto", "nombre": "Ejemplo resuelto", "grupo": "nuevos_conocimientos",
+    "definicion": "Estudiar la solución completa de un problema, paso a paso, produce más aprendizaje en novatos que resolver problemas equivalentes: libera la memoria de trabajo de la búsqueda de una solución.",
+    "materializacion": "Tarea con el código completo, los pasos comentados y el porqué de cada decisión.",
+    "cuando_usar": "Contenido nuevo y estudiantes con poco conocimiento previo; primera tarea de una clase.",
+    "cuando_no": "Estudiantes que ya dominan el tema: el ejemplo se vuelve redundante (reversión de la experiencia)."
+  },
+  {
+    "id": "problema_completar", "nombre": "Problema por completar", "grupo": "nuevos_conocimientos",
+    "definicion": "Una solución parcial que el estudiante termina. Mantiene los beneficios del ejemplo resuelto y obliga a procesarlo con atención; es el puente hacia el problema convencional.",
+    "materializacion": "Tarea con huecos marcados en el código (/* HUECO n: pista */); se evalúa el programa completo.",
+    "cuando_usar": "Después de uno o dos ejemplos resueltos del mismo tipo de problema.",
+    "cuando_no": "Cuando el estudiante ya resuelve problemas completos de ese tipo."
+  },
+  {
+    "id": "modalidad", "nombre": "Modalidad", "grupo": "nuevos_conocimientos",
+    "definicion": "Cuando un diagrama necesita explicación verbal, narrarla en audio en vez de escribirla en pantalla reparte la información entre el canal visual y el auditivo.",
+    "materializacion": "Diagramas o animaciones acompañados de narración en audio, no de texto en pantalla.",
+    "cuando_usar": "Diagramas de flujo, trazas de memoria o animaciones que requieren explicación.",
+    "cuando_no": "Explicaciones largas o técnicas que el estudiante necesita releer; información que debe quedar como referencia escrita."
+  },
+  {
+    "id": "variabilidad", "nombre": "Variabilidad", "grupo": "nuevos_conocimientos",
+    "definicion": "Variar contextos, datos y estructura de las tareas de una clase ayuda a construir esquemas que se transfieren a problemas nuevos, siempre que la carga intrínseca lo permita.",
+    "materializacion": "Tareas de una misma clase con escenarios y datos distintos; el verificador avisa si son demasiado parecidas.",
+    "cuando_usar": "Toda clase de tareas con más de una tarea, sobre todo cuando la interactividad es baja o media.",
+    "cuando_no": "Novatos ya saturados por una tarea de alta interactividad."
+  },
+  {
+    "id": "elementos_aislados", "nombre": "Elementos aislados", "grupo": "nuevos_conocimientos",
+    "definicion": "Si el material tiene tantos elementos interactivos que no cabe en la memoria de trabajo, conviene presentar primero los elementos por separado y después integrados.",
+    "materializacion": "Primero cada elemento por separado (p. ej. la sintaxis de un ciclo) y después la tarea integrada.",
+    "cuando_usar": "Grupos con poco conocimiento previo frente a temas de alta interactividad.",
+    "cuando_no": "Estudiantes avanzados, que sí pueden procesar la versión integrada."
+  },
+  {
+    "id": "redundancia", "nombre": "Redundancia", "grupo": "nuevos_conocimientos",
+    "definicion": "Presentar la misma información en dos formas (texto que repite el diagrama o la narración) consume recursos sin aportar nada; se debe eliminar lo que sobra.",
+    "materializacion": "El verificador avisa si un texto repite casi literalmente la narración o la transcripción de un video.",
+    "cuando_usar": "Siempre, al revisar material multimedia y explicaciones.",
+    "cuando_no": "No aplica: el efecto indica qué quitar."
+  },
+  {
+    "id": "atencion_dividida", "nombre": "Atención dividida", "grupo": "nuevos_conocimientos",
+    "definicion": "Cuando dos fuentes solo se entienden juntas (código y su explicación), separarlas obliga a integrarlas mentalmente; conviene integrarlas físicamente.",
+    "materializacion": "Explicación junto a la línea de código que explica, no en otra página o ventana.",
+    "cuando_usar": "Código comentado, diagramas con rótulos, fichas de sintaxis.",
+    "cuando_no": "Si una de las fuentes se entiende sola: integrarla la vuelve redundante."
+  },
+  {
+    "id": "informacion_transitoria", "nombre": "Información transitoria", "grupo": "nuevos_conocimientos",
+    "definicion": "Lo que desaparece (audio, video, animación) debe retenerse en la memoria de trabajo mientras llega lo siguiente; segmentar y dar control al estudiante reduce la carga.",
+    "materializacion": "Videos y audios en segmentos cortos, con pausa, marcadores y transcripción.",
+    "cuando_usar": "Videos de más de 5–6 minutos o explicaciones orales largas.",
+    "cuando_no": "Segmentos breves y autocontenidos."
+  },
+  {
+    "id": "interactividad_elementos", "nombre": "Interactividad de elementos", "grupo": "nuevos_conocimientos",
+    "definicion": "Los efectos de la TCC aparecen sobre todo con material de alta interactividad de elementos; por eso la secuencia debe ir de baja a alta interactividad.",
+    "materializacion": "Cada clase y tarea registra su interactividad estimada; el verificador revisa que la secuencia crezca.",
+    "cuando_usar": "Siempre, para ordenar clases y decidir cuánto apoyo dar.",
+    "cuando_no": "No aplica: es un criterio de secuenciación."
+  },
+  {
+    "id": "movimiento_humano", "nombre": "Movimiento humano", "grupo": "ambos",
+    "definicion": "Las habilidades que implican acciones observables se aprenden bien viendo a un experto ejecutarlas; la imitación es un mecanismo natural de adquisición.",
+    "materializacion": "Videos de modelado donde se ve al experto escribir, ejecutar y depurar código.",
+    "cuando_usar": "Procedimientos (usar el entorno, depurar, probar) y protocolos verbales.",
+    "cuando_no": "Conceptos abstractos sin acción observable."
+  },
+  {
+    "id": "auto_gestion", "nombre": "Auto-gestión", "grupo": "ambos",
+    "definicion": "Enseñar a los estudiantes a aplicar por sí mismos los principios de la TCC (por ejemplo, integrar fuentes separadas) cuando el material no se puede rediseñar.",
+    "materializacion": "Indicaciones para que el estudiante integre fuentes separadas o se organice el material.",
+    "cuando_usar": "Material externo (documentación, libros) y grupos con baja autorregulación.",
+    "cuando_no": "Novatos sin una explicación previa de cómo hacerlo."
+  },
+  {
+    "id": "auto_explicacion", "nombre": "Auto-explicación", "grupo": "reforzamiento",
+    "definicion": "Explicarse a uno mismo el porqué de cada paso de un ejemplo mejora la comprensión y la transferencia.",
+    "materializacion": "Campo «Explica tu razonamiento» en ejemplos resueltos y tareas.",
+    "cuando_usar": "Con ejemplos resueltos y problemas por completar; grupos con baja autorregulación.",
+    "cuando_no": "Tareas que ya imponen una carga muy alta."
+  },
+  {
+    "id": "imaginacion", "nombre": "Imaginación", "grupo": "reforzamiento",
+    "definicion": "Imaginar mentalmente un procedimiento sin mirarlo fortalece esquemas ya adquiridos; con novatos es contraproducente.",
+    "materializacion": "Actividad «imagina la ejecución»: predecir la salida o el estado de las variables sin ejecutar.",
+    "cuando_usar": "Estudiantes que ya estudiaron el procedimiento.",
+    "cuando_no": "Novatos: todavía no tienen el esquema que imaginar."
+  },
+  {
+    "id": "solucion_libre", "nombre": "Solución libre (meta libre)", "grupo": "reforzamiento",
+    "definicion": "Los problemas sin meta específica evitan la búsqueda medios-fines y favorecen explorar las relaciones del problema.",
+    "materializacion": "Tareas abiertas («¿qué puedes averiguar de este programa?») para grupos avanzados.",
+    "cuando_usar": "Grupos avanzados y exploración de un programa dado.",
+    "cuando_no": "Cuando se necesita una respuesta específica o el grupo es novato."
+  },
+  {
+    "id": "memoria_colectiva", "nombre": "Memoria colectiva", "grupo": "reforzamiento",
+    "definicion": "Varias memorias de trabajo reparten la carga de una tarea compleja; el beneficio aparece cuando la tarea es suficientemente compleja para compensar la coordinación.",
+    "materializacion": "Tareas en pareja o equipo con espacio de discusión por tarea.",
+    "cuando_usar": "Tareas complejas y grupos con disposición al aprendizaje entre pares.",
+    "cuando_no": "Tareas simples: la coordinación cuesta más de lo que aporta."
+  },
+  {
+    "id": "desvanecimiento_guia", "nombre": "Desvanecimiento de la guía", "grupo": "reforzamiento",
+    "definicion": "Conforme crece la experiencia, el apoyo debe retirarse de forma gradual: ejemplo resuelto → problema por completar → problema convencional.",
+    "materializacion": "Dentro de cada clase, el nivel de apoyo de las tareas disminuye.",
+    "cuando_usar": "Toda clase de tareas.",
+    "cuando_no": "No aplica: el apoyo siempre debe ajustarse a la experiencia."
+  },
+  {
+    "id": "reversion_experiencia", "nombre": "Reversión de la experiencia", "grupo": "reforzamiento",
+    "definicion": "Las técnicas que ayudan a los novatos pueden perjudicar a quienes ya saben, porque procesan información redundante.",
+    "materializacion": "Los grupos con más conocimiento previo reciben menos ejemplos resueltos y empiezan con menos apoyo.",
+    "cuando_usar": "Grupos avanzados o heterogéneos (variantes por grupo).",
+    "cuando_no": "Grupos novatos."
+  }
+]
