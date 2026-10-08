@@ -68,7 +68,9 @@ Piston necesita un contenedor privilegiado y Railway no los permite; este servic
      solo el plan Pro lo permite. Por eso la plantilla usa `MAIL_MAILER=failover` con `MAIL_TIMEOUT=5`: si el SMTP
      está bloqueado, el correo queda en el registro del servicio a los 5 s (con sus enlaces) en lugar de fallar o de
      tardar un minuto; al pasar a Pro empieza a salir sin cambiar nada. En Hobby, la alternativa es un proveedor con
-     API por HTTPS (Resend, Postmark, Mailgun), que requiere instalar su paquete de Laravel.
+     API por HTTPS (Resend, Postmark, Mailgun), que requiere instalar su paquete de Laravel. Mientras el correo no
+     salga, `CLT4BP_VERIFICAR_CORREO=false` deja entrar a las cuentas sin verificar su correo, y las invitaciones de
+     instructores se toman del registro del servicio (busca `invitacion/`).
 5. *Networking → Generate Domain* (o tu dominio propio con su registro CNAME). Ese dominio es la dirección de la
    plataforma para estudiantes, consola y agentes.
 6. Deja **apagado** el modo que duerme servicios sin tráfico (*Serverless*): las colas y el programador deben seguir

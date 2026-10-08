@@ -7,6 +7,10 @@ return [
         'investigacion' => env('CLT4BP_VERSION_INVESTIGACION', '2026-09'),
     ],
 
+    // Pedir que cada cuenta verifique su correo antes de entrar. En false (CLT4BP_VERIFICAR_CORREO=false) toda cuenta
+    // cuenta como verificada: para donde el correo no puede salir (Railway bloquea el SMTP en el plan Hobby)
+    'verificar_correo' => (bool) env('CLT4BP_VERIFICAR_CORREO', true),
+
     // Horas de vigencia del enlace de invitación a instructores.
     'invitacion_horas' => 72,
 

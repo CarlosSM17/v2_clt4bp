@@ -47,6 +47,38 @@ class InvitacionesAccesoTest extends TestCase
         $this->assertDatabaseHas('audit_logs', ['accion' => 'instructor.invitado', 'entidad_id' => $id]);
     }
 
+    public function test_el_administrador_copia_un_enlace_de_invitacion_que_funciona_sin_correo(): void
+    {
+        // Donde el correo no sale (Railway, plan Hobby), el administrador entrega el enlace por otro medio
+        Notification::fake();
+        $invitado = $this->invitado();
+        Sanctum::actingAs($this->admin(), ['consola']);
+
+        $r = $this->postJson("/api/v1/admin/instructors/{$invitado->id}/enlace-invitacion")->assertOk();
+        $this->assertNotNull($r->json('data.vence_at'));
+        Notification::assertNothingSent();
+        $this->assertDatabaseHas('audit_logs', ['accion' => 'instructor.enlace_invitacion', 'entidad_id' => $invitado->id]);
+
+        // El enlace copiado abre la página para definir la contraseña, como el del correo
+        auth()->forgetGuards();
+        $this->get($r->json('data.enlace'))->assertOk();
+    }
+
+    public function test_solo_el_administrador_obtiene_enlaces_de_invitacion(): void
+    {
+        $invitado = $this->invitado();
+        foreach ([$this->instructor(), $this->estudiante()] as $ajeno) {
+            Sanctum::actingAs($ajeno, ['consola']);
+            $this->postJson("/api/v1/admin/instructors/{$invitado->id}/enlace-invitacion")->assertForbidden();
+        }
+
+        // Una invitación ya aceptada no da enlace; quien no es instructor, tampoco
+        Sanctum::actingAs($this->admin(), ['consola']);
+        $invitado->forceFill(['invitacion_aceptada_at' => now()])->save();
+        $this->postJson("/api/v1/admin/instructors/{$invitado->id}/enlace-invitacion")->assertStatus(422);
+        $this->postJson("/api/v1/admin/instructors/{$this->estudiante()->id}/enlace-invitacion")->assertNotFound();
+    }
+
     public function test_la_invitacion_sin_firma_o_caducada_es_rechazada(): void
     {
         $user = $this->invitado();

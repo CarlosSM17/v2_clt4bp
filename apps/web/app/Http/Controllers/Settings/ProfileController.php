@@ -20,7 +20,8 @@ class ProfileController extends Controller
     public function edit(Request $request): Response
     {
         return Inertia::render('settings/Profile', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+            // Sin verificación de correo, el perfil no ofrece reenviar un enlace que nadie pide
+            'mustVerifyEmail' => config('clt4bp.verificar_correo') && $request->user() instanceof MustVerifyEmail,
             'status' => $request->session()->get('status'),
         ]);
     }

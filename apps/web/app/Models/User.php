@@ -58,6 +58,15 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /** Administradores e instructores: el “personal” que usa la consola. */
+    /**
+     * Con la verificación apagada (clt4bp.verificar_correo), toda cuenta cuenta como verificada: el middleware
+     * «verified» la deja pasar y el registro no envía el enlace (Laravel solo lo envía a quien no está verificado).
+     */
+    public function hasVerifiedEmail(): bool
+    {
+        return ! config('clt4bp.verificar_correo') || $this->email_verified_at !== null;
+    }
+
     public function esPersonal(): bool
     {
         return $this->hasAnyRole([Rol::Admin->value, Rol::Instructor->value]);

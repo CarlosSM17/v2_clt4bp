@@ -16,7 +16,7 @@ async function invitar(): Promise<void> {
   error.value = ''
   try {
     await api('POST', '/admin/instructors', nuevo)
-    aviso.value = `Invitación enviada a ${nuevo.email}.`
+    aviso.value = `Invitación enviada a ${nuevo.email}. Si el correo no le llega, usa «Copiar enlace de invitación».`
     Object.assign(nuevo, { name: '', email: '', institucion: '' })
     await cargar()
   } catch (e) {
@@ -32,6 +32,35 @@ async function accion(
   try {
     await api('PATCH', `/admin/instructors/${u.id}`, { accion })
     await cargar()
+  } catch (e) {
+    error.value = (e as Error).message
+  }
+}
+
+// El enlace para definir la contraseña, para entregarlo por otro medio cuando el correo no sale (plataforma en
+// Railway, plan Hobby). Da acceso a esa cuenta: se envía solo al instructor
+const enlaceVisible = ref('')
+
+async function copiarEnlace(u: Usuario): Promise<void> {
+  error.value = ''
+  aviso.value = ''
+  enlaceVisible.value = ''
+  try {
+    const r = await api<{ enlace: string; vence_at: string }>(
+      'POST',
+      `/admin/instructors/${u.id}/enlace-invitacion`
+    )
+    const vence = new Date(r.vence_at).toLocaleString('es-MX', {
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    })
+    try {
+      await navigator.clipboard.writeText(r.enlace)
+      aviso.value = `Enlace de ${u.name} copiado; vence el ${vence}. Envíaselo solo a esa persona.`
+    } catch {
+      enlaceVisible.value = r.enlace // sin portapapeles: se muestra para copiarlo a mano
+      aviso.value = `Enlace de ${u.name} (vence el ${vence}). Cópialo y envíaselo solo a esa persona:`
+    }
   } catch (e) {
     error.value = (e as Error).message
   }
@@ -62,6 +91,13 @@ onMounted(cargar)
     </div>
   </form>
   <p v-if="error" class="mb-4 text-sm text-red-600">{{ error }}</p>
+  <input
+    v-if="enlaceVisible"
+    :value="enlaceVisible"
+    class="campo mb-4 w-full font-mono text-xs"
+    readonly
+    @focus="($event.target as HTMLInputElement).select()"
+  />
 
   <table class="tarjeta w-full text-sm">
     <thead class="text-left text-slate-500">
@@ -85,6 +121,9 @@ onMounted(cargar)
           <span v-else class="text-green-700">Activo</span>
         </td>
         <td class="space-x-3 text-right">
+          <button v-if="!u.invitacion_aceptada" class="underline" @click="copiarEnlace(u)">
+            Copiar enlace de invitación
+          </button>
           <button
             v-if="!u.invitacion_aceptada"
             class="underline"

@@ -18,10 +18,19 @@ class InvitacionInstructor extends Notification implements ShouldQueue
         return ['mail'];
     }
 
+    /**
+     * El enlace firmado para definir la contraseña. Lo lleva el correo y también lo copia el administrador desde la
+     * consola, para entregarlo por otro medio cuando el correo no puede salir.
+     */
+    public static function enlace(User $instructor): string
+    {
+        return URL::temporarySignedRoute('invitacion.show', now()->addHours(config('clt4bp.invitacion_horas')), ['user' => $instructor->id]);
+    }
+
     public function toMail(User $notifiable): MailMessage
     {
         $horas = config('clt4bp.invitacion_horas');
-        $url = URL::temporarySignedRoute('invitacion.show', now()->addHours($horas), ['user' => $notifiable->id]);
+        $url = self::enlace($notifiable);
 
         return (new MailMessage)
             ->subject('Invitación como instructor en '.config('app.name'))

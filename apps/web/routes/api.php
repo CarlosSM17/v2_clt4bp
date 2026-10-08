@@ -113,6 +113,7 @@ Route::prefix('v1')->group(function () {
             Route::get('instructors', [InstructorController::class, 'index']);
             Route::post('instructors', [InstructorController::class, 'store']);
             Route::patch('instructors/{user}', [InstructorController::class, 'update']);
+            Route::post('instructors/{user}/enlace-invitacion', [InstructorController::class, 'enlace']);
             Route::get('effect-rules', [EfectoController::class, 'reglas']);
             Route::put('effect-rules/{regla}', [EfectoController::class, 'actualizarRegla']);
             Route::put('agent-quotas/{user}', [AgenteController::class, 'actualizarCuota']);

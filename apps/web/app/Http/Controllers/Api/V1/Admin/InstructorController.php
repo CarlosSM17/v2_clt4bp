@@ -8,6 +8,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Notifications\InvitacionInstructor;
 use App\Support\Auditoria;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\DB;
@@ -44,6 +45,22 @@ class InstructorController extends Controller
         Auditoria::registrar('instructor.invitado', $instructor);
 
         return new UserResource($instructor);
+    }
+
+    /**
+     * Un enlace de invitación vigente para entregarlo a mano (sin correo: Railway bloquea el SMTP en el plan Hobby).
+     * Da acceso a definir la contraseña de esa cuenta: solo para el administrador y queda en la bitácora.
+     */
+    public function enlace(User $user): JsonResponse
+    {
+        abort_unless($user->hasRole(Rol::Instructor->value), 404);
+        abort_if($user->invitacion_aceptada_at !== null, 422, 'El instructor ya aceptó su invitación.');
+        Auditoria::registrar('instructor.enlace_invitacion', $user);
+
+        return response()->json(['data' => [
+            'enlace' => InvitacionInstructor::enlace($user),
+            'vence_at' => now()->addHours(config('clt4bp.invitacion_horas'))->toIso8601String(),
+        ]]);
     }
 
     /** Suspender, reactivar o reenviar la invitación. */
